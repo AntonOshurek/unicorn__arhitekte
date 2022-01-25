@@ -1,40 +1,30 @@
 .sliderfull{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- // background-color: @background-two;
+  background-color: @standart-white;
 
   position: relative;
-}
-
-.sliderfull__wrap {
-  position: relative;
-
-  padding: 20px 20px;
-  display: grid;
-  grid-gap: 10px;
-  justify-items: center;
-  align-content: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content;
-
-  @media (max-width: 600px) {
-    padding: 20px 0;
-  }
 }
 
 //controls total value
 .slederfull-controls {
-height: min-content;
-position: relative;
-width: min-content;
-display: grid;
-grid-template-columns: repeat(2, min-content);
-align-items: center;
-grid-column-gap: 20px;
+  height: min-content;
+  position: absolute;
+  z-index: 1;
+
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min-content;
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  align-items: center;
+  grid-column-gap: 20px;
 
   &::before {
     content: '';
@@ -44,13 +34,14 @@ grid-column-gap: 20px;
     right: 50%;
     transform: translateX(100%) rotate(15deg);
     top: 0;
-    // background-color: @decor-lines;
+    background-color: @standart-white;
   }
 }
 
 .slederfull-controls__total {
   font-weight: bold;
   font-family: 'Lato', sans-serif;
+  color: @standart-white;
 
   &--current {
     font-size: 23px;
@@ -127,13 +118,8 @@ grid-column-gap: 20px;
   transition: 0.4s ease;
   cursor: pointer;
 
-  @media (max-width: 600px) {
-    width: 30px;
-    height: 10px;
-  }
-
   &--active {
-    background-color: tomato;
+    background-color: rgba(0, 0, 0, 0.3);
     opacity: 1;
   }
 
@@ -150,16 +136,16 @@ grid-column-gap: 20px;
 
 //slides img
 .sliderfull-items {
-  width: 500px;
+  width: 100%;
+  height: 100%;
+
   overflow: hidden;
   position: relative;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 }
 
 .sliderfull-items__inner {
+  width: 100%;
+  height: 100%;
   display: flex;
   transition: 0.6s all;
 }
@@ -169,11 +155,7 @@ grid-column-gap: 20px;
 }
 
 .sliderfull-items__img {
-  width: 500px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 }
