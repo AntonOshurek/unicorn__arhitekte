@@ -1,7 +1,5 @@
 const mainSlider = () => {
-  console.log('page');
-
-  //btn
+  //btns
   const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
   const sliderBtnNext = document.querySelector('.sliderfull-items__button--next');
   //slides counter
@@ -25,9 +23,9 @@ const mainSlider = () => {
 
   function getZero (num) {
     if (num >= 0 && num < 10) {
-        return `0${num}`;
+      return `0${num}`;
     } else {
-        return num;
+      return num;
     }
   };
 
@@ -38,7 +36,7 @@ const mainSlider = () => {
     for(let i = 0; i < slides.length; i++) {
       element += `
         <li class="sliderfull-indicators__item">
-          <button class="sliderfull-indicators__button" data-slide-index = "${i + 1}"></button>
+          <button class="sliderfull-indicators__button" aria-label = "slide number ${i+1}" data-slide-index = "${i + 1}"></button>
         </li>
       `;
 
@@ -97,8 +95,6 @@ const mainSlider = () => {
     slidesField.style.transform = `translate(-${offset}px)`;
     showCurrentNumber();
   });
-
-
 
 }
 
