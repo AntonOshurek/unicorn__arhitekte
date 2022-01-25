@@ -13,7 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "mainSlider": function() { return /* binding */ mainSlider; }
 /* harmony export */ });
 const mainSlider = () => {
-  //btns
+  const sliderBlok = document.querySelector('.sliderfull'); //btns
+
   const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
   const sliderBtnNext = document.querySelector('.sliderfull-items__button--next'); //slides counter
 
@@ -106,7 +107,100 @@ const mainSlider = () => {
     slideIndex--;
     slidesField.style.transform = `translate(-${offset}px)`;
     showCurrentNumber();
+  }); //swips
+
+  let touchStart = null; //Точка начала касания
+
+  let touchPosition = null; //Текущая позиция
+  //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
+
+  const sensitivity = 20;
+  sliderBlok.addEventListener("touchstart", function (e) {
+    TouchStart(e);
+  }); //Начало касания
+
+  sliderBlok.addEventListener("touchmove", function (e) {
+    TouchMove(e);
+  }); //Движение пальцем по экрану
+  //Пользователь отпустил экран
+
+  sliderBlok.addEventListener("touchend", function (e) {
+    TouchEnd(e, "green");
+  }); //Отмена касания
+
+  sliderBlok.addEventListener("touchcancel", function (e) {
+    TouchEnd(e, "red");
   });
+
+  function TouchStart(e) {
+    //Получаем текущую позицию касания
+    touchStart = {
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY
+    };
+    touchPosition = {
+      x: touchStart.x,
+      y: touchStart.y
+    };
+  }
+
+  function TouchMove(e) {
+    //Получаем новую позицию
+    touchPosition = {
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY
+    };
+  }
+
+  function TouchEnd(e, color) {
+    CheckAction(); //Определяем, какой жест совершил пользователь
+    //Очищаем позиции
+
+    touchStart = null;
+    touchPosition = null;
+  }
+
+  function CheckAction() {
+    let d = //Получаем расстояния от начальной до конечной точек по обеим осям
+    {
+      x: touchStart.x - touchPosition.x,
+      y: touchStart.y - touchPosition.y
+    };
+
+    if (Math.abs(d.x) > Math.abs(d.y)) {
+      //Проверяем, движение по какой оси было длиннее
+      if (Math.abs(d.x) > sensitivity) {
+        //Проверяем, было ли движение достаточно длинным
+        if (d.x > 0) {
+          //Если значение больше нуля, значит пользователь двигал пальцем справа налево
+          console.log("Swipe Left");
+
+          if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+            offset = 0;
+          } else {
+            offset += +width.slice(0, width.length - 2);
+          }
+
+          slideIndex++;
+          slidesField.style.transform = `translate(-${offset}px)`;
+          showCurrentNumber();
+        } else {
+          //Иначе он двигал им слева направо
+          console.log("Swipe Right");
+
+          if (offset == 0) {
+            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+          } else {
+            offset -= +width.slice(0, width.length - 2);
+          }
+
+          slideIndex--;
+          slidesField.style.transform = `translate(-${offset}px)`;
+          showCurrentNumber();
+        }
+      }
+    }
+  }
 };
 
 
