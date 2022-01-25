@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,40 @@
   "bugs": {
     "url": "https://github.com/AntonOshurek/unicorn__arhitekte/issues"
   },
-  "homepage": "https://github.com/AntonOshurek/unicorn__arhitekte#readme"
+  "homepage": "https://github.com/AntonOshurek/unicorn__arhitekte#readme",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "engines": {
+    "node": "^12 || ^14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "autoprefixer": "10.2.5",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "2.26.14",
+    "core-js": "^2.6.12",
+    "del": "^6.0.0",
+    "gulp": "4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-less": "4.0.1",
+    "gulp-libsquoosh": "^1.0.9",
+    "gulp-plumber": "1.2.1",
+    "gulp-postcss": "9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "3.0.0",
+    "gulp-webp": "^4.0.1",
+    "postcss": "8.2.8",
+    "postcss-csso": "^5.0.1",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
 }
