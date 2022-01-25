@@ -1,6 +1,6 @@
-import { page } from './page';
+import { mainSlider } from './main-slider';
 
 window.addEventListener('DOMContentLoaded', () => {
-  page();
+  mainSlider();
 });
 

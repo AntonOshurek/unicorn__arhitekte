@@ -8,7 +8,97 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body class="body">
-    <h1>uniorn arhitekte</h1>
+    <header class="header">
+      <div class="header__wrap container">
+        <h1 class="header__title">uniorn arhitekte</h1>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#">nav link</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">nav link</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">nav link</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">nav link</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+
+      <div class="main__wrap">
+
+        <section class="sliderfull" id="sliderfull">
+          <h2 class="visually-hidden">zdjęcia naszych projektów</h2>
+
+            <div class="slederfull-controls">
+              <span class="slederfull-controls__total slederfull-controls__total--current" aria-label="current element">01</span>
+              <span class="slederfull-controls__total slederfull-controls__total--total" aria-label="total elements">04</span>
+            </div>
+            <ul class="sliderfull-indicators">
+              <!--elements added dynamically from javascript-->
+            </ul>
+            <div class="sliderfull-items">
+              <button class="sliderfull-items__button sliderfull-items__button--next" type="button"><span class="visually-hidden">slide to right</span>
+                <svg class="sliderfull-items__button-img" aria-hidden="true" focusable="false" width="22" height="40" viewBox="0 0 22 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.07568 39.0585L0.0775051 37.0107L17.0931 19.5639L0.0220261 2.06243L2.02116 0.0146294L21.0894 19.5639L2.07568 39.0585Z" fill="white"/>
+                </svg>
+              </button>
+              <button class="sliderfull-items__button sliderfull-items__button--prev" type="button"><span class="visually-hidden">left</span>
+                <svg class="sliderfull-items__button-img" aria-hidden="true" focusable="false" width="22" height="40" viewBox="0 0 22 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.9244 0.941467L21.9225 2.98927L4.90696 20.4361L21.978 37.9376L19.9789 39.9854L0.910614 20.4361L19.9244 0.941467Z" fill="white"/>
+                </svg>
+              </button>
+              <div class="sliderfull-items__inner">
+                <div class="sliderfull-items__item">
+                  <picture>
+                    <source srcset="img/main-slider/slider__1.webp"
+                            type="image/webp">
+                    <img class="sliderfull-items__img" width="500px" height="300px"
+                      src="img/main-slider/slider__1.jpg"
+                      alt="slide 1">
+                  </picture>
+                </div>
+                <div class="sliderfull-items__item">
+                  <picture>
+                    <source srcset="img/main-slider/slider__2.webp"
+                            type="image/webp">
+                    <img class="sliderfull-items__img" width="500px" height="300px"
+                      src="img/main-slider/slider__2.jpg"
+                      alt="slide 1">
+                  </picture>
+                </div>
+                <div class="sliderfull-items__item">
+                  <picture>
+                    <source srcset="img/main-slider/slider__3.webp"
+                            type="image/webp">
+                    <img class="sliderfull-items__img" width="500px" height="300px"
+                      src="img/main-slider/slider__3.jpg"
+                      alt="slide 1">
+                  </picture>
+                </div>
+                <div class="sliderfull-items__item">
+                  <picture>
+                    <source srcset="img/main-slider/slider__4.webp"
+                            type="image/webp">
+                    <img class="sliderfull-items__img" width="500px" height="300px"
+                      src="img/main-slider/slider__4.jpg"
+                      alt="slide 1">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+        </section>
+
+      </div>
+
+    </main>
 
 
     <script src="js/bundle.js"></script>
