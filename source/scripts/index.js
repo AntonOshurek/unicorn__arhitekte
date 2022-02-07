@@ -8,8 +8,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   if(document.location.pathname === '/projects.html') {
-    mobileMenu();
+
   }
+
+  mobileMenu();
 
 });
 

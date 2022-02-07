@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 
   &--invert {
     background-color: @standart-white;
@@ -84,6 +84,18 @@
     pointer-events: all;
     opacity: 1;
     transition: all 0.5s ease;
+  }
+
+  &--open .nav__link {
+    color: @nav-link-invert;
+    font-weight: normal ;
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: @nav-link-invert;
+      }
+    }
   }
 }
 
