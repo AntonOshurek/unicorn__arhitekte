@@ -18,7 +18,7 @@ const mobileMenu = () => {
 
   function openMobileMenu() {
     navigation.classList.add('nav--open');
-    body.classList.add('body--scrolloff');
+    body.classList.add('body--menu-open');
     mobileBtnIcon.classList.add('active');
     menuStatus = true;
 
@@ -27,7 +27,7 @@ const mobileMenu = () => {
 
   function closeMobileMenu() {
     navigation.classList.remove('nav--open');
-    body.classList.remove('body--scrolloff');
+    body.classList.remove('body--menu-open');
     mobileBtnIcon.classList.remove('active');
     body.removeEventListener('click', onBackgroundClick)
     menuStatus = false;

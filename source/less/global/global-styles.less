@@ -41,7 +41,7 @@
   background-color: @standart-white;
   position: relative;
 
-  &--scrolloff {
+  &--menu-open {
     overflow: hidden;
 
     &::before {
@@ -52,7 +52,24 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(255, 255, 255, .5);
+      background-color: rgba(255, 255, 255, .6);
+      cursor: pointer;
+    }
+  }
+
+  &--modal-open {
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      z-index: 3;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, .6);
+      cursor: pointer;
     }
   }
 }
