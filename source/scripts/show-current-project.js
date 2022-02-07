@@ -5,11 +5,11 @@ import { getAllProjects } from './api';
 const projectGallery = document.querySelector('.project__gallery');
 const pitureTemplate = document.querySelector('#project__image');
 
-const infoText =  document.querySelector('.project__info-text');
-const projetName = document.querySelector('.project__name');
-
 const dataList = document.querySelector('.data-list');
 const dataListItemTemplate = document.querySelector('#data-list__item');
+
+const infoText =  document.querySelector('.project__info-text');
+const projetName = document.querySelector('.project__name');
 
 const showCurrentProjects = () => {
   let projectData;
@@ -20,10 +20,10 @@ const showCurrentProjects = () => {
 
     showImages(projectData);
     showInfo(projectData);
+    setLocation(projectData);
   })
 
   function showImages(projectData) {
-
     const fragment = new DocumentFragment();
 
     projectData.images.forEach((image) => {
@@ -40,6 +40,7 @@ const showCurrentProjects = () => {
   function showInfo(data) {
     infoText.textContent = data.description;
     projetName.textContent = data.name;
+    document.title = `Projekt ${data.name}`;
 
     const fragment = new DocumentFragment();
 
@@ -52,6 +53,17 @@ const showCurrentProjects = () => {
     })
 
     dataList.append(fragment)
+  }
+
+
+  function setLocation(curLoc){
+    let newURL = `${document.location.href}%project-id-${curLoc.id}`;
+
+    try {
+      history.pushState(null, null, newURL);
+      return;
+    } catch(e) {}
+    location.hash = '#' + newURL;
   }
 
 }
