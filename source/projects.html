@@ -13,6 +13,19 @@
   <header class="header header--invert">
     <div class="header__wrap container">
       <h1 class="header__title header__title--invert">uniorn arhitekte - projects</h1>
+      <button class="header__menu-button" type="button">
+        <svg class="ham hamRotate ham7" viewBox="0 0 100 100" width="80">
+          <path
+                class="line top"
+                d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
+          <path
+                class="line middle"
+                d="m 70,50 h -40" />
+          <path
+                class="line bottom"
+                d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
+        </svg>
+      </button>
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__item">
@@ -36,7 +49,7 @@
 
     <ul class="projects container">
 
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='1'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 1</h3>
@@ -45,7 +58,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__1.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='2'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 2</h3>
@@ -54,7 +67,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__2.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='3'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 3</h3>
@@ -63,7 +76,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__3.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='4'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 4</h3>
@@ -73,7 +86,7 @@
         </a>
       </li>
 
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='5'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 5</h3>
@@ -82,7 +95,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__1.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='6'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 6</h3>
@@ -91,7 +104,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__2.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='7'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 7</h3>
@@ -100,7 +113,7 @@
           <img class="projects__image" width="400" height="400" src="./img/main-slider/slider__3.jpg" alt="">
         </a>
       </li>
-      <li class="projects__card">
+      <li class="projects__card" data-item-id='8'>
         <a href="#" class="projects__link">
           <div class="projects__info">
             <h3 class="projects__title">progect card 8</h3>
@@ -114,5 +127,7 @@
     </ul>
 
   </main>
+
+  <script src="js/bundle.js"></script>
 </body>
 </html>
