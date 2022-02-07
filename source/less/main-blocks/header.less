@@ -2,11 +2,17 @@
   width: 100%;
   position: fixed;
   z-index: 1;
+
+  &--invert {
+    background-color: @standart-white;
+    position: sticky;
+    top: 0;
+  }
 }
 
 .header__wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: min-content 1fr;
 
   padding: @basic-side-padding;
 }
@@ -16,6 +22,11 @@
   font-weight: normal;
   text-transform: uppercase;
   color: @standart-white;
+  white-space: nowrap;
+
+  &--invert {
+    color: @nav-link-invert;
+  }
 }
 
 .nav {
@@ -34,20 +45,53 @@
 }
 
 .nav__item {
-
+  //add svg icons ???
 }
 
 .nav__link {
-  color: @standart-white;
+  padding: 8px 0;
+  position: relative;
+
+  color: 	@standart-white;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
   opacity: 0.7;
-  transition: .3s all ease-in;
+  transition: .2s all ease-in;
 
   &:hover,
   &:focus {
-    text-decoration: underline;
     opacity: 1;
+    transition: .2s all ease-in;
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background-color: @standart-white;
+      transition: .2s all ease-in;
+      border-radius: 20%;
+    }
+  }
+
+  &--invert {
+    color: @nav-link-invert;
+    font-weight: normal;
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: @nav-link-invert;
+      }
+    }
+  }
+
+  &--current {
+    opacity: 1;
+    pointer-events: none;
   }
 }

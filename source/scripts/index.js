@@ -1,6 +1,6 @@
-import { mainSlider } from './main-slider';
+import { sliderFull } from './slider-full';
 
 window.addEventListener('DOMContentLoaded', () => {
-  mainSlider();
+  sliderFull();
 });
 
