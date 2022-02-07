@@ -2,22 +2,21 @@ const showBigPicture = () => {
 
   const modal = document.querySelector('.modal');
   const modalImage = document.querySelector('.modal__picture');
-  // const allImages = document.querySelectorAll('.project__image');
   const gallery = document.querySelector('.project__gallery');
   const body = document.querySelector('.body');
 
   gallery.addEventListener('click', (evt) => {
-    console.log(evt.target);
 
     if(evt.target.classList.contains('project__image')) {
-      console.log(evt.target.src)
-      openModal()
-
+      let imageSourcce = evt.target.src;
+      openModal(imageSourcce)
     }
+
   })
 
-  function openModal() {
+  function openModal(imageSourcce) {
     modal.classList.add('modal--open');
+    modalImage.src = imageSourcce;
     body.classList.add('body--modal-open');
     body.addEventListener('click', closeModal);
   };
@@ -25,6 +24,7 @@ const showBigPicture = () => {
   function closeModal(evt) {
     if(evt.target.parentElement.tagName === 'HTML') {
       modal.classList.remove('modal--open');
+      modalImage.src = '';
       body.classList.remove('body--modal-open');
       body.removeEventListener('click', closeModal);
     }
