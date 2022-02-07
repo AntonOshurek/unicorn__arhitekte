@@ -2,17 +2,16 @@
   display: grid;
   list-style: none;
   grid-template-columns: repeat(3, 1fr);
-
-  // @media (min-width: @max-width) {
-  //
-  // }
+  padding: 0 @basic-side-padding;
 
   @media (max-width: @desctope-width) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 0;
   }
 
   @media (max-width: @tablet-width) {
     grid-template-columns: repeat(1, 1fr);
+    padding: 0;
   }
 
 }
