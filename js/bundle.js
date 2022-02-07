@@ -80,7 +80,6 @@ const projectFocusedItem = () => {
 
       if (isScrolledIntoView(item)) {
         itemNumber = item.getAttribute('data-item-id');
-        console.log(itemNumber);
         allProjetItems.forEach(item => {
           item.classList.remove('projects__card--scrolled');
 
@@ -271,8 +270,6 @@ const sliderFull = () => {
         //Проверяем, было ли движение достаточно длинным
         if (d.x > 0) {
           //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          console.log("Swipe Left");
-
           if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
             offset = 0;
           } else {
@@ -284,8 +281,6 @@ const sliderFull = () => {
           showCurrentNumber();
         } else {
           //Иначе он двигал им слева направо
-          console.log("Swipe Right");
-
           if (offset == 0) {
             offset = +width.slice(0, width.length - 2) * (slides.length - 1);
           } else {
@@ -381,7 +376,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     if (window.innerWidth <= 900) {
-      projectFocusedItem();
+      (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
     }
   }
 
