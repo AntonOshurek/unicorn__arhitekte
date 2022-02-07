@@ -139,7 +139,6 @@ const sliderFull = () => {
     if(Math.abs(d.x) > Math.abs(d.y)) { //Проверяем, движение по какой оси было длиннее
       if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
         if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          console.log("Swipe Left")
 
           if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
             offset = 0;
@@ -152,7 +151,6 @@ const sliderFull = () => {
           showCurrentNumber();
         }
         else { //Иначе он двигал им слева направо
-          console.log("Swipe Right")
 
           if (offset == 0) {
             offset = +width.slice(0, width.length - 2) * (slides.length - 1);
