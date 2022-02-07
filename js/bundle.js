@@ -380,7 +380,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.location.pathname === '/projects.html') {
-    (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFousedItem)();
+    if (window.innerWidth <= 900) {
+      (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFousedItem)();
+    }
   }
 
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
