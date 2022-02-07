@@ -31,7 +31,7 @@ const mobileMenu = () => {
 
   function openMobileMenu() {
     navigation.classList.add('nav--open');
-    body.classList.add('body--scrolloff');
+    body.classList.add('body--menu-open');
     mobileBtnIcon.classList.add('active');
     menuStatus = true;
     body.addEventListener('click', onBackgroundClick);
@@ -39,7 +39,7 @@ const mobileMenu = () => {
 
   function closeMobileMenu() {
     navigation.classList.remove('nav--open');
-    body.classList.remove('body--scrolloff');
+    body.classList.remove('body--menu-open');
     mobileBtnIcon.classList.remove('active');
     body.removeEventListener('click', onBackgroundClick);
     menuStatus = false;
@@ -93,6 +93,53 @@ const projectFocusedItem = () => {
 
   markCurrentMenuItem();
   window.addEventListener('scroll', markCurrentMenuItem);
+};
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/show-big-piture.js":
+/*!*******************************************!*\
+  !*** ./source/scripts/show-big-piture.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showBigPicture": function() { return /* binding */ showBigPicture; }
+/* harmony export */ });
+const showBigPicture = () => {
+  const modal = document.querySelector('.modal');
+  const modalImage = document.querySelector('.modal__picture');
+  const gallery = document.querySelector('.project__gallery');
+  const body = document.querySelector('.body');
+  gallery.addEventListener('click', evt => {
+    if (evt.target.classList.contains('project__image')) {
+      let imageSourcce = evt.target.src;
+      openModal(imageSourcce);
+    }
+  });
+
+  function openModal(imageSourcce) {
+    modal.classList.add('modal--open');
+    modalImage.src = imageSourcce;
+    body.classList.add('body--modal-open');
+    body.addEventListener('click', closeModal);
+  }
+
+  ;
+
+  function closeModal(evt) {
+    if (evt.target.parentElement.tagName === 'HTML') {
+      modal.classList.remove('modal--open');
+      modalImage.src = '';
+      body.classList.remove('body--modal-open');
+      body.removeEventListener('click', closeModal);
+    }
+  }
+
+  ;
 };
 
 
@@ -366,6 +413,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
 /* harmony import */ var _project_foused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-foused-item */ "./source/scripts/project-foused-item.js");
+/* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
+
 
 
 
@@ -378,6 +427,10 @@ window.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth <= 900) {
       (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
     }
+  }
+
+  if (document.location.pathname === '/current-project.html' || document.location.pathname === '/unicorn__arhitekte/current-project.html') {
+    (0,_show_big_piture__WEBPACK_IMPORTED_MODULE_3__.showBigPicture)();
   }
 
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
