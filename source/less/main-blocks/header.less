@@ -2,6 +2,10 @@
   width: 100%;
   position: fixed;
   z-index: 1;
+
+  &--invert {
+    background-color: @standart-white;
+  }
 }
 
 .header__wrap {
@@ -17,6 +21,10 @@
   text-transform: uppercase;
   color: @standart-white;
   white-space: nowrap;
+
+  // &--invert {
+  //   color: @nav-link-invert;
+  // }
 }
 
 .nav {
@@ -42,7 +50,7 @@
   padding: 8px 0;
   position: relative;
 
-  color: @standart-white;
+  color: 	@standart-white;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -64,6 +72,19 @@
       height: 2px;
       background-color: @standart-white;
       transition: .2s all ease-in;
+      border-radius: 20%;
+    }
+  }
+
+  &--invert {
+    color: @nav-link-invert;
+    font-weight: normal;
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: @nav-link-invert;
+      }
     }
   }
 
