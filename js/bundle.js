@@ -375,11 +375,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (document.location.pathname === '/index.html') {
+  if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
     (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
   }
 
-  if (document.location.pathname === '/projects.html') {
+  if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     if (window.innerWidth <= 900) {
       (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFousedItem)();
     }
