@@ -60,9 +60,9 @@ const mobileMenu = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "projectFousedItem": function() { return /* binding */ projectFousedItem; }
+/* harmony export */   "projectFocusedItem": function() { return /* binding */ projectFocusedItem; }
 /* harmony export */ });
-const projectFousedItem = () => {
+const projectFocusedItem = () => {
   const isScrolledIntoView = elem => {
     const rect = elem.getBoundingClientRect();
     const elemTop = rect.top;
@@ -381,7 +381,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     if (window.innerWidth <= 900) {
-      (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFousedItem)();
+      projectFocusedItem();
     }
   }
 
