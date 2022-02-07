@@ -19,7 +19,6 @@ const projectFocusedItem = () => {
       let itemNumber;
       if(isScrolledIntoView(item)) {
         itemNumber = item.getAttribute('data-item-id');
-        console.log(itemNumber)
 
         allProjetItems.forEach((item) => {
           item.classList.remove('projects__card--scrolled');
