@@ -2,6 +2,104 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./source/scripts/mobile-menu.js":
+/*!***************************************!*\
+  !*** ./source/scripts/mobile-menu.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "mobileMenu": function() { return /* binding */ mobileMenu; }
+/* harmony export */ });
+const mobileMenu = () => {
+  const mobileButton = document.querySelector('.header__menu-button');
+  const mobileBtnIcon = document.querySelector('.ham');
+  const navigation = document.querySelector('.nav');
+  const body = document.querySelector('.body');
+  let menuStatus;
+
+  const toogleMobileMenu = () => {
+    menuStatus ? closeMobileMenu() : openMobileMenu();
+  };
+
+  const onBackgroundClick = evt => {
+    if (evt.target.parentElement.tagName === 'HTML') {
+      closeMobileMenu();
+    }
+  };
+
+  function openMobileMenu() {
+    navigation.classList.add('nav--open');
+    body.classList.add('body--scrolloff');
+    mobileBtnIcon.classList.add('active');
+    menuStatus = true;
+    body.addEventListener('click', onBackgroundClick);
+  }
+
+  function closeMobileMenu() {
+    navigation.classList.remove('nav--open');
+    body.classList.remove('body--scrolloff');
+    mobileBtnIcon.classList.remove('active');
+    body.removeEventListener('click', onBackgroundClick);
+    menuStatus = false;
+  }
+
+  mobileButton.addEventListener('click', toogleMobileMenu);
+};
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/project-foused-item.js":
+/*!***********************************************!*\
+  !*** ./source/scripts/project-foused-item.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "projectFousedItem": function() { return /* binding */ projectFousedItem; }
+/* harmony export */ });
+const projectFousedItem = () => {
+  const isScrolledIntoView = elem => {
+    const rect = elem.getBoundingClientRect();
+    const elemTop = rect.top;
+    const elemBottom = rect.bottom;
+    const isVisible = elemTop < window.innerHeight / 2 && Math.sign(elemTop) != -1 || elemBottom > window.innerHeight / 2 && elemBottom < window.innerHeight;
+    return isVisible;
+  };
+
+  const allProjetItems = document.querySelectorAll('.projects__card');
+  const itemArr = [...allProjetItems];
+
+  const markCurrentMenuItem = () => {
+    itemArr.forEach(item => {
+      let itemNumber;
+
+      if (isScrolledIntoView(item)) {
+        itemNumber = item.getAttribute('data-item-id');
+        console.log(itemNumber);
+        allProjetItems.forEach(item => {
+          item.classList.remove('projects__card--scrolled');
+
+          if (item.getAttribute('data-item-id') === itemNumber) {
+            item.classList.add('projects__card--scrolled');
+          }
+        });
+      }
+    });
+  };
+
+  markCurrentMenuItem();
+  window.addEventListener('scroll', markCurrentMenuItem);
+};
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/slider-full.js":
 /*!***************************************!*\
   !*** ./source/scripts/slider-full.js ***!
@@ -271,9 +369,21 @@ var __webpack_exports__ = {};
   \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
+/* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
+/* harmony import */ var _project_foused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-foused-item */ "./source/scripts/project-foused-item.js");
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
-  (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
+  if (document.location.pathname === '/index.html') {
+    (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
+  }
+
+  if (document.location.pathname === '/projects.html') {
+    (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFousedItem)();
+  }
+
+  (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
 });
 }();
 /******/ })()
