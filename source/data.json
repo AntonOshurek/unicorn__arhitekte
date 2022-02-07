@@ -4,21 +4,44 @@
   "active": true,
   "data": [
     {
-      "id": "101",
+      "id": "0",
       "name": "project 1",
-      "Typologia": "Sportowe",
-      "Lokalizacja": "Warszawa",
-      "Rok": "2018",
-      "Status": "Koncepcja",
-      "Powierzchnia": "25 125 M2",
-      "Pojemność": "15 500 M2",
-      "Klient": "Miasto Stołeczne Warszawa",
+      "dataList":[
+        "Typologia Sportowe",
+        "Lokalizacja Warszawa",
+        "Rok 2018",
+        "Status Koncepcja",
+        "Powierzchnia 25 125 M2",
+        "Pojemność 15 500 M2",
+        "Klient Miasto Stołeczne Warszawa"
+      ],
       "description": "Budowa zespołu Ośrodka Polonii Warszawa jest niezwykłą szansą na stworzenie wartościowego punktu w mieście przyciągającego miłośników sportu ale również miejsca związanego z kulturą i rekreacją. Nowe obli­cze terenu przy ulicy Konwiktorskiej w połączeniu z bogatą tradycją klubu stanie się miejscem wyjątkowym. Projekt zakłada budowę Stadionu , Hali Sportowej i budynku Centrum Wsparcia Sportu jak również stworzenie nowej jakości przestrzeni publicznej będącej uzupełnieniem funkcji sportowych. Na osi stadionu i jego historycznej części w postaci zaplecza trybuny zachodniej zaprojektowano plac miejski z zachowaniem istniejącej rzeźby oraz fontanny. Pełni on rolę głównego miejsca spotkań oraz przestrzeni reprezentacyjnej. Forma fontanny została odmieniona poprzez połączenie jej z wejściem na parking pod­ziemny. Plac został podzielony na dwie strefy – historyczną z zachowaniem oryginalnej posadzki oraz miejską z dostępem do głównych wejść do Hali Sportowej oraz Centrum Wsparcia Sportu. Homogeniczność materiałowa obiektów, analogie w rozwiązaniach fasad, ekspozycja historii miejsca, właści­wa „oprawa” budynku historycznego, lokalizacja funkcji miastotwórczych od strony ul. Konwiktorskiej, inte­gracja z Parkiem Traugutta, wydzielona strefa parkingu dla zawodników na poziomie -1, ekspozycja fontanny, plac miejski, otwartość – wszystkie te elementy mają za zadanie stworzyć Ośrodek Polonii Warszawa na nowo, jako rozpoznawalne i uczęszczane miejsce na mapie Warszawy.",
       "images": [
-        "/img/main-slider/slider__1.jpg",
-        "/img/main-slider/slider__2.jpg",
-        "/img/main-slider/slider__3.jpg",
-        "/img/main-slider/slider__4.jpg"
+        "./img/main-slider/slider__1.jpg",
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__4.jpg"
+      ]
+
+    },
+    {
+      "id": "1",
+      "name": "name 2",
+      "dataList": [
+        "Typologia 2",
+        "Lokalizacja 2",
+        "Rok 2",
+        "Status 2",
+        "Powierzchnia 2",
+        "Pojemność 2",
+        "klient 2"
+      ],
+      "description": "description for project 2",
+      "images": [
+        "./img/main-slider/slider__1.jpg",
+        "./img/main-slider/slider__1.jpg",
+        "./img/main-slider/slider__1.jpg",
+        "./img/main-slider/slider__1.jpg"
       ]
 
     }

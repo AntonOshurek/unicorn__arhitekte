@@ -5,5 +5,4 @@ const getAllProjects = () => fetch('data.json')
     }
 })
 
-
 export { getAllProjects };

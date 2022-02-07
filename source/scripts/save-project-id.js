@@ -5,7 +5,7 @@ const saveProjectId = () => {
 
   projects.addEventListener('click', (evt) => {
     dataID = evt.target.parentElement.parentElement.getAttribute('data-item-id');
-    localStorage.setItem('dataID', dataID);
+    localStorage.setItem('dataID', dataID - 1);
   })
 
 }
