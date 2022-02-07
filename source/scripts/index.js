@@ -4,11 +4,11 @@ import { projectFousedItem }from './project-foused-item';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  if(document.location.pathname === '/index.html') {
+  if(document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
     sliderFull();
   }
 
-  if(document.location.pathname === '/projects.html') {
+  if(document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     if(window.innerWidth <= 900) {
       projectFousedItem();
     }
