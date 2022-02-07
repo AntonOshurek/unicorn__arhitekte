@@ -1,4 +1,4 @@
-const projectFousedItem = () => {
+const projectFocusedItem = () => {
 
   const isScrolledIntoView = (elem) => {
     const rect = elem.getBoundingClientRect();
@@ -36,4 +36,4 @@ const projectFousedItem = () => {
   window.addEventListener('scroll', markCurrentMenuItem);
 }
 
-export { projectFousedItem };
+export { projectFocusedItem };

@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if(document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     if(window.innerWidth <= 900) {
-      projectFousedItem();
+      projectFocusedItem();
     }
   }
 
