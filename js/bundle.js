@@ -2,6 +2,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./source/scripts/api.js":
+/*!*******************************!*\
+  !*** ./source/scripts/api.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAllProjects": function() { return /* binding */ getAllProjects; }
+/* harmony export */ });
+const getAllProjects = () => fetch('data.json').then(response => {
+  if (response.ok) {
+    return response.json();
+  }
+});
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/mobile-menu.js":
 /*!***************************************!*\
   !*** ./source/scripts/mobile-menu.js ***!
@@ -99,6 +119,29 @@ const projectFocusedItem = () => {
 
 /***/ }),
 
+/***/ "./source/scripts/save-project-id.js":
+/*!*******************************************!*\
+  !*** ./source/scripts/save-project-id.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "saveProjectId": function() { return /* binding */ saveProjectId; }
+/* harmony export */ });
+const saveProjectId = () => {
+  const projects = document.querySelector('.projects');
+  let dataID;
+  projects.addEventListener('click', evt => {
+    dataID = evt.target.parentElement.parentElement.getAttribute('data-item-id');
+    localStorage.setItem('dataID', dataID - 1);
+  });
+};
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/show-big-piture.js":
 /*!*******************************************!*\
   !*** ./source/scripts/show-big-piture.js ***!
@@ -140,6 +183,62 @@ const showBigPicture = () => {
   }
 
   ;
+};
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/show-current-project.js":
+/*!************************************************!*\
+  !*** ./source/scripts/show-current-project.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showCurrentProjects": function() { return /* binding */ showCurrentProjects; }
+/* harmony export */ });
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ "./source/scripts/api.js");
+
+const projectGallery = document.querySelector('.project__gallery');
+const pitureTemplate = document.querySelector('#project__image');
+const dataList = document.querySelector('.data-list');
+const dataListItemTemplate = document.querySelector('#data-list__item');
+const infoText = document.querySelector('.project__info-text');
+const projetName = document.querySelector('.project__name');
+
+const showCurrentProjects = () => {
+  let projectData;
+  const dataID = localStorage.getItem('dataID');
+  (0,_api__WEBPACK_IMPORTED_MODULE_0__.getAllProjects)().then(data => {
+    projectData = data.data[dataID];
+    showImages(projectData);
+    showInfo(projectData);
+  });
+
+  function showImages(projectData) {
+    const fragment = new DocumentFragment();
+    projectData.images.forEach(image => {
+      const templateItem = pitureTemplate.content.cloneNode(true);
+      templateItem.querySelector('.project__image').src = image;
+      fragment.append(templateItem);
+    });
+    projectGallery.append(fragment);
+  }
+
+  function showInfo(data) {
+    infoText.textContent = data.description;
+    projetName.textContent = data.name;
+    document.title = `Projekt ${data.name}`;
+    const fragment = new DocumentFragment();
+    data.dataList.forEach(item => {
+      const templateItem = dataListItemTemplate.content.cloneNode(true);
+      templateItem.querySelector('.data-list__item').textContent = item;
+      fragment.append(templateItem);
+    });
+    dataList.append(fragment);
+  }
 };
 
 
@@ -414,6 +513,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
 /* harmony import */ var _project_foused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-foused-item */ "./source/scripts/project-foused-item.js");
 /* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
+/* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
+/* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
+
+
 
 
 
@@ -424,12 +527,15 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
+    (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
+
     if (window.innerWidth <= 900) {
       (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
     }
   }
 
   if (document.location.pathname === '/current-project.html' || document.location.pathname === '/unicorn__arhitekte/current-project.html') {
+    (0,_show_current_project__WEBPACK_IMPORTED_MODULE_5__.showCurrentProjects)();
     (0,_show_big_piture__WEBPACK_IMPORTED_MODULE_3__.showBigPicture)();
   }
 
