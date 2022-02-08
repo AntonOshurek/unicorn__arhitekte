@@ -5,85 +5,94 @@
   "data": [
     {
       "id": "0",
-      "name": "project 1",
+      "name": "zespoł Ośrodka Polonii - Warszawa",
       "dataList":[
-        "Typologia Sportowe",
-        "Lokalizacja Warszawa",
-        "Rok 2018",
-        "Status Koncepcja",
-        "Powierzchnia 25 125 M2",
-        "Pojemność 15 500 M2",
-        "Klient Miasto Stołeczne Warszawa"
+        "Typologia - Sportowe",
+        "Lokalizacja - Warszawa",
+        "Rok - 2018",
+        "Status - Koncepcja",
+        "Powierzchnia - 25 125 M2",
+        "Pojemność - 15 500 M2",
+        "Klient - Miasto Stołeczne Warszawa"
       ],
       "description": "Budowa zespołu Ośrodka Polonii Warszawa jest niezwykłą szansą na stworzenie wartościowego punktu w mieście przyciągającego miłośników sportu ale również miejsca związanego z kulturą i rekreacją. Nowe obli­cze terenu przy ulicy Konwiktorskiej w połączeniu z bogatą tradycją klubu stanie się miejscem wyjątkowym. Projekt zakłada budowę Stadionu , Hali Sportowej i budynku Centrum Wsparcia Sportu jak również stworzenie nowej jakości przestrzeni publicznej będącej uzupełnieniem funkcji sportowych. Na osi stadionu i jego historycznej części w postaci zaplecza trybuny zachodniej zaprojektowano plac miejski z zachowaniem istniejącej rzeźby oraz fontanny. Pełni on rolę głównego miejsca spotkań oraz przestrzeni reprezentacyjnej. Forma fontanny została odmieniona poprzez połączenie jej z wejściem na parking pod­ziemny. Plac został podzielony na dwie strefy – historyczną z zachowaniem oryginalnej posadzki oraz miejską z dostępem do głównych wejść do Hali Sportowej oraz Centrum Wsparcia Sportu. Homogeniczność materiałowa obiektów, analogie w rozwiązaniach fasad, ekspozycja historii miejsca, właści­wa „oprawa” budynku historycznego, lokalizacja funkcji miastotwórczych od strony ul. Konwiktorskiej, inte­gracja z Parkiem Traugutta, wydzielona strefa parkingu dla zawodników na poziomie -1, ekspozycja fontanny, plac miejski, otwartość – wszystkie te elementy mają za zadanie stworzyć Ośrodek Polonii Warszawa na nowo, jako rozpoznawalne i uczęszczane miejsce na mapie Warszawy.",
       "images": [
-        "./img/main-slider/slider__1.jpg",
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__4.jpg"
+        "./img/projects/project__1/project__1-1.jpg",
+        "./img/projects/project__1/project__1-2.jpg",
+        "./img/projects/project__1/project__1-3.jpg",
+        "./img/projects/project__1/project__1-4.jpg",
+        "./img/projects/project__1/project__1-5.jpg",
+        "./img/projects/project__1/project__1-6.jpg",
+        "./img/projects/project__1/project__1-7.jpg"
       ]
 
     },
     {
       "id": "1",
-      "name": "name 2",
+      "name": "Galeria Handlowa \"Dekada\" w Nysie",
       "dataList": [
-        "Typologia 2",
-        "Lokalizacja 2",
-        "Rok 2",
-        "Status 2",
-        "Powierzchnia 2",
-        "Pojemność 2",
-        "klient 2"
+        "Typologia - Handlowe",
+        "Lokalizacja - Opole",
+        "Rok - 2009",
+        "Status - Zrealizowane",
+        "Powierzchnia - ok. 40 877 29 m2",
+        "Pojemność - 15 500 M2",
+        "Klient - COUCAL Sp. z o.o. / IGD Irlandzka Grupa Deweloperska Sp. z o.o."
       ],
-      "description": "description for project 2",
+      "description": "Dawna linia brzegowa morza dzieli to miejsce na wschód i zachód. Jest to  także miejsce spotkań dwóch krajobrazów – wybrzeża i miasta. To był punkt wyjścia do zdefiniowania typologii budynku. Zachodnia strona jest kontynuacją miasta z blokami wypełniającymi wszystkie tereny zielonymi przestrzeniami w środku. Strona wschodnia składa się z pojedyńczych budynków zorganizowanych mniej regularnie z przestrzenią wokół nich. Pomysł polega na definiowaniu znaków tych przestrzeni. Budynki biurowe i kino definiują krawędzie ulic i tworzą wewnątrz przestrzenie półpubliczne . Budynki mieszkalne, hotele i budynki kultury mają wokół siebie więcej przestrzeni, a dzięki temu znacznie więcej możliwości widokowych na tereny zielone z jednej strony i nadmorskie z drugiej. Na granicy tych dwóch typologii stworzyliśmy krajobraz falujący na jego powierzchni. Ta granica w rzeźbiarski sposób wyznacza dawną linię brzegową morza i jest główną trasą dla pieszych przez plan główny.",
       "images": [
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg"
+        "./img/projects/project__2/project__2-1.jpg",
+        "./img/projects/project__2/project__2-2.jpg",
+        "./img/projects/project__2/project__2-3.jpg",
+        "./img/projects/project__2/project__2-4.jpg",
+        "./img/projects/project__2/project__2-5.jpg",
+        "./img/projects/project__2/project__2-6.jpg"
       ]
 
     },
     {
       "id": "2",
-      "name": "name 3",
+      "name": "Teren Toru Wyścigów Konnych",
       "dataList": [
-        "Typologia 3",
-        "Lokalizacja 3",
-        "Rok 3",
-        "Status 3",
-        "Powierzchnia 3",
-        "Pojemność 3",
-        "klient 3"
+        "Typologia - Biurowe",
+        "Lokalizacja - Warszawa",
+        "Rok - Warszawa",
+        "Status - Koncepcja",
+        "Powierzchnia - ",
+        "klient PHN"
       ],
-      "description": "description for project 3",
+      "description": "Głównym założeniem projektantów było stworzenie atrakcyjnej przestrzeni i nowoczesnej architektury powiązanej z otaczającym terenem ze szczególnym poszanowaniem zabytkowej tkanki urbanistycznej terenu Toru Wyścigów Konnych Służewiec.",
       "images": [
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg"
+        "./img/projects/project__3/project__3-1.jpg",
+        "./img/projects/project__3/project__3-2.jpg",
+        "./img/projects/project__3/project__3-3.jpg",
+        "./img/projects/project__3/project__3-4.jpg",
+        "./img/projects/project__3/project__3-5.jpg",
+        "./img/projects/project__3/project__3-6.jpg"
       ]
 
     },
     {
       "id": "3",
-      "name": "name 4",
+      "name": "Stadion Eldoret",
       "dataList": [
-        "Typologia 4",
-        "Lokalizacja 4",
-        "Rok 4",
-        "Status 4",
-        "Powierzchnia 4",
-        "Pojemność 4",
-        "klient 4"
+        "Typologia - Sportowe",
+        "Lokalizacja - Eldoret, Kenia",
+        "Rok - 2015",
+        "Status - 2015",
+        "Powierzchnia - 12 390 m2",
+        "Pojemność - 12 390 m2",
+        "klient - PKF Consortium"
       ],
-      "description": "description for project 4",
+      "description": "Obiekt został zaprojektowany jako wielofunkcyjny stadion lekkoatletyczny. Spełnia on również wszystkie wymagania jako arena do międzynarodowych rozgrywek w rugby oraz piłki nożnej. Bogate zaplecze stadionu dodatkowo umożliwia organizację koncertów, spotkań, wystaw na płycie stadionu, natomiast funkcje komercyjne mają zintegrować obiekt z otoczeniem i nadać mu codzienny charakter i zastosowanie. Stanowią one dodatkową atrakcję w kontekście",
       "images": [
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg"
+        "./img/projects/project__4/project__4-1.jpg",
+        "./img/projects/project__4/project__4-2.jpg",
+        "./img/projects/project__4/project__4-3.jpg",
+        "./img/projects/project__4/project__4-4.jpg",
+        "./img/projects/project__4/project__4-5.jpg",
+        "./img/projects/project__4/project__4-6.jpg",
+        "./img/projects/project__4/project__4-7.jpg"
       ]
 
     },
