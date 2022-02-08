@@ -7,7 +7,7 @@ const dataList = document.querySelector('.data-list');
 const dataListItemTemplate = document.querySelector('#data-list__item');
 
 const infoText =  document.querySelector('.project__info-text');
-const projetName = document.querySelector('.project__name');
+const headerTitle = document.querySelector('.header__title');
 
 const showCurrentProjects = () => {
   let projectData;
@@ -36,7 +36,7 @@ const showCurrentProjects = () => {
 
   function showInfo(data) {
     infoText.textContent = data.description;
-    projetName.textContent = data.name;
+    headerTitle.textContent = data.name;
     document.title = `Projekt ${data.name}`;
 
     const fragment = new DocumentFragment();
