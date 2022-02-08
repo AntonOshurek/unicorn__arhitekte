@@ -4,7 +4,7 @@
   "active": true,
   "data": [
     {
-      "id": "0",
+      "id": "101",
       "name": "zespoł Ośrodka Polonii - Warszawa",
       "dataList":[
         "Typologia - Sportowe",
@@ -28,7 +28,7 @@
 
     },
     {
-      "id": "1",
+      "id": "102",
       "name": "Galeria Handlowa \"Dekada\" w Nysie",
       "dataList": [
         "Typologia - Handlowe",
@@ -51,7 +51,7 @@
 
     },
     {
-      "id": "2",
+      "id": "103",
       "name": "Teren Toru Wyścigów Konnych",
       "dataList": [
         "Typologia - Biurowe",
@@ -73,7 +73,7 @@
 
     },
     {
-      "id": "3",
+      "id": "104",
       "name": "Stadion Eldoret",
       "dataList": [
         "Typologia - Sportowe",
@@ -97,86 +97,89 @@
 
     },
     {
-      "id": "4",
-      "name": "name 5",
+      "id": "105",
+      "name": "PGNiG Kasprzaka",
       "dataList": [
-        "Typologia 5",
-        "Lokalizacja 5",
-        "Rok 5",
-        "Status 5",
-        "Powierzchnia 5",
-        "Pojemność 5",
-        "klient 5"
+        "Typologia - Biurowe",
+        "Lokalizacja - Warszawa",
+        "Status - Koncepcja",
+        "klient - PGNiG"
       ],
-      "description": "description for project 5",
+      "description": "Kontynuacja i symbioza. Te dwa słowa stanowiły punkt wyjścia w procesie projektowym. Zabytkowe budynki zbiorników gazu, ich zdecydowana i szczera zamknięta forma stanowią silny kontekst i nawiązanie bryłowe do nowoprojektowanych obiektów. Wspólny budulec, który w zależności od czasu powstawania budynku przybierał różną barwę, fakturę i wielkość definiuje język i wyraz architektoniczny nowo projektowanego założenia. Cegła jest materiałem ponadczasowym daje wiele możliwości jej użycia a zarazem nie narzuca żadnych rozwiązań.      Dogłębna analiza historycznych, istniejących form architektonicznych oraz rozkład ich na czynniki pierwsze doprowadziły do stworzenia zupełnie nowej koncepcji architektury, oferującej zarówno nowoczesność i ponadczasowość jak i dialog z przeszłością. Duże okno, słup, gzyms, nadproże, zróżnicowana faktura i artykulacja bezpośrednio przełożono na współczesny język architektoniczny. Pionowe elementy ceglane, nadają budynkom rytm, wydzielają wnętrze i zewnętrze, kadrują widoki. Gzymsy oddzielają kondygnacje i porządkują bryłę, a także chronią wnętrza od nadmiaru słońca. Okna zapewniają odpowiednią ilość światła dziennego i gwarantują wysoką jakość przestrzeni do pracy. Detal spoiny, faktury nadproża nadają kolejnego znaczenia fasadzie w bliższym kontakcie. Ceglane kolory łamaczy światła, szarości gzymsów i nadproży doskonale współgrają z otaczającą zielenią. Cztery zróżnicowane między sobą bryły o jednolitym wyrazie lecz zróżnicowanej wysokości i artykulacji doskonale współgrają z otoczeniem. Współczesne w detalu i zaprojektowane według najnowocześniejszych standardów obiekty stają się oczywistym dopełnieniem otoczenia oraz kompleksu Gazowni Warszawskiej.",
       "images": [
-        "./img/main-slider/slider__1.jpg",
-        "./img/main-slider/slider__1.jpg",
-        "./img/main-slider/slider__1.jpg",
-        "./img/main-slider/slider__1.jpg"
+        "./img/projects/project__5/project__5-1.jpg",
+        "./img/projects/project__5/project__5-2.jpg",
+        "./img/projects/project__5/project__5-3.jpg",
+        "./img/projects/project__5/project__5-4.jpg",
+        "./img/projects/project__5/project__5-5.jpg",
+        "./img/projects/project__5/project__5-6.jpg"
       ]
 
     },
     {
-      "id": "5",
-      "name": "name 6",
+      "id": "106",
+      "name": "Czerniakowska DEKADA",
       "dataList": [
-        "Typologia 6",
-        "Lokalizacja 6",
-        "Rok 6",
-        "Status 6",
-        "Powierzchnia 6",
-        "Pojemność 6",
-        "klient 6"
+        "Typologia - Biurowe",
+        "Lokalizacja - Warszawa",
+        "Rok - 2018",
+        "Status - Koncepcja",
+        "Powierzchnia - 107 41 m2",
+        "klient - Dekada"
       ],
-      "description": "description for project 6",
+      "description": "Przedmiotem inwestycji jest budowa budynku biurowo-usługowego z garażem podziemnym. O charakterze projektowanej zabudowy w dużej mierze przesądziło najbliższe sąsiedztwo – z jednej strony współczesne budynki biurowe, z drugiej powojenne zakłady o silnym, industrialnym wyrazie, a z trzeciej fragmenty zabudowy pierzejowej od strony ul. Czerniakowskiej. Swoimi gabarytami, takimi jak szerokość traktu budynek nawiązuje do sąsiedniej zabudowy biurowej. Wysokością w części zachodniej komponuje się z zabudową we wnętrzu kwartału, osiągając 20m oraz 5 kondygnacji, a w części wschodniej, przylegającej bezpośrednio do ul. Czerniakowskiej kontynuuje i dopełnia istniejącą zabudowę pierzejową, tworząc wyższą, sześciokondygnacyjną część frontową budynku o wysokości 25m i 6 kondygnacji. Wiodącą funkcją budynku są powierzchnie biurowe uzupełnione lokalami usługowo-handlowymi w parterze. Podstawowym założeniem projektowym było utworzenie współczesnej, eleganckiej formy, która stanie się odpowiedzią i nawiąże dialog z mocnym wyrazem industrialnego otoczenia. Poprzez zastosowanie wykończenia fasad z surowych, ale współczesnych elementów betonowych oraz cegły betonowej zestawionych ze szklaną fasadą i aluminium powstanie nowoczesny obiekt, który nie będzie stał w opozycji do otaczającej go historii, a z odpowiednią dozą szacunku odnajdzie swoje miejsce w przestrzeni. W celu uzyskania jak najwyższego standardu w obiekcie zaprojektowano szereg tarasów skierowanych na południe, dostępnych dla użytkowników budynku.",
       "images": [
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg",
-        "./img/main-slider/slider__2.jpg"
+        "./img/projects/project__6/project__6-1.jpg",
+        "./img/projects/project__6/project__6-2.jpg",
+        "./img/projects/project__6/project__6-3.jpg",
+        "./img/projects/project__6/project__6-4.jpg",
+        "./img/projects/project__6/project__6-5.jpg",
+        "./img/projects/project__6/project__6-6.jpg"
       ]
 
     },
     {
-      "id": "6",
-      "name": "name 7",
+      "id": "107",
+      "name": "Gdańsk LPP",
       "dataList": [
-        "Typologia 7",
-        "Lokalizacja 7",
-        "Rok 7",
-        "Status 7",
-        "Powierzchnia 7",
-        "Pojemność 7",
-        "klient 7"
+        "Typologia - Biurowe",
+        "Lokalizacja - Gdańsk",
+        "Rok - 2014",
+        "Status - Koncepcja",
+        "Powierzchnia - 37 200 m2",
+        "klient - LPP S.A."
       ],
-      "description": "description for project 7",
+      "description": "",
       "images": [
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg",
-        "./img/main-slider/slider__3.jpg"
+        "./img/projects/project__7/project__7-1.jpg",
+        "./img/projects/project__7/project__7-2.jpg",
+        "./img/projects/project__7/project__7-3.jpg",
+        "./img/projects/project__7/project__7-4.jpg",
+        "./img/projects/project__7/project__7-5.jpg",
+        "./img/projects/project__7/project__7-6.jpg"
       ]
 
     },
     {
-      "id": "7",
-      "name": "name 8",
+      "id": "108",
+      "name": "Plac Kościeleckich",
       "dataList": [
-        "Typologia 8",
-        "Lokalizacja 8",
-        "Rok 8",
-        "Status 8",
-        "Powierzchnia 8",
-        "Pojemność 8",
-        "klient 8"
+        "Typologia - Biurowe",
+        "Lokalizacja - Bydgoszcz",
+        "Rok - 2011",
+        "Status - Koncepcja",
+        "Powierzchnia - ",
+        "klient - Immobile Sp. z o. o. / Euroinvest CDI Sp. z o. o."
       ],
-      "description": "description for project 8",
+      "description": "",
       "images": [
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg",
-        "./img/main-slider/slider__4.jpg"
+        "./img/projects/project__8/project__8-1.jpg",
+        "./img/projects/project__8/project__8-2.jpg",
+        "./img/projects/project__8/project__8-3.jpg",
+        "./img/projects/project__8/project__8-4.jpg",
+        "./img/projects/project__8/project__8-5.jpg",
+        "./img/projects/project__8/project__8-6.jpg",
+        "./img/projects/project__8/project__8-7.jpg"
       ]
 
     }
