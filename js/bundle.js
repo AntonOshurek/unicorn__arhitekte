@@ -206,7 +206,7 @@ const pitureTemplate = document.querySelector('#project__image');
 const dataList = document.querySelector('.data-list');
 const dataListItemTemplate = document.querySelector('#data-list__item');
 const infoText = document.querySelector('.project__info-text');
-const projetName = document.querySelector('.project__name');
+const headerTitle = document.querySelector('.header__title');
 
 const showCurrentProjects = () => {
   let projectData;
@@ -229,7 +229,7 @@ const showCurrentProjects = () => {
 
   function showInfo(data) {
     infoText.textContent = data.description;
-    projetName.textContent = data.name;
+    headerTitle.textContent = data.name;
     document.title = `Projekt ${data.name}`;
     const fragment = new DocumentFragment();
     data.dataList.forEach(item => {
@@ -521,11 +521,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
-    (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
-  }
 
+if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
+  (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
 
