@@ -1,6 +1,4 @@
-//API
 import { getAllProjects } from './api';
-
 
 const projectGallery = document.querySelector('.project__gallery');
 const pitureTemplate = document.querySelector('#project__image');
@@ -20,7 +18,6 @@ const showCurrentProjects = () => {
 
     showImages(projectData);
     showInfo(projectData);
-    setLocation(projectData);
   })
 
   function showImages(projectData) {
@@ -55,20 +52,6 @@ const showCurrentProjects = () => {
     dataList.append(fragment)
   }
 
-
-  function setLocation(curLoc){
-    let newURL = `${document.location.href}%project-id-${curLoc.id}`;
-
-    try {
-      history.pushState(null, null, newURL);
-      return;
-    } catch(e) {}
-    location.hash = '#' + newURL;
-  }
-
 }
 
 export { showCurrentProjects };
-
-
-

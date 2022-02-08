@@ -38,10 +38,136 @@
       ],
       "description": "description for project 2",
       "images": [
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg"
+      ]
+
+    },
+    {
+      "id": "2",
+      "name": "name 3",
+      "dataList": [
+        "Typologia 3",
+        "Lokalizacja 3",
+        "Rok 3",
+        "Status 3",
+        "Powierzchnia 3",
+        "Pojemność 3",
+        "klient 3"
+      ],
+      "description": "description for project 3",
+      "images": [
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg"
+      ]
+
+    },
+    {
+      "id": "3",
+      "name": "name 4",
+      "dataList": [
+        "Typologia 4",
+        "Lokalizacja 4",
+        "Rok 4",
+        "Status 4",
+        "Powierzchnia 4",
+        "Pojemność 4",
+        "klient 4"
+      ],
+      "description": "description for project 4",
+      "images": [
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg"
+      ]
+
+    },
+    {
+      "id": "4",
+      "name": "name 5",
+      "dataList": [
+        "Typologia 5",
+        "Lokalizacja 5",
+        "Rok 5",
+        "Status 5",
+        "Powierzchnia 5",
+        "Pojemność 5",
+        "klient 5"
+      ],
+      "description": "description for project 5",
+      "images": [
         "./img/main-slider/slider__1.jpg",
         "./img/main-slider/slider__1.jpg",
         "./img/main-slider/slider__1.jpg",
         "./img/main-slider/slider__1.jpg"
+      ]
+
+    },
+    {
+      "id": "5",
+      "name": "name 6",
+      "dataList": [
+        "Typologia 6",
+        "Lokalizacja 6",
+        "Rok 6",
+        "Status 6",
+        "Powierzchnia 6",
+        "Pojemność 6",
+        "klient 6"
+      ],
+      "description": "description for project 6",
+      "images": [
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg",
+        "./img/main-slider/slider__2.jpg"
+      ]
+
+    },
+    {
+      "id": "6",
+      "name": "name 7",
+      "dataList": [
+        "Typologia 7",
+        "Lokalizacja 7",
+        "Rok 7",
+        "Status 7",
+        "Powierzchnia 7",
+        "Pojemność 7",
+        "klient 7"
+      ],
+      "description": "description for project 7",
+      "images": [
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg",
+        "./img/main-slider/slider__3.jpg"
+      ]
+
+    },
+    {
+      "id": "7",
+      "name": "name 8",
+      "dataList": [
+        "Typologia 8",
+        "Lokalizacja 8",
+        "Rok 8",
+        "Status 8",
+        "Powierzchnia 8",
+        "Pojemność 8",
+        "klient 8"
+      ],
+      "description": "description for project 8",
+      "images": [
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg",
+        "./img/main-slider/slider__4.jpg"
       ]
 
     }
