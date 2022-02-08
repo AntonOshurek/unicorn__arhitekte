@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>current project</title>
+  <title>contacts</title>
 
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body class="body">
   <header class="header header--invert">
     <div class="header__wrap container">
-      <h1 class="header__title header__title--invert">project ...</h1>
+      <h1 class="header__title header__title--invert">uniorn arhitekte - kontakty</h1>
       <button class="header__menu-button" type="button">
         <svg class="ham hamRotate ham7" viewBox="0 0 100 100" width="80">
           <path
@@ -38,7 +38,7 @@
             <a class="nav__link nav__link--invert" href="#">nav link</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--invert" href="contacts.html">kontakty</a>
+            <a class="nav__link nav__link--invert nav__link--current" href="contacts.html">kontakty</a>
           </li>
         </ul>
       </nav>
@@ -46,45 +46,15 @@
   </header>
 
   <main class="main">
-    <div class="project">
-      <section class="project__gallery">
-        <h2 class="project__gallery-title">galeria zdjęć projektu</h2>
-        <!-- <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__2.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt=""> -->
-      </section>
-      <section class="project__info container">
-        <h2 class="project__info-title">informacja o projekcie</h2>
-        <ul class="data-list">
-          <!-- <li class="data-list__item">
-            Typologia Sportowe
-          </li>
-          <li class="data-list__item">
-            Lokalizacja Warszawa
-          </li>
-          <li class="data-list__item">
-            Rok 2018
-          </li>
-          <li class="data-list__item">
-            Status Koncepcja
-          </li>
-          <li class="data-list__item">
-            Powierzchnia 25 125 m2
-          </li>
-          <li class="data-list__item">
-            Pojemność 15 500 m2
-          </li>
-          <li class="data-list__item">
-            Klient Miasto Stołeczne Warszawa
-          </li> -->
-        </ul>
-        <p class="project__info-text">
-          <!-- Budowa zespołu Ośrodka Polonii Warszawa jest niezwykłą szansą na stworzenie wartościowego punktu w mieście przyciągającego miłośników sportu ale również miejsca związanego z kulturą i rekreacją. Nowe obli­cze terenu przy ulicy Konwiktorskiej w połączeniu z bogatą tradycją klubu stanie się miejscem wyjątkowym. Projekt zakłada budowę Stadionu , Hali Sportowej i budynku Centrum Wsparcia Sportu jak również stworzenie nowej jakości przestrzeni publicznej będącej uzupełnieniem funkcji sportowych.
-          Na osi stadionu i jego historycznej części w postaci zaplecza trybuny zachodniej zaprojektowano plac miejski z zachowaniem istniejącej rzeźby oraz fontanny. Pełni on rolę głównego miejsca spotkań oraz przestrzeni reprezentacyjnej. Forma fontanny została odmieniona poprzez połączenie jej z wejściem na parking pod­ziemny. Plac został podzielony na dwie strefy – historyczną z zachowaniem oryginalnej posadzki oraz miejską z dostępem do głównych wejść do Hali Sportowej oraz Centrum Wsparcia Sportu.
-          Homogeniczność materiałowa obiektów, analogie w rozwiązaniach fasad, ekspozycja historii miejsca, właści­wa „oprawa” budynku historycznego, lokalizacja funkcji miastotwórczych od strony ul. Konwiktorskiej, inte­gracja z Parkiem Traugutta, wydzielona strefa parkingu dla zawodników na poziomie -1, ekspozycja fontanny, plac miejski, otwartość – wszystkie te elementy mają za zadanie stworzyć Ośrodek Polonii Warszawa na nowo, jako rozpoznawalne i uczęszczane miejsce na mapie Warszawy. -->
-        </p>
-      </section>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.7561756397445!2d16.911756927868364!3d52.44733148412363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704434459e1d293%3A0x7dac66bc161c6f8c!2sUnicorn%20Pozna%C5%84%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1644325568908!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="contacts container">
+      <h2 class="contacts__city">Biuro Poznań</h2>
+
+      <address class="contacts__address">
+        Rymarkiewicza 5a, 60-681 Poznań
+      </address>
+      <a class="contacts__tel" href="#">tel. +48 66 666 66 66</a>
+
     </div>
   </main>
 
@@ -127,21 +97,5 @@
       </p>
     </div>
   </footer>
-
-  <figure class="modal">
-    <img class="modal__picture" src="/img/main-slider/slider__2.jpg" alt="">
-  </figure>
-
-  <template id="project__image">
-    <img class="project__image" src="" width="200" height="200" alt="">
-  </template>
-
-  <template id="data-list__item">
-    <li class="data-list__item">
-      Typologia Sportowe
-    </li>
-  </template>
-
-  <script src="js/bundle.js"></script>
 </body>
 </html>
