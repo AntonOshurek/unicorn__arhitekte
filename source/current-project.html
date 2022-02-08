@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>current roject</title>
+  <title>current project</title>
 
   <link rel="stylesheet" href="css/style.min.css">
 </head>
@@ -48,16 +48,16 @@
   <main class="main">
     <div class="project">
       <section class="project__gallery">
-        <h2 class="project__gallery-title">galeria zdjęć projektu</h2>
-        <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
+        <h2 class="project__gallery-title">galeria zdjęć projektu - <span class="project__name"></span></h2>
+        <!-- <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
         <img class="project__image" src="./img/main-slider/slider__2.jpg" width="200" height="200" alt="">
         <img class="project__image" src="./img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt="">
+        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt=""> -->
       </section>
       <section class="project__info container">
         <h2 class="project__info-title">informacja o projekcie</h2>
         <ul class="data-list">
-          <li class="data-list__item">
+          <!-- <li class="data-list__item">
             Typologia Sportowe
           </li>
           <li class="data-list__item">
@@ -77,12 +77,12 @@
           </li>
           <li class="data-list__item">
             Klient Miasto Stołeczne Warszawa
-          </li>
+          </li> -->
         </ul>
         <p class="project__info-text">
-          Budowa zespołu Ośrodka Polonii Warszawa jest niezwykłą szansą na stworzenie wartościowego punktu w mieście przyciągającego miłośników sportu ale również miejsca związanego z kulturą i rekreacją. Nowe obli­cze terenu przy ulicy Konwiktorskiej w połączeniu z bogatą tradycją klubu stanie się miejscem wyjątkowym. Projekt zakłada budowę Stadionu , Hali Sportowej i budynku Centrum Wsparcia Sportu jak również stworzenie nowej jakości przestrzeni publicznej będącej uzupełnieniem funkcji sportowych.
+          <!-- Budowa zespołu Ośrodka Polonii Warszawa jest niezwykłą szansą na stworzenie wartościowego punktu w mieście przyciągającego miłośników sportu ale również miejsca związanego z kulturą i rekreacją. Nowe obli­cze terenu przy ulicy Konwiktorskiej w połączeniu z bogatą tradycją klubu stanie się miejscem wyjątkowym. Projekt zakłada budowę Stadionu , Hali Sportowej i budynku Centrum Wsparcia Sportu jak również stworzenie nowej jakości przestrzeni publicznej będącej uzupełnieniem funkcji sportowych.
           Na osi stadionu i jego historycznej części w postaci zaplecza trybuny zachodniej zaprojektowano plac miejski z zachowaniem istniejącej rzeźby oraz fontanny. Pełni on rolę głównego miejsca spotkań oraz przestrzeni reprezentacyjnej. Forma fontanny została odmieniona poprzez połączenie jej z wejściem na parking pod­ziemny. Plac został podzielony na dwie strefy – historyczną z zachowaniem oryginalnej posadzki oraz miejską z dostępem do głównych wejść do Hali Sportowej oraz Centrum Wsparcia Sportu.
-          Homogeniczność materiałowa obiektów, analogie w rozwiązaniach fasad, ekspozycja historii miejsca, właści­wa „oprawa” budynku historycznego, lokalizacja funkcji miastotwórczych od strony ul. Konwiktorskiej, inte­gracja z Parkiem Traugutta, wydzielona strefa parkingu dla zawodników na poziomie -1, ekspozycja fontanny, plac miejski, otwartość – wszystkie te elementy mają za zadanie stworzyć Ośrodek Polonii Warszawa na nowo, jako rozpoznawalne i uczęszczane miejsce na mapie Warszawy.
+          Homogeniczność materiałowa obiektów, analogie w rozwiązaniach fasad, ekspozycja historii miejsca, właści­wa „oprawa” budynku historycznego, lokalizacja funkcji miastotwórczych od strony ul. Konwiktorskiej, inte­gracja z Parkiem Traugutta, wydzielona strefa parkingu dla zawodników na poziomie -1, ekspozycja fontanny, plac miejski, otwartość – wszystkie te elementy mają za zadanie stworzyć Ośrodek Polonii Warszawa na nowo, jako rozpoznawalne i uczęszczane miejsce na mapie Warszawy. -->
         </p>
       </section>
     </div>
@@ -91,6 +91,16 @@
   <figure class="modal">
     <img class="modal__picture" src="/img/main-slider/slider__2.jpg" alt="">
   </figure>
+
+  <template id="project__image">
+    <img class="project__image" src="" width="200" height="200" alt="">
+  </template>
+
+  <template id="data-list__item">
+    <li class="data-list__item">
+      Typologia Sportowe
+    </li>
+  </template>
 
   <script src="js/bundle.js"></script>
 </body>
