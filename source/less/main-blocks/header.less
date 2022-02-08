@@ -17,6 +17,7 @@
   padding: @basic-side-padding;
 
   @media (max-width: @tablet-width) {
+    grid-template-columns: 1fr min-content;
     padding: 0 @basic-side-padding;
   }
 
@@ -31,6 +32,10 @@
 
   &--invert {
     color: @nav-link-invert;
+  }
+
+  @media (max-width: @tablet-width) {
+    white-space: normal;
   }
 }
 
