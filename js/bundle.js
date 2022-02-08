@@ -145,6 +145,36 @@ const saveProjectId = () => {
 
 /***/ }),
 
+/***/ "./source/scripts/scroll-indicator.js":
+/*!********************************************!*\
+  !*** ./source/scripts/scroll-indicator.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "srollIndicator": function() { return /* binding */ srollIndicator; }
+/* harmony export */ });
+const srollIndicator = () => {
+  const bar = document.querySelector('.sroll-indicator__bar');
+
+  const myFunction = () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = winScroll / height * 100;
+    bar.style.height = scrolled + "%";
+    console.log(scrolled);
+  };
+
+  window.onscroll = function () {
+    myFunction();
+  };
+};
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/show-big-piture.js":
 /*!*******************************************!*\
   !*** ./source/scripts/show-big-piture.js ***!
@@ -518,6 +548,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
 /* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
 /* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
+/* harmony import */ var _scroll_indicator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scroll-indicator */ "./source/scripts/scroll-indicator.js");
+
 
 
 
@@ -532,6 +564,7 @@ if (document.location.pathname === '/index.html' || document.location.pathname =
 window.addEventListener('DOMContentLoaded', () => {
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
+    (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_6__.srollIndicator)();
 
     if (window.innerWidth <= 900) {
       (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
