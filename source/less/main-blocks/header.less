@@ -6,6 +6,7 @@
 
   &--invert {
     background-color: @standart-white;
+    position: sticky;
   }
 }
 
@@ -17,6 +18,7 @@
   padding: @basic-side-padding;
 
   @media (max-width: @tablet-width) {
+    grid-template-columns: 1fr min-content;
     padding: 0 @basic-side-padding;
   }
 
@@ -28,15 +30,24 @@
   text-transform: uppercase;
   color: @standart-white;
   white-space: nowrap;
+  z-index: 1;
+  transition: all .3s ease;
 
   &--invert {
     color: @nav-link-invert;
   }
+
+  &--menu {
+    color: @nav-link-invert;
+    transition: all .3s ease;
+  }
+
+  @media (max-width: @tablet-width) {
+    white-space: normal;
+  }
 }
 
 .header__menu-button {
-  // width: 50px;
-  // height: 50px;
   width: min-content;
   height: min-content;
   border: none;
