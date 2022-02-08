@@ -30,9 +30,16 @@
   text-transform: uppercase;
   color: @standart-white;
   white-space: nowrap;
+  z-index: 1;
+  transition: all .3s ease;
 
   &--invert {
     color: @nav-link-invert;
+  }
+
+  &--menu {
+    color: @nav-link-invert;
+    transition: all .3s ease;
   }
 
   @media (max-width: @tablet-width) {
