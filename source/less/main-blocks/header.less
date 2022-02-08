@@ -34,11 +34,11 @@
   transition: all .3s ease;
 
   &--invert {
-    color: @nav-link-invert;
+    color: @standart-text-color;
   }
 
   &--menu {
-    color: @nav-link-invert;
+    color: @standart-text-color;
     transition: all .3s ease;
   }
 
@@ -97,13 +97,13 @@
   }
 
   &--open .nav__link {
-    color: @nav-link-invert;
-    font-weight: normal ;
+    color: @standart-text-color;
+    font-weight: normal;
 
     &:hover,
     &:focus {
       &::after {
-        background-color: @nav-link-invert;
+        background-color: @standart-text-color;
       }
     }
   }
@@ -143,6 +143,7 @@
 
   color: 	@standart-white;
   text-decoration: none;
+  text-transform: capitalize;
   font-weight: bold;
   font-size: 18px;
   opacity: 0.7;
@@ -168,13 +169,13 @@
   }
 
   &--invert {
-    color: @nav-link-invert;
+    color: @standart-text-color;
     font-weight: normal;
 
     &:hover,
     &:focus {
       &::after {
-        background-color: @nav-link-invert;
+        background-color: @standart-text-color;
       }
     }
   }
