@@ -156,14 +156,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "srollIndicator": function() { return /* binding */ srollIndicator; }
 /* harmony export */ });
 const srollIndicator = () => {
+  const srollIndicator = document.querySelector('.scroll-indicator');
   const bar = document.querySelector('.sroll-indicator__bar');
+  srollIndicator.classList.add('scroll-indicator--active');
 
   const myFunction = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = winScroll / height * 100;
     bar.style.height = scrolled + "%";
-    console.log(scrolled);
   };
 
   window.onscroll = function () {
@@ -556,18 +557,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
-  (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
-}
-
 window.addEventListener('DOMContentLoaded', () => {
+  if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
+    (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
+  }
+
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
-    (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_6__.srollIndicator)();
 
     if (window.innerWidth <= 900) {
       (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
+      (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_6__.srollIndicator)();
     }
   }
 
