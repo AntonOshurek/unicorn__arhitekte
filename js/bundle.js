@@ -22,6 +22,41 @@ const getAllProjects = () => fetch('data.json').then(response => {
 
 /***/ }),
 
+/***/ "./source/scripts/back-to-projects.js":
+/*!********************************************!*\
+  !*** ./source/scripts/back-to-projects.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "backToProjets": function() { return /* binding */ backToProjets; }
+/* harmony export */ });
+const backToProjets = () => {
+  const projects = document.querySelector('.projects');
+
+  if (localStorage.getItem('scrollPosition')) {
+    document.documentElement.scrollTop = localStorage.getItem('scrollPosition');
+    localStorage.removeItem('scrollPosition');
+  } else {
+    document.documentElement.scrollTop = 0;
+  }
+
+  let scrollPosition;
+
+  const savePosition = () => {
+    scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+    localStorage.setItem('scrollPosition', scrollPosition);
+    projects.removeEventListener('click', savePosition);
+  };
+
+  projects.addEventListener('click', savePosition);
+};
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/mobile-menu.js":
 /*!***************************************!*\
   !*** ./source/scripts/mobile-menu.js ***!
@@ -75,10 +110,10 @@ const mobileMenu = () => {
 
 /***/ }),
 
-/***/ "./source/scripts/project-foused-item.js":
-/*!***********************************************!*\
-  !*** ./source/scripts/project-foused-item.js ***!
-  \***********************************************/
+/***/ "./source/scripts/project-focused-item.js":
+/*!************************************************!*\
+  !*** ./source/scripts/project-focused-item.js ***!
+  \************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -135,10 +170,14 @@ __webpack_require__.r(__webpack_exports__);
 const saveProjectId = () => {
   const projects = document.querySelector('.projects');
   let dataID;
-  projects.addEventListener('click', evt => {
+
+  const saveID = evt => {
     dataID = evt.target.parentElement.parentElement.getAttribute('data-item-id');
     localStorage.setItem('dataID', dataID - 1);
-  });
+    projects.removeEventListener('click', saveID);
+  };
+
+  projects.addEventListener('click', saveID);
 };
 
 
@@ -251,9 +290,9 @@ const showCurrentProjects = () => {
     showInfo(projectData);
   });
 
-  function showImages(projectData) {
+  function showImages(data) {
     const fragment = new DocumentFragment();
-    projectData.images.forEach(image => {
+    data.images.forEach(image => {
       const templateItem = pitureTemplate.content.cloneNode(true);
       templateItem.querySelector('.project__image').src = image;
       fragment.append(templateItem);
@@ -264,7 +303,7 @@ const showCurrentProjects = () => {
   function showInfo(data) {
     infoText.textContent = data.description;
     headerTitle.textContent = data.name;
-    document.title = `Projekt ${data.name}`;
+    document.title = data.name;
     const fragment = new DocumentFragment();
     data.dataList.forEach(item => {
       const templateItem = dataListItemTemplate.content.cloneNode(true);
@@ -545,11 +584,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
-/* harmony import */ var _project_foused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-foused-item */ "./source/scripts/project-foused-item.js");
+/* harmony import */ var _project_focused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-focused-item */ "./source/scripts/project-focused-item.js");
 /* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
 /* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
 /* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
 /* harmony import */ var _scroll_indicator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scroll-indicator */ "./source/scripts/scroll-indicator.js");
+/* harmony import */ var _back_to_projects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./back-to-projects */ "./source/scripts/back-to-projects.js");
+
 
 
 
@@ -564,9 +605,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
     (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
+    (0,_back_to_projects__WEBPACK_IMPORTED_MODULE_7__.backToProjets)();
 
     if (window.innerWidth <= 900) {
-      (0,_project_foused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
+      (0,_project_focused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
       (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_6__.srollIndicator)();
     }
   }
