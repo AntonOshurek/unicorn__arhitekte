@@ -11,7 +11,7 @@ const backToProjets = () => {
   let scrollPosition;
 
   const savePosition = () => {
-    scrollPosition = document.documentElement.scrollTop;
+    scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
     localStorage.setItem('scrollPosition', scrollPosition);
 
     projects.removeEventListener('click', savePosition);
