@@ -1,12 +1,12 @@
 .projects {
   display: grid;
-  list-style: none;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  list-style: none;
   padding: 0 @basic-side-padding;
 
   @media (max-width: @desctope-width) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 0;
   }
 
   @media (max-width: @tablet-width) {
@@ -29,7 +29,6 @@
 
   &:hover .projects__subtitle,
   &:focus .projects__subtitle,
-  &--scrolled .projects__subtitle,
   &--scrolled .projects__subtitle {
     transition: .3s all ease-in;
     opacity: 1;
