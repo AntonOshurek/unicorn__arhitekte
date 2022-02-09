@@ -16,16 +16,41 @@
   flex-wrap: wrap;
 }
 
-.project__gallery-title {
+.project-header {
   width: 100%;
   flex-grow: 2;
+}
 
+.project-header__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 @basic-side-padding;
+}
+
+.project-header__back-link {
+  background-color: transparent;
+  border: none;
+  color: @standart-text-color;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase;
+  opacity: .7;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.project-header__title {
   text-align: start;
   font-size: 24px;
   color: @standart-black;
   font-weight: bold;
   text-transform: capitalize;
-  padding: 0 0 20px 20px;
+  // padding: 0 0 20px 20px;
 }
 
 .project__image {
