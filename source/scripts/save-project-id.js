@@ -3,10 +3,15 @@ const saveProjectId = () => {
 
   let dataID;
 
-  projects.addEventListener('click', (evt) => {
+  const saveID = (evt) => {
     dataID = evt.target.parentElement.parentElement.getAttribute('data-item-id');
     localStorage.setItem('dataID', dataID - 1);
-  })
+
+    projects.removeEventListener('click', saveID);
+
+  };
+
+  projects.addEventListener('click', saveID);
 
 }
 

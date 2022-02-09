@@ -20,10 +20,10 @@ const showCurrentProjects = () => {
     showInfo(projectData);
   })
 
-  function showImages(projectData) {
+  function showImages(data) {
     const fragment = new DocumentFragment();
 
-    projectData.images.forEach((image) => {
+    data.images.forEach((image) => {
       const templateItem = pitureTemplate.content.cloneNode(true);
 
       templateItem.querySelector('.project__image').src = image;
@@ -37,7 +37,7 @@ const showCurrentProjects = () => {
   function showInfo(data) {
     infoText.textContent = data.description;
     headerTitle.textContent = data.name;
-    document.title = `Projekt ${data.name}`;
+    document.title = data.name;
 
     const fragment = new DocumentFragment();
 
@@ -51,7 +51,6 @@ const showCurrentProjects = () => {
 
     dataList.append(fragment)
   }
-
 }
 
 export { showCurrentProjects };
