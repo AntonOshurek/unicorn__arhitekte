@@ -61,6 +61,51 @@ const backToProjets = () => {
 
 /***/ }),
 
+/***/ "./source/scripts/colored-item.js":
+/*!****************************************!*\
+  !*** ./source/scripts/colored-item.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "coloredItem": function() { return /* binding */ coloredItem; }
+/* harmony export */ });
+const coloredItem = (itemName, dataAttribute, activeClass) => {
+  const isScrolledIntoView = elem => {
+    const rect = elem.getBoundingClientRect();
+    const elemTop = rect.top;
+    const elemBottom = rect.bottom;
+    const isVisible = elemTop < window.innerHeight / 2 && Math.sign(elemTop) != -1 || elemBottom > window.innerHeight / 2 && elemBottom < window.innerHeight;
+    return isVisible;
+  };
+
+  const allPersonItems = document.querySelectorAll(itemName);
+  const itemArr = [...allPersonItems];
+
+  const addActiveClassForVisibleElem = () => {
+    let coloredItems = [];
+    itemArr.forEach(item => {
+      if (isScrolledIntoView(item)) {
+        coloredItems.push(item);
+      }
+
+      item.classList.remove(activeClass);
+    });
+    coloredItems.forEach(item => {
+      item.classList.add(activeClass);
+    });
+    coloredItems = [];
+  };
+
+  addActiveClassForVisibleElem();
+  window.addEventListener('scroll', addActiveClassForVisibleElem);
+};
+
+
+
+/***/ }),
+
 /***/ "./source/scripts/mobile-menu.js":
 /*!***************************************!*\
   !*** ./source/scripts/mobile-menu.js ***!
@@ -134,53 +179,6 @@ const showAlert = message => {
   templateItem.querySelector('.error-message__info').textContent = message;
   fragment.append(templateItem);
   body.append(fragment);
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/project-focused-item.js":
-/*!************************************************!*\
-  !*** ./source/scripts/project-focused-item.js ***!
-  \************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "projectFocusedItem": function() { return /* binding */ projectFocusedItem; }
-/* harmony export */ });
-const projectFocusedItem = () => {
-  const isScrolledIntoView = elem => {
-    const rect = elem.getBoundingClientRect();
-    const elemTop = rect.top;
-    const elemBottom = rect.bottom;
-    const isVisible = elemTop < window.innerHeight / 2 && Math.sign(elemTop) != -1 || elemBottom > window.innerHeight / 2 && elemBottom < window.innerHeight;
-    return isVisible;
-  };
-
-  const allProjetItems = document.querySelectorAll('.projects__card');
-  const itemArr = [...allProjetItems];
-
-  const markCurrentMenuItem = () => {
-    itemArr.forEach(item => {
-      let itemNumber;
-
-      if (isScrolledIntoView(item)) {
-        itemNumber = item.getAttribute('data-item-id');
-        allProjetItems.forEach(item => {
-          item.classList.remove('projects__card--scrolled');
-
-          if (item.getAttribute('data-item-id') === itemNumber) {
-            item.classList.add('projects__card--scrolled');
-          }
-        });
-      }
-    });
-  };
-
-  markCurrentMenuItem();
-  window.addEventListener('scroll', markCurrentMenuItem);
 };
 
 
@@ -653,12 +651,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
-/* harmony import */ var _project_focused_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-focused-item */ "./source/scripts/project-focused-item.js");
-/* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
-/* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
-/* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
-/* harmony import */ var _scroll_indicator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scroll-indicator */ "./source/scripts/scroll-indicator.js");
-/* harmony import */ var _back_to_projects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./back-to-projects */ "./source/scripts/back-to-projects.js");
+/* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
+/* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
+/* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
+/* harmony import */ var _scroll_indicator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scroll-indicator */ "./source/scripts/scroll-indicator.js");
+/* harmony import */ var _back_to_projects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./back-to-projects */ "./source/scripts/back-to-projects.js");
+/* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
 
 
 
@@ -673,18 +671,25 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
-    (0,_save_project_id__WEBPACK_IMPORTED_MODULE_4__.saveProjectId)();
-    (0,_back_to_projects__WEBPACK_IMPORTED_MODULE_7__.backToProjets)();
+    (0,_save_project_id__WEBPACK_IMPORTED_MODULE_3__.saveProjectId)();
+    (0,_back_to_projects__WEBPACK_IMPORTED_MODULE_6__.backToProjets)();
 
     if (window.innerWidth <= 900) {
-      (0,_project_focused_item__WEBPACK_IMPORTED_MODULE_2__.projectFocusedItem)();
-      (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_6__.srollIndicator)();
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_7__.coloredItem)('.projects__card', 'data-item-id', 'projects__card--scrolled'); // itemName, dataAttribute , activeClass
+
+      (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_5__.srollIndicator)();
     }
   }
 
   if (document.location.pathname === '/current-project.html' || document.location.pathname === '/unicorn__arhitekte/current-project.html') {
-    (0,_show_current_project__WEBPACK_IMPORTED_MODULE_5__.showCurrentProjects)();
-    (0,_show_big_piture__WEBPACK_IMPORTED_MODULE_3__.showBigPicture)();
+    (0,_show_current_project__WEBPACK_IMPORTED_MODULE_4__.showCurrentProjects)();
+    (0,_show_big_piture__WEBPACK_IMPORTED_MODULE_2__.showBigPicture)();
+  }
+
+  if (document.location.pathname === '/our-office.html' || document.location.pathname === '/unicorn__arhitekte/our-office.html') {
+    if (window.innerWidth <= 900) {
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_7__.coloredItem)('.our-team__item', 'data-item-id', 'our-team__item--colored'); // itemName, dataAttribute , activeClass
+    }
   }
 
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
