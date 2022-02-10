@@ -11,15 +11,16 @@ const infoText =  document.querySelector('.project__info-text');
 const headerTitle = document.querySelector('.header__title');
 
 const showCurrentProjects = () => {
-  let projectData;
-  const dataID = localStorage.getItem('dataID');
+  let dataID = localStorage.getItem('dataID');
+
+  if(dataID === '' || !dataID) {
+    dataID = 0;
+  }
 
   getAllProjects().then((data) => {
-    projectData = data.data[dataID];
-
     removeDataTemplates();
-    showImages(projectData);
-    showInfo(projectData);
+    showImages(data.data[dataID]);
+    showInfo(data.data[dataID]);
   }).catch((err) => {
     showAlert(`błąd pobierania danych - ${err}`);
     logMyErrors(err);
