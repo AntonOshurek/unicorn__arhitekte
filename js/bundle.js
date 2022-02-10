@@ -12,10 +12,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getAllProjects": function() { return /* binding */ getAllProjects; }
 /* harmony export */ });
-const getAllProjects = () => fetch('data.json').then(response => {
+const GET_DATA_SOURCE = 'data.json';
+
+const getAllProjects = () => fetch(GET_DATA_SOURCE).then(response => {
   if (response.ok) {
     return response.json();
   }
+
+  throw new Error(`${response.status} ${response.statusText}`);
 });
 
 
@@ -104,6 +108,32 @@ const mobileMenu = () => {
   }
 
   mobileButton.addEventListener('click', toogleMobileMenu);
+};
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/notifications.js":
+/*!*****************************************!*\
+  !*** ./source/scripts/notifications.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showAlert": function() { return /* binding */ showAlert; }
+/* harmony export */ });
+const ALERT_SHOW_TIME = 5000; //alert modal
+
+const showAlert = message => {
+  const body = document.querySelector('.body');
+  const errorTemplate = document.querySelector('#error-message');
+  const fragment = new DocumentFragment();
+  const templateItem = errorTemplate.content.cloneNode(true);
+  templateItem.querySelector('.error-message__info').textContent = message;
+  fragment.append(templateItem);
+  body.append(fragment);
 };
 
 
@@ -297,6 +327,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "showCurrentProjects": function() { return /* binding */ showCurrentProjects; }
 /* harmony export */ });
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ "./source/scripts/api.js");
+/* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./notifications */ "./source/scripts/notifications.js");
+
 
 const projectGallery = document.querySelector('.project__gallery');
 const pitureTemplate = document.querySelector('#project__image');
@@ -306,13 +338,26 @@ const infoText = document.querySelector('.project__info-text');
 const headerTitle = document.querySelector('.header__title');
 
 const showCurrentProjects = () => {
-  let projectData;
-  const dataID = localStorage.getItem('dataID');
+  let dataID = localStorage.getItem('dataID');
+
+  if (dataID === '' || !dataID) {
+    dataID = 0;
+  }
+
   (0,_api__WEBPACK_IMPORTED_MODULE_0__.getAllProjects)().then(data => {
-    projectData = data.data[dataID];
-    showImages(projectData);
-    showInfo(projectData);
+    removeDataTemplates();
+    showImages(data.data[dataID]);
+    showInfo(data.data[dataID]);
+  }).catch(err => {
+    (0,_notifications__WEBPACK_IMPORTED_MODULE_1__.showAlert)(`błąd pobierania danych - ${err}`);
+    logMyErrors(err);
   });
+
+  function removeDataTemplates() {
+    document.querySelectorAll('.data-list__item').forEach(item => {
+      item.remove();
+    });
+  }
 
   function showImages(data) {
     const fragment = new DocumentFragment();
