@@ -5,30 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Biuro</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- font-family: 'Open Sans', sans-serif; -->
-
-  <title>current project</title>
 
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body class="body">
   <header class="header header--invert">
     <div class="header__wrap container">
-      <h1 class="header__title header__title--invert">project ...</h1>
+      <h1 class="header__title header__title--invert">Biuro</h1>
       <button class="header__menu-button" type="button">
         <svg class="ham hamRotate ham7" aria-hidden="true" focusable="false" viewBox="0 0 100 100" width="80">
           <path
-                class="line top"
-                d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
+            class="line top"
+            d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
           <path
-                class="line middle"
-                d="m 70,50 h -40" />
+            class="line middle"
+            d="m 70,50 h -40" />
           <path
-                class="line bottom"
-                d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
+            class="line bottom"
+            d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
         </svg>
       </button>
       <nav class="nav">
@@ -40,7 +40,7 @@
             <a class="nav__link nav__link--invert" href="projects.html">projekty</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--invert" href="our-office.html">biuro</a>
+            <a class="nav__link nav__link--invert nav__link--current" href="about-us.html">biuro</a>
           </li>
           <li class="nav__item">
             <a class="nav__link nav__link--invert" href="contacts.html">kontakty</a>
@@ -49,52 +49,54 @@
       </nav>
     </div>
   </header>
-
-  <main class="main">
-    <div class="project">
-      <section class="project__gallery">
-        <div class="project-header">
-          <div class="container project-header__wrap">
-            <a class="project-header__back-link" href="projects.html">powrót do projektów</a>
-            <h2 class="project-header__title">galeria zdjęć projektu</h2>
-          </div>
-        </div>
-
-        <!-- <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__2.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt=""> -->
-      </section>
-      <section class="project__info container">
-        <h2 class="project__info-title">informacja o projekcie</h2>
-        <ul class="data-list">
-          <li class="data-list__item">
-            Typologia -
+  <main class="main our-office">
+    <section class="about-us">
+      <div class="about-us__wrap container">
+        <h2 class="our-office__title">o naszej firmie</h2>
+        <p class="about-us__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nemo eveniet quod! Tempora quos cum, tenetur non accusantium illum esse fuga voluptatibus nulla animi dolor excepturi atque aspernatur! Inventore officiis quo aut dolorem eum beatae dolor sequi provident iure eveniet!</p>
+        <p class="about-us__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus error eum distinctio? Asperiores, laborum dicta omnis qui vero, nostrum quisquam nulla quod non facilis sequi perferendis aperiam explicabo tempore dolorem!</p>
+        <p class="about-us__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ab eius saepe non explicabo sunt amet repellat sequi, expedita pariatur molestiae voluptatum vitae accusantium itaque beatae, porro asperiores ullam nisi, iste incidunt rem suscipit repellendus adipisci eaque. Omnis sit nesciunt doloribus quam maiores nulla porro eveniet animi, ipsa minus ea.</p>
+        <p class="about-us__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit consequatur eum expedita magni dolorem culpa laudantium reprehenderit at autem explicabo placeat eveniet itaque aspernatur, blanditiis aliquid delectus temporibus accusamus nemo.</p>
+      </div>
+    </section>
+    <section class="our-team">
+      <div class="our-team__wrap container">
+        <h2 class="our-office__title">Zespół / Zarząd</h2>
+        <ul class="our-team__list">
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Aimee Garcia.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Lokalizacja -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/D.B. Woodside.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Rok -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Dennis Haysbert.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Status -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Inbar Lavi.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Powierzchnia -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Kevin Alejandro.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Pojemność -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Lauren German.jpg" alt="person">
           </li>
-          <li class="data-list__item">
-            Klient -
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Lesley-Ann Brandt.jpg" alt="person">
+          </li>
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Rachael Harris.jpg" alt="person">
+          </li>
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Tom Ellis.jpg" alt="person">
+          </li>
+          <li class="our-team__item">
+            <img class="our-team__image" width="200" height="300" src="./img/persons/Tom Welling.jpg" alt="person">
           </li>
         </ul>
-        <p class="project__info-text"></p>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
-
   <footer class="footer">
     <div class="footer__wrap container">
       <ul class="social-list">
@@ -134,40 +136,6 @@
       </p>
     </div>
   </footer>
-
-  <div class="modal">
-    <button class="modal__close-btn" type="button">
-      <span class="visually-hidden">zamknij obrazek</span>
-      <svg class="modal__close-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-        <path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/>
-        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59
-        8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/>
-      </svg>
-    </button>
-    <img class="modal__picture" src="/img/main-slider/slider__2.jpg" alt="">
-  </div>
-
-  <template id="project__image">
-    <figure class="test">
-      <img class="project__image" src="" width="200" height="200" alt="">
-    </figure>
-  </template>
-
-  <template id="data-list__item">
-    <li class="data-list__item"></li>
-  </template>
-
-  <template id="error-message">
-    <div class="error-message">
-      <p class="error-message__text">błąd pobierania danych</p>
-      <p class="error-message__info">error text</p>
-      <a class="error-message__link" href="projects.html">powrót do projektów</a>
-    </div>
-  </template>
-
-  <!-- <script>
-    history.pushState({questionID: '555'}, null, null);
-  </script> -->
   <script src="js/bundle.js"></script>
 </body>
 </html>
