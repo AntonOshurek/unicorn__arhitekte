@@ -1,4 +1,5 @@
 import { getAllProjects } from './api';
+import { showAlert } from './notifications';
 
 const projectGallery = document.querySelector('.project__gallery');
 const pitureTemplate = document.querySelector('#project__image');
@@ -10,15 +11,26 @@ const infoText =  document.querySelector('.project__info-text');
 const headerTitle = document.querySelector('.header__title');
 
 const showCurrentProjects = () => {
-  let projectData;
-  const dataID = localStorage.getItem('dataID');
+  let dataID = localStorage.getItem('dataID');
+
+  if(dataID === '' || !dataID) {
+    dataID = 0;
+  }
 
   getAllProjects().then((data) => {
-    projectData = data.data[dataID];
+    removeDataTemplates();
+    showImages(data.data[dataID]);
+    showInfo(data.data[dataID]);
+  }).catch((err) => {
+    showAlert(`błąd pobierania danych - ${err}`);
+    logMyErrors(err);
+  });
 
-    showImages(projectData);
-    showInfo(projectData);
-  })
+  function removeDataTemplates() {
+    document.querySelectorAll('.data-list__item').forEach((item) => {
+      item.remove();
+    })
+  }
 
   function showImages(data) {
     const fragment = new DocumentFragment();
@@ -48,6 +60,7 @@ const showCurrentProjects = () => {
 
       fragment.append(templateItem);
     })
+
 
     dataList.append(fragment)
   }
