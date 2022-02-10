@@ -1,0 +1,45 @@
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: @standart-white;
+  padding: 50px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, min-content);
+  grid-row-gap: 20px;
+
+  border-radius: 20px;
+  box-shadow:  31px 31px 61px #666666,
+  -31px -31px 61px #ffffff;
+}
+
+.error-message__text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.error-message__info {
+  text-align: center;
+  font-weight: normal;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.error-message__link {
+  color: @standart-text-color;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: lowercase;
+  opacity: .7;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

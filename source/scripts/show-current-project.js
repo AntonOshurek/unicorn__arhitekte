@@ -17,12 +17,19 @@ const showCurrentProjects = () => {
   getAllProjects().then((data) => {
     projectData = data.data[dataID];
 
+    removeDataTemplates();
     showImages(projectData);
     showInfo(projectData);
   }).catch((err) => {
-    showAlert(`get data error - ${err}`);
+    showAlert(`błąd pobierania danych - ${err}`);
     logMyErrors(err);
   });
+
+  function removeDataTemplates() {
+    document.querySelectorAll('.data-list__item').forEach((item) => {
+      item.remove();
+    })
+  }
 
   function showImages(data) {
     const fragment = new DocumentFragment();
@@ -52,6 +59,7 @@ const showCurrentProjects = () => {
 
       fragment.append(templateItem);
     })
+
 
     dataList.append(fragment)
   }
