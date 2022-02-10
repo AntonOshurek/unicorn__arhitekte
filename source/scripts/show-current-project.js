@@ -1,4 +1,5 @@
 import { getAllProjects } from './api';
+import { showAlert } from './notifications';
 
 const projectGallery = document.querySelector('.project__gallery');
 const pitureTemplate = document.querySelector('#project__image');
@@ -18,7 +19,10 @@ const showCurrentProjects = () => {
 
     showImages(projectData);
     showInfo(projectData);
-  })
+  }).catch((err) => {
+    showAlert(`get data error - ${err}`);
+    logMyErrors(err);
+  });
 
   function showImages(data) {
     const fragment = new DocumentFragment();
