@@ -138,7 +138,7 @@ const mobileMenu = () => {
     navigation.classList.add('nav--open');
     body.classList.add('body--menu-open');
     mobileBtnIcon.classList.add('active');
-    headerTitle.classList.add('header__title--menu');
+    headerTitle.classList.add('header__title--menu-open');
     menuStatus = true;
     body.addEventListener('click', onBackgroundClick);
   }
@@ -147,7 +147,7 @@ const mobileMenu = () => {
     navigation.classList.remove('nav--open');
     body.classList.remove('body--menu-open');
     mobileBtnIcon.classList.remove('active');
-    headerTitle.classList.remove('header__title--menu');
+    headerTitle.classList.remove('header__title--menu-open');
     menuStatus = false;
     body.removeEventListener('click', onBackgroundClick);
   }
