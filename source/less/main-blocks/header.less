@@ -2,18 +2,22 @@
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: @header-index;
+  background-color: @standart-background-color;
 
-  &--invert {
-    background-color: @standart-white;
+  &--no-bg {
+    background-color: transparent;
+  }
+
+  &--sticky {
     position: sticky;
   }
 }
 
 .header__wrap {
-  display: grid;
-  grid-template-columns: min-content 1fr;
   position: relative;
+  display: grid;
+  grid-template-columns: max-content 1fr;
   align-items: center;
   padding: @basic-side-padding;
 
@@ -21,35 +25,31 @@
     grid-template-columns: 1fr min-content;
     padding: 0 @basic-side-padding;
   }
-
 }
 
 .header__title {
-  font-size: 20px;
-  font-weight: normal;
+  z-index: @header-title-index;
+
+  font-family: @basic-font;
+  font-size: @header-title-font-size;
+  font-weight: @header-title-font-weight;
+  color: @standart-text-color;
   text-transform: uppercase;
-  color: @standart-white;
-  white-space: nowrap;
-  z-index: 1;
   transition: all .3s ease;
 
-  &--invert {
-    color: @standart-text-color;
+  &--index-page {
+    color: @standart-white;
   }
 
-  &--menu {
+  &--menu-open { // in index.html change color when mobile menu is open
     color: @standart-text-color;
     transition: all .3s ease;
-  }
-
-  @media (max-width: @tablet-width) {
-    white-space: normal;
   }
 }
 
 .header__menu-button {
-  width: min-content;
-  height: min-content;
+  width: @header-mobile-btn-size;
+  height: @header-mobile-btn-size;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -57,11 +57,11 @@
   display: none;
 
   @media (max-width: @tablet-width) {
+    z-index: @header-menu-btn-index;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-self: end;
-    z-index: 1;
   }
 }
 
@@ -86,11 +86,11 @@
     width: 100%;
     transition: all 0.5s ease;
     justify-content: center;
-    background-color: @standart-white;
+    background-color: @standart-background-color;
   }
 
   &--open .nav__list {
-    padding: 80px @basic-side-padding;
+    padding: @header-mobile-btn-size @basic-side-padding;
     pointer-events: all;
     opacity: 1;
     transition: all 0.5s ease;
@@ -98,13 +98,9 @@
 
   &--open .nav__link {
     color: @standart-text-color;
-    font-weight: normal;
 
-    &:hover,
-    &:focus {
-      &::after {
-        background-color: @standart-text-color;
-      }
+    &::after {
+      background-color: @standart-text-color;
     }
   }
 }
@@ -141,13 +137,31 @@
   padding: 8px 0;
   position: relative;
 
-  color: 	@standart-white;
+  font-family: @basic-font;
+  color: @standart-text-color;
+  font-weight: @header-link-font-weight;
+  font-size: @header-link-font-size;
+
   text-decoration: none;
   text-transform: capitalize;
-  font-weight: bold;
-  font-size: 18px;
+  user-select: none;
+
   opacity: 0.7;
   transition: .2s all ease-in;
+
+  &::after { // for active and focused links
+    display: none;
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: @standart-text-color;
+    transition: .2s all ease-in;
+    border-radius: 20%;
+  }
 
   &:hover,
   &:focus {
@@ -155,80 +169,30 @@
     transition: .2s all ease-in;
 
     &::after {
-      position: absolute;
-      content: '';
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 1px;
-      background-color: @standart-white;
-      transition: .2s all ease-in;
-      border-radius: 20%;
+      display: block;
     }
   }
 
-  &--invert {
-    color: @standart-text-color;
-    font-weight: normal;
+  &--index-page {
+    color: @standart-white;
 
-    &:hover,
-    &:focus {
-      &::after {
-        background-color: @standart-text-color;
-      }
+    &::after {
+      background-color: @standart-white;
     }
   }
 
   &--current {
     opacity: 1;
     pointer-events: none;
+
+    &::after {
+      display: block;
+    }
   }
 
   @media (max-width: @tablet-width) {
     width: 100%;
-    font-size: 22px;
+    font-size: @header-link-tablet-font-size;
     text-align: center;
   }
-}
-
-//for animate mobile button
-
-.ham {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.hamRotate.active {
-  transform: rotate(45deg);
-}
-.line {
-  fill:none;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke:#000;
-  stroke-width:5.5;
-  stroke-linecap:round;
-}
-.ham7 .top {
-  stroke-dasharray: 40 82;
-}
-.ham7 .middle {
-  stroke-dasharray: 40 111;
-}
-.ham7 .bottom {
-  stroke-dasharray: 40 161;
-}
-.ham7.active .top {
-  stroke-dasharray: 17 82;
-  stroke-dashoffset: -62px;
-}
-.ham7.active .middle {
-  stroke-dashoffset: 23px;
-}
-.ham7.active .bottom {
-  stroke-dashoffset: -83px;
 }

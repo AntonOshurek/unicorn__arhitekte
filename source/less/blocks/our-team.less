@@ -1,0 +1,82 @@
+.our-team {
+}
+
+.our-team__wrap {
+  padding: 0 @basic-side-padding;
+}
+
+.our-team__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.our-team__item {
+  width: @team-item-width;
+  height: @team-item-height;
+  cursor: pointer;
+  position: relative;
+
+  &:hover .our-team__image,
+  &:focus .our-team__image {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+
+  &--colored .our-team__image{
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0)
+  }
+}
+
+.our-team__image {
+  width: @team-item-width;
+  height: @team-item-height;
+
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.our-team__prson-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: min-content;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.our-team__person-name {
+  font-family: @basic-font;
+  font-size: @team-person-name-font-size;
+  font-weight: @team-person-name-font-weight;
+  color: @standart-light-text-color;
+}
+
+.our-team__person-position {
+  font-family: @basic-font;
+  font-size: @team-person-position-font-size;
+  font-weight: @team-person-position-font-weight;
+  color: @standart-light-text-color;
+}
+
+.our-team__email {
+  font-family: @basic-font;
+  color: @standart-light-text-color;
+  font-size: @team-person-position-font-size;
+  font-weight: @team-person-position-font-weight;
+  opacity: 0.8;
+  transition: all .2s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

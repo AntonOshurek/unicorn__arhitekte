@@ -1,36 +1,48 @@
-.map {
+.contacts__map {
   width: 100%;
-  height: 500px;
+  height: @contacts-map-height;
+  display: flex;
+
+  @media (max-width: @tablet-width) {
+    height: @contacts-tablet-map-height
+  }
 }
 
 .contacts {
-  padding: 80px @basic-side-padding;
+  width: 100%;
+}
+
+.contacts__wrap {
+  padding: @contacts-top-bottom-padding @basic-side-padding;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .contacts__city {
-  font-size: 20px;
-  font-weight: normal;
-  color: @standart-black;
+  font-family: @basic-font;
+  font-size: @contacts-city-text-size;
+  font-weight: @contacts-basic-font-weight;
+  color: @standart-text-color;
 }
 
 .contacts__address {
-  font-size: 18px;
-  font-weight: normal;
-  color: @standart-black;
+  font-family: @basic-font;
+  font-size: @contacts-basic-text-size;
+  font-weight: @contacts-basic-font-weight;
+  color: @standart-text-color;
 }
 
 .contacts__tel {
-  font-size: 18px;
-  font-weight: normal;
-  color: @standart-text-color;
+  font-family: @basic-font;
+  font-size: @contacts-basic-text-size;
+  font-weight: @contacts-basic-font-weight;
+  color: @standart-before-hover-text-color;
   opacity: .8;
 
   &:hover,
   &:focus {
-    color: @standart-black;
+    color: @standart-text-color;
     opacity: 1;
   }
 }
