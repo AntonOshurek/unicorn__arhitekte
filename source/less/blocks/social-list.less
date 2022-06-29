@@ -1,0 +1,117 @@
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-list__item {
+
+}
+
+.social-list__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: @social-link-size;
+  height: @social-link-size;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover,
+  &:focus {
+    color: @standart-white;
+
+    .social-list__social-name {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -150%);
+    }
+  }
+
+  &:active {
+    box-shadow: 0px 1px 3px rgba(0, 0, 2px, 0.5) inset;
+  }
+
+  &--instagram {
+    background: @social-instagram-color;
+    color: @standart-white;
+
+    & .social-list__social-name {
+      background: @social-instagram-color;
+      color: currentColor;
+
+      &:after {
+        border-top-color: @social-instagram-color;
+      }
+    }
+  }
+  &--facebook {
+    background: @social-facebook-color;
+    color: @standart-white;
+
+    & .social-list__social-name {
+      background: @social-facebook-color;
+      color: currentColor;
+
+      &:after {
+        border-top-color: @social-facebook-color;
+      }
+    }
+  }
+  &--email {
+    background: @social-email-color;
+    color: @standart-white;
+
+    & .social-list__social-name {
+      background: @social-email-color;
+      color: currentColor;
+
+      &:after {
+        border-top-color: @social-email-color;
+      }
+    }
+  }
+}
+
+.social-list__social-name {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 10px 12px;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, -100%);
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  font-family: @basic-font;
+  font-size: @social-font-size;
+  font-weight: @social-font-weight;
+  white-space: nowrap;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+  }
+}
+
+.social-list__icon {
+  width: @sosial-icon-size;
+  height: @sosial-icon-size;
+  fill: @standart-white;
+}
