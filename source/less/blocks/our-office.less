@@ -4,26 +4,24 @@
   grid-template-rows: 300px min-content min-content;
   grid-row-gap: 30px;
   padding-bottom: 40px;
+  background-color: @standart-background-color;
 }
 
 .our-office__banner {
   width: 100%;
 }
 
-.our-office__all-persons {
+.our-office__banner-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.about-us {
+.our-office__about {
   width: 100%;
-  background-color: @standart-white;
 }
 
-.about-us__wrap {
-  width: 100%;
-  height: 100%;
+.our-office__about-wrap {
   padding: 0 @basic-side-padding;
 
   display: grid;
@@ -33,100 +31,18 @@
 }
 
 .our-office__title {
-  font-size: 22px;
-  font-weight: bold;
+  font-family: @basic-font;
+  font-size: @office-title-font-size;
+  font-weight: @office-title-font-weight;
+  color: @standart-text-color;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  color: @standart-black;
   padding: 20px 0;
 }
 
-.about-us__text {
-  font-size: 20px;
-  font-weight: normal;
-  text-transform: none;
-  font-family: 'Open Sans', sans-serif;
+.our-office__about-text {
+  font-family: @basic-font;
+  font-size: @office-text-font-size;
+  font-weight: @office-text-font-weight;
   color: @standart-text-color;
-}
-
-.our-team {
-  width: 100%;
-  background-color: @standart-white;
-}
-
-.our-team__wrap {
-  width: 100%;
-  height: 100%;
-  padding: 0 @basic-side-padding;
-}
-
-.our-team__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
-
-  @media (max-width:750px) {
-
-  }
-}
-
-.our-team__item {
-  width: 200px;
-  height: 300px;
-  cursor: pointer;
-  position: relative;
-
-  &:hover .our-team__image,
-  &:focus .our-team__image {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
-
-  &--colored .our-team__image{
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0)
-  }
-}
-
-.our-team__image {
-  width: 200px;
-  height: 300px;
-
-  -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-
-.our-team__prson-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: min-content;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, .3);
-}
-
-.our-team__person-name {
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
-  color: @standart-white;
-}
-
-.our-team__person-position {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: 'Open Sans', sans-serif;
-  color: @standart-white;
-}
-
-.our-team__email {
-  color: @standart-white;
-  font-size: 16px;
+  text-transform: none;
 }
