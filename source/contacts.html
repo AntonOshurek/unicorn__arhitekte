@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>contacts</title>
+  <title>Kontakty</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,15 +51,16 @@
   </header>
 
   <main class="main">
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.7561756397445!2d16.911756927868364!3d52.44733148412363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704434459e1d293%3A0x7dac66bc161c6f8c!2sUnicorn%20Pozna%C5%84%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1644325568908!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    <div class="contacts container">
-      <h2 class="contacts__city">Biuro Poznań</h2>
+    <div class="contacts">
+      <iframe class="contacts__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.7561756397445!2d16.911756927868364!3d52.44733148412363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704434459e1d293%3A0x7dac66bc161c6f8c!2sUnicorn%20Pozna%C5%84%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1644325568908!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <div class="contacts__wrap container">
+        <h2 class="contacts__city">Biuro Poznań</h2>
 
-      <address class="contacts__address">
-        Rymarkiewicza 5a, 60-681 Poznań
-      </address>
-      <a class="contacts__tel" href="#">tel. +48 66 666 66 66</a>
-
+        <address class="contacts__address">
+          Rymarkiewicza 5a, 60-681 Poznań
+        </address>
+        <a class="contacts__tel" href="tel:+48666666666">tel. +48 66 666 66 66</a>
+      </div>
     </div>
   </main>
 
@@ -69,7 +70,7 @@
         <li class="social-list__item">
           <a class="social-list__link social-list__link--instagram" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
             <span class="social-list__social-name">instagram</span>
-            <svg class="social-list__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="30">
+            <svg class="social-list__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="30">
               <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7
                74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1
                27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2
@@ -82,7 +83,7 @@
         <li class="social-list__item">
           <a class="social-list__link social-list__link--facebook" href="https://www.facebook.com" target="_blank" rel="noreferrer">
             <span class="social-list__social-name">facebook</span>
-            <svg class="social-list__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="30" height="30">
+            <svg class="social-list__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="30" height="30">
               <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
             </svg>
           </a>
@@ -90,7 +91,7 @@
         <li class="social-list__item">
           <a class="social-list__link social-list__link--email" href="mailto:info@unicorn.com.pl" rel="noreferrer">
             <span class="social-list__social-name">E-Mail</span>
-            <svg class="social-list__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+            <svg class="social-list__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
               <path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48
               64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"/>
             </svg>
