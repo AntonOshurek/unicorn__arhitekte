@@ -4,7 +4,7 @@
   grid-template-rows: min-content 1fr;
   grid-row-gap: 40px;
 
-  padding: 0 0 80px 0;
+  padding: 0 0 20px 0;
 }
 
 .project__gallery {
@@ -16,58 +16,12 @@
   flex-wrap: wrap;
 }
 
-.project-header {
-  width: 100%;
-  flex-grow: 2;
-}
-
-.project-header__wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: @basic-side-padding;
-
-  @media (max-width: @mobile-width) {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-.project-header__back-link {
-  background-color: transparent;
-  border: none;
-  color: @standart-text-color;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: lowercase;
-  opacity: .7;
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-
-  @media (max-width: @mobile-width) {
-    align-self: start;
-    width: min-content;
-  }
-}
-
-.project-header__title {
-  text-align: start;
-  font-size: 24px;
-  color: @standart-black;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.test {
+.project__gallery-item {
   width: 400px;
   height: 300px;
 	margin: 0;
 	padding: 0;
-	background: #fff;
+	background: @standart-background-color;
 	overflow: hidden;
 
   flex-grow: 1;
@@ -87,7 +41,7 @@
   }
 }
 
-.project__image {
+.project__gallery-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -115,41 +69,23 @@
 }
 
 .project__info-title {
-  font-size: 24px;
-  color: @standart-black;
-  font-weight: normal;
+  font-family: @basic-font;
+  font-size: @proj-info-title-font-size;
+  color: @standart-before-hover-text-color;
+  font-weight: @proj-info-title-font-weight;
   text-transform: capitalize;
-  font-weight: bold;
 }
 
-.project__info-text {
-  font-size: 18px;
-  font-weight: normal;
+.project__project-dexcription {
+  font-family: @basic-font;
+  font-size: @proj-desc-font-size;
+  font-weight: @proj-desc-font-weight;
   color: @standart-text-color;
 }
 
-.data-list {
-  width: 100%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px ;
 
-  list-style: none;
 
-}
-.data-list__item {
-  width: 100%;
-  padding: 5px;
-  border-bottom: 1px solid #000;
-
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 18px;
-  font-weight: normal;
-  color: @standart-text-color;
-}
+//--------------------------
 
 .modal {
   position: fixed;

@@ -55,42 +55,101 @@
       <section class="project__gallery">
         <div class="project-header">
           <div class="container project-header__wrap">
-            <a class="project-header__back-link" href="projects.html">powrót do projektów</a>
-            <h2 class="project-header__title">galeria zdjęć projektu</h2>
+            <a class="project-header__back-link" href="../projects.html">powrót do projektów</a>
+            <h2 class="project-header__title">Galeria zdjęć projektu</h2>
           </div>
         </div>
 
-        <!-- <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__2.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt=""> -->
+        <figure class="project__gallery-item">
+          <img class="project__gallery-image" src="../img/main-slider/slider__1.jpg" width="200" height="200" alt="">
+        </figure>
+        <figure class="project__gallery-item">
+          <img class="project__gallery-image" src="../img/main-slider/slider__2.jpg" width="200" height="200" alt="">
+        </figure>
+        <figure class="project__gallery-item">
+          <img class="project__gallery-image" src="../img/main-slider/slider__3.jpg" width="200" height="200" alt="">
+        </figure>
+        <figure class="project__gallery-item">
+          <img class="project__gallery-image" src="../img/main-slider/slider__4.jpg" width="200" height="200" alt="">
+        </figure>
+
       </section>
       <section class="project__info container">
         <h2 class="project__info-title">informacja o projekcie</h2>
-        <ul class="data-list">
-          <li class="data-list__item">
-            Typologia -
-          </li>
-          <li class="data-list__item">
-            Lokalizacja -
-          </li>
-          <li class="data-list__item">
-            Rok -
-          </li>
-          <li class="data-list__item">
-            Status -
-          </li>
-          <li class="data-list__item">
-            Powierzchnia -
-          </li>
-          <li class="data-list__item">
-            Pojemność -
-          </li>
-          <li class="data-list__item">
-            Klient -
-          </li>
-        </ul>
-        <p class="project__info-text"></p>
+
+        <dl class="project-data-list">
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Typologia
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Budynek mieszkalny
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Lokalizacja
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Poznań
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Rok
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              2022
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Status
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Zrealizowany
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Powierzchnia
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              200 m.k.
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Pojemność
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              4000
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Klient
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Unicorn Poznań
+            </dd>
+          </div>
+        </dl>
+
+        <p class="project__project-dexcription">opis projektu</p>
       </section>
     </div>
   </main>
@@ -148,27 +207,6 @@
     <img class="modal__picture" src="/img/main-slider/slider__2.jpg" alt="">
   </div>
 
-  <template id="project__image">
-    <figure class="test">
-      <img class="project__image" src="" width="200" height="200" alt="">
-    </figure>
-  </template>
-
-  <template id="data-list__item">
-    <li class="data-list__item"></li>
-  </template>
-
-  <template id="error-message">
-    <div class="error-message">
-      <p class="error-message__text">błąd pobierania danych</p>
-      <p class="error-message__info">error text</p>
-      <a class="error-message__link" href="projects.html">powrót do projektów</a>
-    </div>
-  </template>
-
-  <!-- <script>
-    history.pushState({questionID: '555'}, null, null);
-  </script> -->
   <script src="../js/bundle.js"></script>
 </body>
 </html>
