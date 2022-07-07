@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- font-family: 'Open Sans', sans-serif; -->
 
-  <title>current project</title>
+  <title>Budynek mieszkalny</title>
 
   <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body class="body">
   <header class="header header--sticky">
     <div class="header__wrap container">
-      <h1 class="header__title">project ...</h1>
+      <h1 class="header__title">UNIORN ARHITEKTE</h1>
       <button class="header__menu-button" type="button">
         <svg class="ham hamRotate ham7" aria-hidden="true" focusable="false" viewBox="0 0 100 100" width="80">
           <path
@@ -55,23 +55,24 @@
       <section class="project__gallery">
         <div class="project-header">
           <div class="container project-header__wrap">
-            <a class="project-header__back-link" href="../projects.html">powrót do projektów</a>
-            <h2 class="project-header__title">Galeria zdjęć projektu</h2>
+            <a class="project-header__back-link" href="../projects.html">
+              <span class="visually-hidden">powrót do wszystkich projektów</span>
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" height="40" width="40">
+                <path d="m15 29-9-9 9-9 1 1-6 7h22v-7h3v9H10l6 7Z"/>
+              </svg>
+            </a>
+            <h2 class="project-header__title">Budynek mieszkalny wielorodzinny w (miasto)</h2>
           </div>
         </div>
 
-        <figure class="project__gallery-item">
-          <img class="project__gallery-image" src="../img/main-slider/slider__1.jpg" width="200" height="200" alt="">
-        </figure>
-        <figure class="project__gallery-item">
-          <img class="project__gallery-image" src="../img/main-slider/slider__2.jpg" width="200" height="200" alt="">
-        </figure>
-        <figure class="project__gallery-item">
-          <img class="project__gallery-image" src="../img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        </figure>
-        <figure class="project__gallery-item">
-          <img class="project__gallery-image" src="../img/main-slider/slider__4.jpg" width="200" height="200" alt="">
-        </figure>
+        <div class="project__gallery-wrap">
+          <figure class="project__gallery-item">
+            <img class="project__gallery-image" src="../img/projects/project_101/project-101-1.jpg" width="200" height="200" alt="">
+          </figure>
+          <figure class="project__gallery-item">
+            <img class="project__gallery-image" src="../img/projects/project_101/project-101-2.jpg" width="200" height="200" alt="">
+          </figure>
+        </div>
 
       </section>
       <section class="project__info container">
@@ -149,7 +150,15 @@
           </div>
         </dl>
 
-        <p class="project__project-dexcription">opis projektu</p>
+        <p class="project__project-dexcription">Ten wspaniały 8-piętrowy budynek składa się z kilku części.
+          Architektura budynku charakteryzuje się głębokimi tarasami na górze, co robi dom eleganckim i nie
+          wyróżnia go spośród niższych domów przy ulicach. Parter i pierwsze piętro będą obejmowali lokale
+          usługowe z ciągów pieszych w narożniku zbiegających się ulic. Wszystkie pozostałe piętra zostali
+          przeznaczona na mieszkania o różnych układach. Każde mieszkanie ma kilka panoramicznych okien, z
+          których rozciąga się piękny widok na miasto. A rozmiar okien gwarantuje dostęp światła dziennego
+          do każdego mieszkania. Wreszcie, dzięki dobrej izolacji akustycznej hałas z ulicy nie będzie w
+          żaden sposób przenikał do mieszkania.
+        </p>
       </section>
     </div>
   </main>

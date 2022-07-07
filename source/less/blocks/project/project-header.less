@@ -6,7 +6,9 @@
 .project-header__wrap {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 10px;
   padding: @basic-side-padding;
 
   @media (max-width: @mobile-width) {
@@ -16,10 +18,8 @@
 }
 
 .project-header__back-link {
-  font-family: @basic-font;
-  font-size: @proj-header-backlink-font-size;
-  font-weight: @proj-header-backlink-font-weight;
-  color: @standart-text-color;
+  height: 40px;
+  width: 40px;
 
   background-color: transparent;
   border: none;
@@ -43,5 +43,4 @@
   font-size: @proj-header-title-font-size;
   color: @standart-text-color;
   font-weight: @proj-header-title-font-weight;
-  text-transform: capitalize;
 }
