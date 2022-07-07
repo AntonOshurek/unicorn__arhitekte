@@ -1,7 +1,7 @@
 .project-slider {
 	position: relative;
 	width: 100%;
-  height: 700px;
+  height: min-content;
 	overflow: hidden;
 
   display: flex;
@@ -15,29 +15,36 @@
 	width: 100%;
 	height: 500px;
 	list-style: none;
+
+  @media (max-width: @tablet-width) {
+    height: 400px;
+  }
 }
 
 .project-slider__slide {
 	width: 100%;
 	height: 500px;
 	position: absolute;
-	z-index: 1;
 	overflow: hidden;
   background-color: @standart-background-color;
 
   &--active {
-    z-index: 2;
+    z-index: 1;
     -webkit-animation: slide 1s 1;
   }
 
   &:not(.project-slider__slide--active) {
     -webkit-animation: hidden 1s 1;
   }
+
+  @media (max-width: @tablet-width) {
+    height: 400px;
+  }
 }
 
 .project-slider__image {
 	width: 100%;
-	height: 500px;
+	height: 100%;
   object-fit: contain;
 }
 
@@ -51,12 +58,33 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+
+  @media (max-width: @tablet-width) {
+    height: 120px;
+  }
 }
 
 .project-slider__thumbnails-item {
   width: min-content;
   height: 100%;
+
+  @media (max-width: @tablet-width) {
+    width: 100px;
+  }
 }
+
+.project-slider__thumbnails-preview {
+  width: min-content;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 3px;
+
+  @media (max-width: @tablet-width) {
+    width: 100px;
+    object-fit: cover;
+  }
+}
+
 .project-slider__thumbnails-button {
   position: relative;
   height: 100%;
@@ -94,13 +122,6 @@
 	100% {
 		background-position: 0% 50%;
 	}
-}
-
-.project-slider__thumbnails-preview {
-  width: min-content;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 3px;
 }
 
 
