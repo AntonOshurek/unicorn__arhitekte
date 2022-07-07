@@ -100,47 +100,6 @@ const mobileMenu = () => {
 
 /***/ }),
 
-/***/ "./source/scripts/project-slider.js":
-/*!******************************************!*\
-  !*** ./source/scripts/project-slider.js ***!
-  \******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "projectSlider": function() { return /* binding */ projectSlider; }
-/* harmony export */ });
-let projectSlider = function () {
-  const thumbnails = document.querySelectorAll('.project-slider__thumbnails-button');
-  const allSlides = document.querySelectorAll('.project-slider__slide');
-  let slideName; // for firs launch
-
-  selectSlideContent(thumbnails[0].getAttribute('data-slide-name'));
-  thumbnails[0].classList.add('project-slider__thumbnails-button--active');
-  thumbnails.forEach(item => {
-    item.addEventListener('click', selectSlide);
-  });
-
-  function selectSlide() {
-    thumbnails.forEach(item => {
-      item.classList.remove('project-slider__thumbnails-button--active');
-    });
-    this.classList.add('project-slider__thumbnails-button--active');
-    slideName = this.getAttribute('data-slide-name');
-    selectSlideContent(slideName);
-  }
-
-  function selectSlideContent(slideName) {
-    allSlides.forEach(item => {
-      item.getAttribute('data-slide-name') === slideName ? item.classList.add('project-slider__slide--active') : item.classList.remove('project-slider__slide--active');
-    });
-  }
-};
-
-
-
-/***/ }),
-
 /***/ "./source/scripts/slider-full.js":
 /*!***************************************!*\
   !*** ./source/scripts/slider-full.js ***!
@@ -408,9 +367,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
 /* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
-/* harmony import */ var _project_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project-slider */ "./source/scripts/project-slider.js");
-
- // import { showBigPicture } from './show-big-piture';
 
 
 
@@ -431,7 +387,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  (0,_project_slider__WEBPACK_IMPORTED_MODULE_3__.projectSlider)();
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
 });
 }();
