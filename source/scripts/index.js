@@ -1,8 +1,6 @@
 import { sliderFull } from './slider-full';
 import { mobileMenu } from './mobile-menu';
-// import { showBigPicture } from './show-big-piture';
 import { coloredItem } from './colored-item';
-import { projectSlider } from './project-slider';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -24,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  projectSlider();
 
   mobileMenu();
 

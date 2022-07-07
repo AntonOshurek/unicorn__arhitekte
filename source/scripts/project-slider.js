@@ -30,4 +30,4 @@ let projectSlider = function () {
 
 };
 
-export { projectSlider }
+projectSlider();
