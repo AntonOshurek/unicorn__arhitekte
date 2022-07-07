@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- font-family: 'Open Sans', sans-serif; -->
 
-  <title>current project</title>
+  <title>Budynek mieszkalny</title>
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body class="body">
   <header class="header header--sticky">
     <div class="header__wrap container">
-      <h1 class="header__title">project ...</h1>
+      <h1 class="header__title">UNIORN ARHITEKTE</h1>
       <button class="header__menu-button" type="button">
         <svg class="ham hamRotate ham7" aria-hidden="true" focusable="false" viewBox="0 0 100 100" width="80">
           <path
@@ -34,16 +34,16 @@
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" href="index.html">Strona główna</a>
+            <a class="nav__link" href="../index.html">Strona główna</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="projects.html">projekty</a>
+            <a class="nav__link" href="../projects.html">projekty</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="our-office.html">biuro</a>
+            <a class="nav__link" href="../our-office.html">biuro</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="contacts.html">kontakty</a>
+            <a class="nav__link" href="../contacts.html">kontakty</a>
           </li>
         </ul>
       </nav>
@@ -55,42 +55,130 @@
       <section class="project__gallery">
         <div class="project-header">
           <div class="container project-header__wrap">
-            <a class="project-header__back-link" href="projects.html">powrót do projektów</a>
-            <h2 class="project-header__title">galeria zdjęć projektu</h2>
+            <a class="project-header__back-link" href="../projects.html">
+              <span class="visually-hidden">powrót do wszystkich projektów</span>
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" height="40" width="40">
+                <path d="m15 29-9-9 9-9 1 1-6 7h22v-7h3v9H10l6 7Z"/>
+              </svg>
+            </a>
+            <h2 class="project-header__title">Budynek mieszkalny wielorodzinny w (miasto)</h2>
           </div>
         </div>
 
-        <!-- <img class="project__image project__image--big" src="./img/main-slider/slider__1.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__2.jpg" width="200" height="200" alt="">
-        <img class="project__image" src="./img/main-slider/slider__3.jpg" width="200" height="200" alt="">
-        <img class="project__image project__image--big" src="./img/main-slider/slider__4.jpg" width="200" height="200" alt=""> -->
+        <div class="project-slider">
+
+          <ul class="project-slider__slides">
+            <li class="project-slider__slide" data-slide-name="slide-1">
+              <img class="project-slider__image" src="../img/projects/project_101/project-101-1.jpg" alt=""/>
+            </li>
+            <li class="project-slider__slide" data-slide-name="slide-2">
+              <img class="project-slider__image" src="../img/projects/project_101/project-101-2.jpg" alt=""/>
+            </li>
+
+          </ul>
+
+          <ul class="project-slider__thumbnails">
+
+            <li class="project-slider__thumbnails-item">
+              <button class="project-slider__thumbnails-button" data-slide-name="slide-1">
+                <img class="project-slider__thumbnails-preview" src="../img/projects/project_101/project-101-1.jpg" />
+              </button>
+            </li>
+            <li class="project-slider__thumbnails-item">
+              <button class="project-slider__thumbnails-button" data-slide-name="slide-2">
+                <img class="project-slider__thumbnails-preview" src="../img/projects/project_101/project-101-2.jpg" />
+              </button>
+            </li>
+
+          </ul>
+
+        </div>
+
       </section>
       <section class="project__info container">
         <h2 class="project__info-title">informacja o projekcie</h2>
-        <ul class="data-list">
-          <li class="data-list__item">
-            Typologia -
-          </li>
-          <li class="data-list__item">
-            Lokalizacja -
-          </li>
-          <li class="data-list__item">
-            Rok -
-          </li>
-          <li class="data-list__item">
-            Status -
-          </li>
-          <li class="data-list__item">
-            Powierzchnia -
-          </li>
-          <li class="data-list__item">
-            Pojemność -
-          </li>
-          <li class="data-list__item">
-            Klient -
-          </li>
-        </ul>
-        <p class="project__info-text"></p>
+
+        <dl class="project-data-list">
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Typologia
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Budynek mieszkalny
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Lokalizacja
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Poznań
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Rok
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              2022
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Status
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Zrealizowany
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Powierzchnia
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              200 m.k.
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Pojemność
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              4000
+            </dd>
+          </div>
+
+          <div class="project-data-list__item">
+            <dt class="project-data-list__title">
+              Klient
+            </dt>
+            <span class="project-data-list__separator">—</span>
+            <dd class="project-data-list__description">
+              Unicorn Poznań
+            </dd>
+          </div>
+        </dl>
+
+        <p class="project__project-dexcription">Ten wspaniały 8-piętrowy budynek składa się z kilku części.
+          Architektura budynku charakteryzuje się głębokimi tarasami na górze, co robi dom eleganckim i nie
+          wyróżnia go spośród niższych domów przy ulicach. Parter i pierwsze piętro będą obejmowali lokale
+          usługowe z ciągów pieszych w narożniku zbiegających się ulic. Wszystkie pozostałe piętra zostali
+          przeznaczona na mieszkania o różnych układach. Każde mieszkanie ma kilka panoramicznych okien, z
+          których rozciąga się piękny widok na miasto. A rozmiar okien gwarantuje dostęp światła dziennego
+          do każdego mieszkania. Wreszcie, dzięki dobrej izolacji akustycznej hałas z ulicy nie będzie w
+          żaden sposób przenikał do mieszkania.
+        </p>
       </section>
     </div>
   </main>
@@ -136,7 +224,7 @@
     </div>
   </footer>
 
-  <div class="modal">
+  <!-- <div class="modal">
     <button class="modal__close-btn" type="button">
       <span class="visually-hidden">zamknij obrazek</span>
       <svg class="modal__close-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
@@ -146,29 +234,8 @@
       </svg>
     </button>
     <img class="modal__picture" src="/img/main-slider/slider__2.jpg" alt="">
-  </div>
+  </div> -->
 
-  <template id="project__image">
-    <figure class="test">
-      <img class="project__image" src="" width="200" height="200" alt="">
-    </figure>
-  </template>
-
-  <template id="data-list__item">
-    <li class="data-list__item"></li>
-  </template>
-
-  <template id="error-message">
-    <div class="error-message">
-      <p class="error-message__text">błąd pobierania danych</p>
-      <p class="error-message__info">error text</p>
-      <a class="error-message__link" href="projects.html">powrót do projektów</a>
-    </div>
-  </template>
-
-  <!-- <script>
-    history.pushState({questionID: '555'}, null, null);
-  </script> -->
-  <script src="js/bundle.js"></script>
+  <script src="../js/bundle.js"></script>
 </body>
 </html>

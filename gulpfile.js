@@ -32,7 +32,7 @@ exports.styles = styles;
 
 //HTML
 const html = () => {
-  return gulp.src('source/*.html')
+  return gulp.src('source/**/*.html')
   .pipe(htmlmin({ collapseWhitespace: true }))
   .pipe(gulp.dest('build'));
 };
@@ -103,7 +103,6 @@ const copy = (done) => {
     "source/img/**/*.svg",
     "source/img/**/*.webp",
     "!source/img/icons/*.svg",
-    "source/data.json",
   ], {
     base: "source"
   })
@@ -141,7 +140,7 @@ const reload = (done) => {
 const watcher = () => {
   gulp.watch("source/less/**/*.less", gulp.series(styles));
   gulp.watch("source/scripts/**/*.js", gulp.series(script));
-  gulp.watch("source/*.html", gulp.series(html, reload));
+  gulp.watch("source/**/*.html", gulp.series(html, reload));
 }
 
 // Build
