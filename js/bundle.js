@@ -2,65 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./source/scripts/api.js":
-/*!*******************************!*\
-  !*** ./source/scripts/api.js ***!
-  \*******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getAllProjects": function() { return /* binding */ getAllProjects; }
-/* harmony export */ });
-const GET_DATA_SOURCE = 'data.json';
-
-const getAllProjects = () => fetch(GET_DATA_SOURCE).then(response => {
-  if (response.ok) {
-    return response.json();
-  }
-
-  throw new Error(`${response.status} ${response.statusText}`);
-});
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/back-to-projects.js":
-/*!********************************************!*\
-  !*** ./source/scripts/back-to-projects.js ***!
-  \********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "backToProjets": function() { return /* binding */ backToProjets; }
-/* harmony export */ });
-const backToProjets = () => {
-  const projects = document.querySelector('.projects');
-
-  if (localStorage.getItem('scrollPosition')) {
-    document.documentElement.scrollTop = localStorage.getItem('scrollPosition');
-    localStorage.removeItem('scrollPosition');
-  } else {
-    document.documentElement.scrollTop = 0;
-  }
-
-  let scrollPosition;
-
-  const savePosition = () => {
-    scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
-    localStorage.setItem('scrollPosition', scrollPosition);
-    projects.removeEventListener('click', savePosition);
-  };
-
-  projects.addEventListener('click', savePosition);
-};
-
-
-
-/***/ }),
-
 /***/ "./source/scripts/colored-item.js":
 /*!****************************************!*\
   !*** ./source/scripts/colored-item.js ***!
@@ -159,225 +100,40 @@ const mobileMenu = () => {
 
 /***/ }),
 
-/***/ "./source/scripts/notifications.js":
-/*!*****************************************!*\
-  !*** ./source/scripts/notifications.js ***!
-  \*****************************************/
+/***/ "./source/scripts/project-slider.js":
+/*!******************************************!*\
+  !*** ./source/scripts/project-slider.js ***!
+  \******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "showAlert": function() { return /* binding */ showAlert; }
+/* harmony export */   "projectSlider": function() { return /* binding */ projectSlider; }
 /* harmony export */ });
-const ALERT_SHOW_TIME = 5000; //alert modal
+let projectSlider = function () {
+  const thumbnails = document.querySelectorAll('.project-slider__thumbnails-button');
+  const allSlides = document.querySelectorAll('.project-slider__slide');
+  let slideName; // for firs launch
 
-const showAlert = message => {
-  const body = document.querySelector('.body');
-  const errorTemplate = document.querySelector('#error-message');
-  const fragment = new DocumentFragment();
-  const templateItem = errorTemplate.content.cloneNode(true);
-  templateItem.querySelector('.error-message__info').textContent = message;
-  fragment.append(templateItem);
-  body.append(fragment);
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/save-project-id.js":
-/*!*******************************************!*\
-  !*** ./source/scripts/save-project-id.js ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "saveProjectId": function() { return /* binding */ saveProjectId; }
-/* harmony export */ });
-const saveProjectId = () => {
-  const projects = document.querySelector('.projects');
-  let dataID;
-
-  const saveID = evt => {
-    dataID = evt.target.parentElement.parentElement.getAttribute('data-item-id');
-    localStorage.setItem('dataID', dataID - 1);
-    projects.removeEventListener('click', saveID);
-  };
-
-  projects.addEventListener('click', saveID);
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/scroll-indicator.js":
-/*!********************************************!*\
-  !*** ./source/scripts/scroll-indicator.js ***!
-  \********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "srollIndicator": function() { return /* binding */ srollIndicator; }
-/* harmony export */ });
-const srollIndicator = () => {
-  const srollIndicator = document.querySelector('.scroll-indicator');
-  const bar = document.querySelector('.sroll-indicator__bar');
-  srollIndicator.classList.add('scroll-indicator--active');
-
-  const myFunction = () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = winScroll / height * 100;
-    bar.style.height = scrolled + "%";
-  };
-
-  window.onscroll = function () {
-    myFunction();
-  };
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/show-big-piture.js":
-/*!*******************************************!*\
-  !*** ./source/scripts/show-big-piture.js ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "showBigPicture": function() { return /* binding */ showBigPicture; }
-/* harmony export */ });
-const showBigPicture = () => {
-  const modal = document.querySelector('.modal');
-  const closeModalButton = document.querySelector('.modal__close-btn');
-  const modalImage = document.querySelector('.modal__picture');
-  const gallery = document.querySelector('.project__gallery');
-  const body = document.querySelector('.body');
-  gallery.addEventListener('click', evt => {
-    if (evt.target.classList.contains('project__image')) {
-      let imageSourcce = evt.target.src;
-      openModal(imageSourcce);
-    }
+  selectSlideContent(thumbnails[0].getAttribute('data-slide-name'));
+  thumbnails[0].classList.add('project-slider__thumbnails-button--active');
+  thumbnails.forEach(item => {
+    item.addEventListener('click', selectSlide);
   });
 
-  const onBackgroundClick = evt => {
-    if (evt.target.parentElement.tagName === 'HTML') {
-      closeModal();
-    }
-  };
-
-  const onModalEscKeydown = evt => {
-    if (evt.key === 'Escape') {
-      evt.preventDefault();
-      closeModal();
-    }
-  }; // const windowBackBlock = () => {
-  //   window.onpopstate = (evt) => {
-  //     evt.preventDefault();
-  //     console.log('sdf ' + evt);
-  //     closeModal();
-  //     history.go(0);
-  //   };
-  // }
-
-
-  function openModal(imageSourcce) {
-    modal.classList.add('modal--open');
-    modalImage.src = imageSourcce;
-    body.classList.add('body--modal-open');
-    body.addEventListener('click', onBackgroundClick);
-    closeModalButton.addEventListener('click', closeModal);
-    document.addEventListener('keydown', onModalEscKeydown); // windowBackBlock();
-  }
-
-  ;
-
-  function closeModal() {
-    modal.classList.remove('modal--open');
-    modalImage.src = '';
-    body.classList.remove('body--modal-open');
-    body.removeEventListener('click', onBackgroundClick);
-    closeModalButton.removeEventListener('click', closeModal);
-    document.removeEventListener('keydown', onModalEscKeydown);
-  }
-
-  ;
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/show-current-project.js":
-/*!************************************************!*\
-  !*** ./source/scripts/show-current-project.js ***!
-  \************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "showCurrentProjects": function() { return /* binding */ showCurrentProjects; }
-/* harmony export */ });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ "./source/scripts/api.js");
-/* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./notifications */ "./source/scripts/notifications.js");
-
-
-const projectGallery = document.querySelector('.project__gallery');
-const pitureTemplate = document.querySelector('#project__image');
-const dataList = document.querySelector('.data-list');
-const dataListItemTemplate = document.querySelector('#data-list__item');
-const infoText = document.querySelector('.project__info-text');
-const headerTitle = document.querySelector('.header__title');
-
-const showCurrentProjects = () => {
-  let dataID = localStorage.getItem('dataID');
-
-  if (dataID === '' || !dataID) {
-    dataID = 0;
-  }
-
-  (0,_api__WEBPACK_IMPORTED_MODULE_0__.getAllProjects)().then(data => {
-    removeDataTemplates();
-    showImages(data.data[dataID]);
-    showInfo(data.data[dataID]);
-  }).catch(err => {
-    (0,_notifications__WEBPACK_IMPORTED_MODULE_1__.showAlert)(`błąd pobierania danych - ${err}`);
-    logMyErrors(err);
-  });
-
-  function removeDataTemplates() {
-    document.querySelectorAll('.data-list__item').forEach(item => {
-      item.remove();
+  function selectSlide() {
+    thumbnails.forEach(item => {
+      item.classList.remove('project-slider__thumbnails-button--active');
     });
+    this.classList.add('project-slider__thumbnails-button--active');
+    slideName = this.getAttribute('data-slide-name');
+    selectSlideContent(slideName);
   }
 
-  function showImages(data) {
-    const fragment = new DocumentFragment();
-    data.images.forEach(image => {
-      const templateItem = pitureTemplate.content.cloneNode(true);
-      templateItem.querySelector('.project__image').src = image;
-      fragment.append(templateItem);
+  function selectSlideContent(slideName) {
+    allSlides.forEach(item => {
+      item.getAttribute('data-slide-name') === slideName ? item.classList.add('project-slider__slide--active') : item.classList.remove('project-slider__slide--active');
     });
-    projectGallery.append(fragment);
-  }
-
-  function showInfo(data) {
-    infoText.textContent = data.description;
-    headerTitle.textContent = data.name;
-    document.title = data.name;
-    const fragment = new DocumentFragment();
-    data.dataList.forEach(item => {
-      const templateItem = dataListItemTemplate.content.cloneNode(true);
-      templateItem.querySelector('.data-list__item').textContent = item;
-      fragment.append(templateItem);
-    });
-    dataList.append(fragment);
   }
 };
 
@@ -651,17 +407,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
 /* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
-/* harmony import */ var _show_big_piture__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./show-big-piture */ "./source/scripts/show-big-piture.js");
-/* harmony import */ var _save_project_id__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save-project-id */ "./source/scripts/save-project-id.js");
-/* harmony import */ var _show_current_project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show-current-project */ "./source/scripts/show-current-project.js");
-/* harmony import */ var _scroll_indicator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scroll-indicator */ "./source/scripts/scroll-indicator.js");
-/* harmony import */ var _back_to_projects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./back-to-projects */ "./source/scripts/back-to-projects.js");
-/* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
+/* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
+/* harmony import */ var _project_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project-slider */ "./source/scripts/project-slider.js");
 
-
-
-
-
+ // import { showBigPicture } from './show-big-piture';
 
 
 
@@ -671,27 +420,18 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
-    (0,_save_project_id__WEBPACK_IMPORTED_MODULE_3__.saveProjectId)();
-    (0,_back_to_projects__WEBPACK_IMPORTED_MODULE_6__.backToProjets)();
-
     if (window.innerWidth <= 900) {
-      (0,_colored_item__WEBPACK_IMPORTED_MODULE_7__.coloredItem)('.projects__card', 'data-item-id', 'projects__card--scrolled'); // itemName, dataAttribute , activeClass
-
-      (0,_scroll_indicator__WEBPACK_IMPORTED_MODULE_5__.srollIndicator)();
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_2__.coloredItem)('.projects__card', 'data-item-id', 'projects__card--scrolled'); // itemName, dataAttribute , activeClass
     }
-  }
-
-  if (document.location.pathname === '/current-project.html' || document.location.pathname === '/unicorn__arhitekte/current-project.html') {
-    (0,_show_current_project__WEBPACK_IMPORTED_MODULE_4__.showCurrentProjects)();
-    (0,_show_big_piture__WEBPACK_IMPORTED_MODULE_2__.showBigPicture)();
   }
 
   if (document.location.pathname === '/our-office.html' || document.location.pathname === '/unicorn__arhitekte/our-office.html') {
     if (window.innerWidth <= 900) {
-      (0,_colored_item__WEBPACK_IMPORTED_MODULE_7__.coloredItem)('.our-team__item', 'data-item-id', 'our-team__item--colored'); // itemName, dataAttribute , activeClass
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_2__.coloredItem)('.our-team__item', 'data-item-id', 'our-team__item--colored'); // itemName, dataAttribute , activeClass
     }
   }
 
+  (0,_project_slider__WEBPACK_IMPORTED_MODULE_3__.projectSlider)();
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
 });
 }();
