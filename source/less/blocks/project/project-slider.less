@@ -12,7 +12,7 @@
 
   /* width */
   ::-webkit-scrollbar {
-    height: 4px;
+    height: 5px;
   }
 
   /* Track */
@@ -23,8 +23,8 @@
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #90A4AE;
-    border-radius: 6px;
-    height: 4px;
+    border-radius: 8px;
+    height: 5px;
   }
 
   /* Handle on hover */
@@ -73,19 +73,26 @@
 
 .project-slider__thumbnails {
   height: 200px;
-  max-width: 95vw;
-  overflow-Y: auto;
-  padding: 5px 0;
+  max-width: 97vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  // padding: 5px 0;
 	list-style: none;
 
+  @media (max-width: @tablet-width) {
+    height: 120px;
+  }
+}
+
+.project-slider__thumbnails-wrap {
+  padding: 8px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 
-  @media (max-width: @tablet-width) {
-    height: 120px;
-  }
+  width: min-content;
+  height: 200px;
 }
 
 .project-slider__thumbnails-item {
