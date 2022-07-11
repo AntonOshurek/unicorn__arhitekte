@@ -50,6 +50,7 @@
 	position: absolute;
 	overflow: hidden;
   background-color: @standart-background-color;
+  padding: 0 10px;
 
   &--active {
     z-index: 1;
@@ -80,12 +81,12 @@
 	list-style: none;
 
   @media (max-width: @tablet-width) {
-    height: 120px;
+    height: 140px;
   }
 }
 
 .project-slider__thumbnails-wrap {
-  padding: 8px 5px;
+  padding: 10px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,14 +94,20 @@
 
   width: min-content;
   height: 200px;
+
+  @media (max-width: @tablet-width) {
+    height: 140px;
+  }
 }
 
 .project-slider__thumbnails-item {
   width: min-content;
-  height: 100%;
+  height: 200px;
+  padding: 10px 0;
 
   @media (max-width: @tablet-width) {
     width: 100px;
+    height: 140px;
   }
 }
 
@@ -118,7 +125,7 @@
 
 .project-slider__thumbnails-button {
   position: relative;
-  height: 100%;
+  height: 180px;
   width: min-content;
   background-color: transparent;
   border: none;
@@ -127,6 +134,10 @@
 
   --borderWidth: 2px;
   border-radius: var(--borderWidth);
+
+  @media (max-width: @tablet-width) {
+    height: 120px;
+  }
 
   &--active::before {
     content: '';
