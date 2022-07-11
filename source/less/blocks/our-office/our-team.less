@@ -17,7 +17,7 @@
 .our-team__item {
   width: @team-item-width;
   height: @team-item-height;
-  cursor: pointer;
+  cursor: help;
   position: relative;
 
   &:hover .our-team__image,
@@ -32,18 +32,9 @@
   }
 }
 
-.our-team__image {
-  width: @team-item-width;
-  height: @team-item-height;
-
-  -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-
 .our-team__prson-info {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   left: 0;
   right: 0;
@@ -51,6 +42,7 @@
   height: min-content;
   padding: 10px;
   background-color: rgba(0, 0, 0, .3);
+  cursor: default;
 }
 
 .our-team__person-name {
@@ -79,4 +71,70 @@
   &:focus {
     opacity: 1;
   }
+}
+
+.our-team__image {
+  width: @team-item-width;
+  height: @team-item-height;
+
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+
+  &:active {
+    & ~ .our-team__prson-additional-info {
+      opacity: 1;
+      pointer-events: all;
+
+      & ~ .our-team__prson-additional-wraper {
+        opacity: 1;
+        transition: all .4s ease;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.our-team__prson-additional-info {
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 10px;
+  transition: all .3s ease;
+
+  &:hover {
+    transition: all .3s ease;
+    opacity: 1;
+    pointer-events: all;
+
+    & .our-team__prson-additional-wraper {
+      transition: all .4s ease;
+      opacity: 1;
+      height: 100%;
+    }
+  }
+}
+
+.our-team__prson-additional-wraper {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(255, 255, 255, .9);
+  transition: all .4s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
