@@ -1,6 +1,7 @@
 .project-slider {
 	position: relative;
 	width: 100%;
+  max-width: 100%;
   height: min-content;
 	overflow: hidden;
 
@@ -8,6 +9,28 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+
+  /* width */
+  ::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #CFD8DC;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #90A4AE;
+    border-radius: 6px;
+    height: 4px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #90A2e4;
+  }
 }
 
 .project-slider__slides {
@@ -50,7 +73,8 @@
 
 .project-slider__thumbnails {
   height: 200px;
-  width: 100%;
+  max-width: 95vw;
+  overflow-Y: auto;
   padding: 5px 0;
 	list-style: none;
 
