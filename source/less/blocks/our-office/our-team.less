@@ -20,6 +20,8 @@
   cursor: help;
   position: relative;
 
+  transition: all .2s ease;
+
   &:hover .our-team__image,
   &:focus .our-team__image {
     -webkit-filter: grayscale(0);
@@ -29,6 +31,23 @@
   &--colored .our-team__image{
     -webkit-filter: grayscale(0);
     filter: grayscale(0)
+  }
+
+  --borderWidth: 2px;
+  border-radius: var(--borderWidth);
+
+  &:hover::before,
+  &--colored::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
   }
 }
 
@@ -43,6 +62,7 @@
   padding: 10px;
   background-color: rgba(0, 0, 0, .3);
   cursor: default;
+  border-radius: var(--borderWidth);
 }
 
 .our-team__person-name {
@@ -76,6 +96,7 @@
 .our-team__image {
   width: @team-item-width;
   height: @team-item-height;
+  border-radius: var(--borderWidth);
 
   -webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
@@ -130,7 +151,7 @@
   left: 0;
   width: 100%;
   height: 0;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255, .95);
   transition: all .4s ease;
 
   display: flex;
