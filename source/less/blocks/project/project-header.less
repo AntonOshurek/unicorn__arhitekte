@@ -4,17 +4,12 @@
 }
 
 .project-header__wrap {
+  height: min-content;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
   padding: @basic-side-padding;
-
-  @media (max-width: @mobile-width) {
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 
 .project-header__back-link {

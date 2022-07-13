@@ -30,6 +30,7 @@
 }
 
 .footer__privacy {
+  position: relative;
   text-transform: capitalize;
   opacity: 0.7;
   transition: all .1s ease;
@@ -45,8 +46,52 @@
 
   &:hover,
   &:focus {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40'%3E%3Cpath d='m10 33-2-1v-7h2v5h20v-5h3v5l-1 2h-2Zm10-7-7-7 1-1 5 4V7h2v15l4-4 2 1Z' fill='%23527fa6'/%3E%3C/svg%3E")15 15, auto;
+    cursor: pointer;
     color: @standart-black;
     opacity: 1;
+
+    .footer__privacy-name {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -125%);
+    }
   }
+}
+
+.footer__privacy-name {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 10px 12px;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, -100%);
+  transition: all 0.3s ease;
+  z-index: 1;
+  color: @standart-light-text-color;
+
+  font-family: @basic-font;
+  font-size: @social-font-size;
+  font-weight: @social-font-weight;
+  white-space: nowrap;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+    border-top-color: @social-email-color;
+  }
+
+  background: @social-email-color;
 }
