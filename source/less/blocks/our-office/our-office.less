@@ -8,22 +8,41 @@
 }
 
 .our-office__banner {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  background-image: url('../img/persons/persons-all.jpg');
+.our-office__banner-img {
+  width: 100%;
+  height: 100%;
+  background-image: @office-banner-source;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: 50% -350px;
+  background-position: 50% 0;
   background-size: cover;
+  filter: blur(5px);
 }
 
 .our-office__banner-title {
-  font-size: 30px;
-  font-weight: 600;
-  color: @standart-light-text-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: @office-banner-title-font-size;
+  font-weight: @office-title-font-weight;
+  color: @standart-text-color;
+  opacity: 0.6;
+  white-space: nowrap;
+
+  @media (max-width: @tablet-width) {
+    font-size: 34px;
+  }
+  @media (max-width: @mobile-width) {
+    font-size: 30px;
+  }
 }
 
 .our-office__about {
