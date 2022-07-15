@@ -78,7 +78,7 @@ const scriptProjectSlider = () => {
   .pipe(webpack({
     mode: 'development',
     output: {
-      filename: 'project-slider.js'
+      filename: 'project-slider.js',
     },
     watch: false,
     devtool: "source-map",
