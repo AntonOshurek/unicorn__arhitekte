@@ -1,9 +1,11 @@
 
 let projectSlider = function () {
+  const sliderBlock = document.querySelector('.project-slider__slides');
   const thumbnails = document.querySelectorAll('.project-slider__thumbnails-button');
   const allSlides = document.querySelectorAll('.project-slider__slide');
 
   let currentSlide = +thumbnails[0].getAttribute('data-slide-name'); // default value for first launch
+  let slideDirection = 'left';
 
   // for firs launch
   setActiveSlide();
@@ -30,20 +32,20 @@ let projectSlider = function () {
   };
 
   function setActiveSlide() {
-    allSlides.forEach(item => {
+    console.log(slideDirection)
+    console.log(currentSlide)
+    allSlides.forEach((item) => {
+      item.classList.remove('project-slider__slide--active--left');
+      item.classList.remove('project-slider__slide--active--right');
+
       if(+item.getAttribute('data-slide-name') === +currentSlide) {
-        item.classList.add('project-slider__slide--active');
-      } else {
-        item.classList.remove('project-slider__slide--active');
+        item.classList.add(`project-slider__slide--active--${slideDirection}`);
       }
     });
   };
 
 
-
-
   //swips
-  const sliderBlock = document.querySelector('.project-slider__slides');
 
   let touchStart = null; //Точка начала касания
   let touchPosition = null; //Текущая позиция
@@ -86,7 +88,9 @@ let projectSlider = function () {
     if(Math.abs(d.x) > Math.abs(d.y)) { //Проверяем, движение по какой оси было длиннее
       if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
         if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-
+          slideDirection = "right";
+          sliderBlock.classList.add("right");
+          sliderBlock.classList.remove("left");
           if(currentSlide === allSlides.length) {
             currentSlide = thumbnails[0].getAttribute('data-slide-name');
 
@@ -99,7 +103,9 @@ let projectSlider = function () {
         }
 
         else { //Иначе он двигал им слева направо
-
+          slideDirection = "left";
+          sliderBlock.classList.add("left");
+          sliderBlock.classList.remove("right");
           if(currentSlide === 1) {
             currentSlide = allSlides.length;
 
