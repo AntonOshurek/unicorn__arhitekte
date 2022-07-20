@@ -9,6 +9,7 @@ let projectSlider = function () {
 
 
   let slideDirection = 'right';
+  let slideEvent = 'button'; //swipe
 
   // for firs launch
   setActiveSlide();
@@ -19,7 +20,6 @@ let projectSlider = function () {
   });
 
   function setPrevSlide() {
-    console.log(currentSlide + " - current slide")
     if(slideDirection === 'right') {
       if(+currentSlide === 1) {
         prevSlide = thumbnails.length;
@@ -35,10 +35,11 @@ let projectSlider = function () {
         prevSlide = currentSlide + 1;
       }
     }
-    console.log(prevSlide)
 
-    // prevSlide.classList.add('project-slider__slide--hidden-left');
+    hiddenPrevSlide();
+  };
 
+  function hiddenPrevSlide() {
     allSlides.forEach((item) => {
       item.classList.remove('project-slider__slide--hidden--left');
       item.classList.remove('project-slider__slide--hidden--right');
@@ -47,16 +48,20 @@ let projectSlider = function () {
         item.classList.add(`project-slider__slide--hidden--${slideDirection}`);
       }
     });
-    // item.classList.remove('project-slider__slide--active--left');
-    // item.classList.remove('project-slider__slide--active--right');
   }
 
   function selectSlide() {
-    // slideDirection = "right";
+    if(+this.getAttribute('data-slide-name') > currentSlide) {
+      slideDirection = "right";
+    }
+    if(+this.getAttribute('data-slide-name') < currentSlide) {
+      slideDirection = "left";
+    }
 
+    prevSlide = currentSlide;
     currentSlide = +this.getAttribute('data-slide-name');
 
-    setPrevSlide();
+    hiddenPrevSlide();
 
     setActivetButton();
     setActiveSlide();
