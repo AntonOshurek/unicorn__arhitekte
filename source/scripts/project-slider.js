@@ -35,7 +35,6 @@ let projectSlider = function () {
         prevSlide = currentSlide + 1;
       }
     }
-
     hiddenPrevSlide();
   };
 
