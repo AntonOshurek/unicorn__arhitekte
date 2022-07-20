@@ -5,7 +5,10 @@ let projectSlider = function () {
   const allSlides = document.querySelectorAll('.project-slider__slide');
 
   let currentSlide = +thumbnails[0].getAttribute('data-slide-name'); // default value for first launch
-  let slideDirection = 'left';
+  let prevSlide = +thumbnails[thumbnails.length - 1].getAttribute('data-slide-name');
+
+
+  let slideDirection = 'right';
 
   // for firs launch
   setActiveSlide();
@@ -15,8 +18,46 @@ let projectSlider = function () {
     item.addEventListener('click', selectSlide);
   });
 
+  function setPrevSlide() {
+    console.log(currentSlide + " - current slide")
+    if(slideDirection === 'right') {
+      if(+currentSlide === 1) {
+        prevSlide = thumbnails.length;
+      } else {
+        prevSlide = currentSlide - 1;
+      }
+    }
+
+    if(slideDirection === 'left') {
+      if(+currentSlide === thumbnails.length) {
+        prevSlide = 1;
+      } else {
+        prevSlide = currentSlide + 1;
+      }
+    }
+    console.log(prevSlide)
+
+    // prevSlide.classList.add('project-slider__slide--hidden-left');
+
+    allSlides.forEach((item) => {
+      item.classList.remove('project-slider__slide--hidden--left');
+      item.classList.remove('project-slider__slide--hidden--right');
+
+      if(+item.getAttribute('data-slide-name') === +prevSlide) {
+        item.classList.add(`project-slider__slide--hidden--${slideDirection}`);
+      }
+    });
+    // item.classList.remove('project-slider__slide--active--left');
+    // item.classList.remove('project-slider__slide--active--right');
+  }
+
   function selectSlide() {
+    // slideDirection = "right";
+
     currentSlide = +this.getAttribute('data-slide-name');
+
+    setPrevSlide();
+
     setActivetButton();
     setActiveSlide();
   };
@@ -32,8 +73,6 @@ let projectSlider = function () {
   };
 
   function setActiveSlide() {
-    console.log(slideDirection)
-    console.log(currentSlide)
     allSlides.forEach((item) => {
       item.classList.remove('project-slider__slide--active--left');
       item.classList.remove('project-slider__slide--active--right');
@@ -89,8 +128,8 @@ let projectSlider = function () {
       if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
         if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
           slideDirection = "right";
-          sliderBlock.classList.add("right");
           sliderBlock.classList.remove("left");
+          sliderBlock.classList.add("right");
           if(currentSlide === allSlides.length) {
             currentSlide = thumbnails[0].getAttribute('data-slide-name');
 
@@ -98,20 +137,24 @@ let projectSlider = function () {
             currentSlide++;
           }
 
+          setPrevSlide();
+
           setActivetButton();
           setActiveSlide();
         }
 
         else { //Иначе он двигал им слева направо
           slideDirection = "left";
-          sliderBlock.classList.add("left");
           sliderBlock.classList.remove("right");
+          sliderBlock.classList.add("left");
           if(currentSlide === 1) {
             currentSlide = allSlides.length;
 
           } else {
             currentSlide--;
           }
+
+          setPrevSlide();
 
           setActivetButton();
           setActiveSlide();
