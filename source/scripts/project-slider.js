@@ -1,15 +1,21 @@
+import {
+  SWIP_DIRRECTION,
+  SLIDER_DATA_ATTRIBUTE,
+  SLIDER_ACTIVE_BUTTON_CLASS,
+  SLIDER_ACTIVE_SLIDE_LEFT,
+  SLIDER_ACTIVE_SLIDE_RIGHT,
+  SLIDER_HIDDEN_SLIDE_LEFT,
+  SLIDER_HIDDEN_SLIDE_RIGHT,
+} from './consts';
 
 let projectSlider = function () {
   const sliderBlock = document.querySelector('.project-slider__slides');
   const thumbnails = document.querySelectorAll('.project-slider__thumbnails-button');
   const allSlides = document.querySelectorAll('.project-slider__slide');
 
-  let currentSlide = +thumbnails[0].getAttribute('data-slide-name'); // default value for first launch
-  let prevSlide = +thumbnails[thumbnails.length - 1].getAttribute('data-slide-name');
-
-
-  let slideDirection = 'right';
-  let slideEvent = 'button'; //swipe
+  let currentSlide = Number(thumbnails[0].getAttribute(SLIDER_DATA_ATTRIBUTE)); // default value for first launch
+  let prevSlide = +thumbnails[thumbnails.length - 1].getAttribute(SLIDER_DATA_ATTRIBUTE);
+  let slideDirection = SWIP_DIRRECTION.RIGHT;
 
   // for firs launch
   setActiveSlide();
@@ -19,77 +25,74 @@ let projectSlider = function () {
     item.addEventListener('click', selectSlide);
   });
 
-  function setPrevSlide() {
-    if(slideDirection === 'right') {
-      if(+currentSlide === 1) {
-        prevSlide = thumbnails.length;
-      } else {
-        prevSlide = currentSlide - 1;
-      }
+  function selectSlide() {
+    if(+this.getAttribute(SLIDER_DATA_ATTRIBUTE) > currentSlide) {
+      slideDirection = SWIP_DIRRECTION.RIGHT;
+    }
+    if(+this.getAttribute(SLIDER_DATA_ATTRIBUTE) < currentSlide) {
+      slideDirection = SWIP_DIRRECTION.LEFT;
     }
 
-    if(slideDirection === 'left') {
-      if(+currentSlide === thumbnails.length) {
-        prevSlide = 1;
-      } else {
-        prevSlide = currentSlide + 1;
-      }
-    }
+    prevSlide = Number(currentSlide);
+    currentSlide = Number(this.getAttribute(SLIDER_DATA_ATTRIBUTE));
+
     hiddenPrevSlide();
+    setActivetButton();
+    setActiveSlide();
   };
 
   function hiddenPrevSlide() {
     allSlides.forEach((item) => {
-      item.classList.remove('project-slider__slide--hidden--left');
-      item.classList.remove('project-slider__slide--hidden--right');
+      item.classList.remove(SLIDER_HIDDEN_SLIDE_LEFT);
+      item.classList.remove(SLIDER_HIDDEN_SLIDE_RIGHT);
 
-      if(+item.getAttribute('data-slide-name') === +prevSlide) {
+      if(+item.getAttribute(SLIDER_DATA_ATTRIBUTE) === +prevSlide) {
         item.classList.add(`project-slider__slide--hidden--${slideDirection}`);
       }
     });
   }
 
-  function selectSlide() {
-    if(+this.getAttribute('data-slide-name') > currentSlide) {
-      slideDirection = "right";
-    }
-    if(+this.getAttribute('data-slide-name') < currentSlide) {
-      slideDirection = "left";
-    }
-
-    prevSlide = currentSlide;
-    currentSlide = +this.getAttribute('data-slide-name');
-
-    hiddenPrevSlide();
-
-    setActivetButton();
-    setActiveSlide();
-  };
-
   function setActivetButton() {
     thumbnails.forEach((button) => {
-      if(+button.getAttribute('data-slide-name') === +currentSlide) {
-        button.classList.add('project-slider__thumbnails-button--active');
+      if(Number(button.getAttribute(SLIDER_DATA_ATTRIBUTE)) === Number(currentSlide)) {
+        button.classList.add(SLIDER_ACTIVE_BUTTON_CLASS);
       } else {
-        button.classList.remove('project-slider__thumbnails-button--active');
+        button.classList.remove(SLIDER_ACTIVE_BUTTON_CLASS);
       }
     });
   };
 
   function setActiveSlide() {
     allSlides.forEach((item) => {
-      item.classList.remove('project-slider__slide--active--left');
-      item.classList.remove('project-slider__slide--active--right');
+      item.classList.remove(SLIDER_ACTIVE_SLIDE_LEFT);
+      item.classList.remove(SLIDER_ACTIVE_SLIDE_RIGHT);
 
-      if(+item.getAttribute('data-slide-name') === +currentSlide) {
+      if(Number(item.getAttribute(SLIDER_DATA_ATTRIBUTE)) === Number(currentSlide)) {
         item.classList.add(`project-slider__slide--active--${slideDirection}`);
       }
     });
   };
 
+  function setPrevSlide() {
+    if(slideDirection === SWIP_DIRRECTION.RIGHT) {
+      if(Number(currentSlide) === 1) {
+        prevSlide = thumbnails.length;
+      } else {
+        prevSlide = Number(currentSlide) - 1;
+      }
+    }
+
+    if(slideDirection === SWIP_DIRRECTION.LEFT) {
+      if(Number(currentSlide) === thumbnails.length) {
+        prevSlide = 1;
+      } else {
+        prevSlide = Number(currentSlide) + 1;
+      }
+    }
+    hiddenPrevSlide();
+  };
 
   //swips
-
   let touchStart = null; //Точка начала касания
   let touchPosition = null; //Текущая позиция
   //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
@@ -131,39 +134,30 @@ let projectSlider = function () {
     if(Math.abs(d.x) > Math.abs(d.y)) { //Проверяем, движение по какой оси было длиннее
       if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
         if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          slideDirection = "right";
-          sliderBlock.classList.remove("left");
-          sliderBlock.classList.add("right");
-          if(currentSlide === allSlides.length) {
-            currentSlide = thumbnails[0].getAttribute('data-slide-name');
+          slideDirection = SWIP_DIRRECTION.RIGHT;
+
+          if(Number(currentSlide) === allSlides.length) {
+            currentSlide = Number(thumbnails[0].getAttribute(SLIDER_DATA_ATTRIBUTE));
 
           } else {
             currentSlide++;
           }
-
-          setPrevSlide();
-
-          setActivetButton();
-          setActiveSlide();
         }
 
         else { //Иначе он двигал им слева направо
-          slideDirection = "left";
-          sliderBlock.classList.remove("right");
-          sliderBlock.classList.add("left");
-          if(currentSlide === 1) {
+          slideDirection = SWIP_DIRRECTION.LEFT;
+
+          if(Number(currentSlide) === 1) {
             currentSlide = allSlides.length;
 
           } else {
             currentSlide--;
           }
-
-          setPrevSlide();
-
-          setActivetButton();
-          setActiveSlide();
         }
 
+        setPrevSlide();
+        setActivetButton();
+        setActiveSlide();
       }
     }
   }
