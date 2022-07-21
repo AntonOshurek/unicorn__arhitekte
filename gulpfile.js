@@ -108,7 +108,7 @@ exports.scriptProjectSlider = scriptProjectSlider;
 
 //squoosh
 const optimizeImages = () => {
-  return gulp.src('source/img/**/*.{png,jpg,svg}')
+  return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
   .pipe(squoosh())
   .pipe(gulp.dest('build/img'))
 }
@@ -116,18 +116,18 @@ exports.optimizeImages = optimizeImages;
 
 //copyimg
 const copyImages = () => {
-  return gulp.src('source/img/**/*.{png,jpg,svg}')
+  return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
   .pipe(gulp.dest('build/img'))
 }
 exports.copyImages = copyImages;
 
 // WebP
-const createWebp = () => {
-  return gulp.src("source/img/**/*.{jpg,png}")
-    .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"))
-}
-exports.createWebp = createWebp;
+// const createWebp = () => {
+//   return gulp.src("source/img/**/*.{jpg,png}")
+//     .pipe(webp({quality: 90}))
+//     .pipe(gulp.dest("build/img"))
+// }
+// exports.createWebp = createWebp;
 
 // Copy
 const copy = (done) => {
@@ -186,7 +186,7 @@ const build = gulp.series(
   gulp.parallel(
     styles,
     html,
-    createWebp,
+    // createWebp,
     script,
     scriptProjectSlider,
   ),
@@ -201,7 +201,7 @@ exports.default = gulp.series(
   gulp.parallel(
     styles,
     html,
-    createWebp,
+    // createWebp,
     script,
     scriptProjectSlider,
   ),

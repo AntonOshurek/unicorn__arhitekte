@@ -52,6 +52,11 @@
   background-color: @standart-background-color;
   padding: 0 10px;
 
+  background-image: url('../img/image-not-found-scaled.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
   &--active--left {
     z-index: 1;
     -webkit-animation: slide-swipe-left 1s 1;
@@ -82,6 +87,8 @@
 	width: 100%;
 	height: 100%;
   object-fit: contain;
+
+  background-color: @standart-background-color;
 }
 
 .project-slider__thumbnails {
