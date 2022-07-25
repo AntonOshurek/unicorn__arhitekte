@@ -8,8 +8,8 @@ const gulp = require('gulp'),
       htmlmin = require('gulp-htmlmin'),
       csso = require('postcss-csso'),
       rename = require('gulp-rename'),
-      squoosh = require('gulp-libsquoosh'),
-      webp = require("gulp-webp"),
+      // squoosh = require('gulp-libsquoosh'),
+      // webp = require("gulp-webp"),
       del = require('del'),
       webpack = require("webpack-stream");
 
@@ -107,12 +107,12 @@ const scriptProjectSlider = () => {
 exports.scriptProjectSlider = scriptProjectSlider;
 
 //squoosh
-const optimizeImages = () => {
-  return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
-  .pipe(squoosh())
-  .pipe(gulp.dest('build/img'))
-}
-exports.optimizeImages = optimizeImages;
+// const optimizeImages = () => {
+//   return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
+//   .pipe(squoosh())
+//   .pipe(gulp.dest('build/img'))
+// }
+// exports.optimizeImages = optimizeImages;
 
 //copyimg
 const copyImages = () => {
@@ -181,7 +181,7 @@ const watcher = () => {
 const build = gulp.series(
   clean,
   copy,
-  optimizeImages,
+  // optimizeImages,
   gulp.parallel(
     styles,
     html,
