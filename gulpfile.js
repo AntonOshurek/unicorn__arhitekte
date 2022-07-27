@@ -106,6 +106,40 @@ const scriptProjectSlider = () => {
 }
 exports.scriptProjectSlider = scriptProjectSlider;
 
+//js pmain slider
+const scriptMainSlider = () => {
+  return gulp.src('source/scripts/slider-full.js')
+  .pipe(webpack({
+    mode: 'development',
+    output: {
+      filename: 'slider-full.js',
+    },
+    watch: false,
+    devtool: "source-map",
+    module: {
+      rules: [
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-env', {
+              debug: true,
+              corejs: 3,
+              useBuiltIns: "usage"
+            }]]
+          }
+          }
+        }
+      ]
+    }
+  }))
+  .pipe(gulp.dest('build/js'))
+  .pipe(sync.stream());
+}
+exports.scriptMainSlider = scriptMainSlider;
+
 //squoosh
 // const optimizeImages = () => {
 //   return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
@@ -175,6 +209,7 @@ const watcher = () => {
   gulp.watch("source/less/**/*.less", gulp.series(styles));
   gulp.watch("source/scripts/**/*.js", gulp.series(script));
   gulp.watch("source/scripts/project-slider.js", gulp.series(scriptProjectSlider));
+  gulp.watch("source/scripts/slider-full.js", gulp.series(scriptMainSlider));
   gulp.watch("source/**/*.html", gulp.series(html, reload));
 }
 
@@ -189,6 +224,7 @@ const build = gulp.series(
     // createWebp,
     script,
     scriptProjectSlider,
+    scriptMainSlider,
   ),
 );
 exports.build = build;
@@ -204,6 +240,7 @@ exports.default = gulp.series(
     // createWebp,
     script,
     scriptProjectSlider,
+    scriptMainSlider,
   ),
   gulp.series(
     server,

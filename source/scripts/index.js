@@ -1,29 +1,23 @@
-import { sliderFull } from './slider-full';
 import { mobileMenu } from './mobile-menu';
 import { coloredItem } from './colored-item';
 
-window.addEventListener('DOMContentLoaded', () => {
+import { TABLET_WIDHT, PROJECTS_ITEM_CLASS, PROJECTS_COLORED_ITEM_CLASS, TEAM_ITEM_CLASS, TEAM_COLORED_ITEM_CLASS } from './consts';
 
-  if(document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
-    sliderFull();
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  mobileMenu(); // launch in all pages
 
   if(document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
 
-    if(window.innerWidth <= 900) {
-      coloredItem('.projects__card', 'data-item-id', 'projects__card--scrolled'); // itemName, dataAttribute , activeClass
+    if(window.innerWidth <= TABLET_WIDHT) {
+      coloredItem(PROJECTS_ITEM_CLASS, PROJECTS_COLORED_ITEM_CLASS); // itemName, activeClass
     }
   }
 
   if(document.location.pathname === '/our-office.html' || document.location.pathname === '/unicorn__arhitekte/our-office.html') {
 
-    if(window.innerWidth <= 900) {
-      coloredItem( '.our-team__item', 'data-item-id', 'our-team__item--colored'); // itemName, dataAttribute , activeClass
+    if(window.innerWidth <= TABLET_WIDHT) {
+      coloredItem( TEAM_ITEM_CLASS, TEAM_COLORED_ITEM_CLASS); // itemName, activeClass
     }
   }
-
-
-  mobileMenu();
-
 });
 
