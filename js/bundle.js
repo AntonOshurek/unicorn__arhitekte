@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "coloredItem": function() { return /* binding */ coloredItem; }
 /* harmony export */ });
-const coloredItem = (itemName, dataAttribute, activeClass) => {
+const coloredItem = (itemName, activeClass) => {
   const isScrolledIntoView = elem => {
     const rect = elem.getBoundingClientRect();
     const elemTop = rect.top;
@@ -44,6 +44,47 @@ const coloredItem = (itemName, dataAttribute, activeClass) => {
 };
 
 
+
+/***/ }),
+
+/***/ "./source/scripts/consts.js":
+/*!**********************************!*\
+  !*** ./source/scripts/consts.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PROJECTS_COLORED_ITEM_CLASS": function() { return /* binding */ PROJECTS_COLORED_ITEM_CLASS; },
+/* harmony export */   "PROJECTS_ITEM_CLASS": function() { return /* binding */ PROJECTS_ITEM_CLASS; },
+/* harmony export */   "SLIDER_ACTIVE_BUTTON_CLASS": function() { return /* binding */ SLIDER_ACTIVE_BUTTON_CLASS; },
+/* harmony export */   "SLIDER_ACTIVE_SLIDE_LEFT": function() { return /* binding */ SLIDER_ACTIVE_SLIDE_LEFT; },
+/* harmony export */   "SLIDER_ACTIVE_SLIDE_RIGHT": function() { return /* binding */ SLIDER_ACTIVE_SLIDE_RIGHT; },
+/* harmony export */   "SLIDER_DATA_ATTRIBUTE": function() { return /* binding */ SLIDER_DATA_ATTRIBUTE; },
+/* harmony export */   "SLIDER_HIDDEN_SLIDE_LEFT": function() { return /* binding */ SLIDER_HIDDEN_SLIDE_LEFT; },
+/* harmony export */   "SLIDER_HIDDEN_SLIDE_RIGHT": function() { return /* binding */ SLIDER_HIDDEN_SLIDE_RIGHT; },
+/* harmony export */   "SWIP_DIRRECTION": function() { return /* binding */ SWIP_DIRRECTION; },
+/* harmony export */   "TABLET_WIDHT": function() { return /* binding */ TABLET_WIDHT; },
+/* harmony export */   "TEAM_COLORED_ITEM_CLASS": function() { return /* binding */ TEAM_COLORED_ITEM_CLASS; },
+/* harmony export */   "TEAM_ITEM_CLASS": function() { return /* binding */ TEAM_ITEM_CLASS; }
+/* harmony export */ });
+const TABLET_WIDHT = 900; //variables for slider inside project page (current project) project-slider.js
+
+const SWIP_DIRRECTION = {
+  RIGHT: 'right',
+  LEFT: 'left'
+};
+const SLIDER_DATA_ATTRIBUTE = 'data-slide-name';
+const SLIDER_ACTIVE_BUTTON_CLASS = 'project-slider__thumbnails-button--active';
+const SLIDER_ACTIVE_SLIDE_LEFT = 'project-slider__slide--active--left';
+const SLIDER_ACTIVE_SLIDE_RIGHT = 'project-slider__slide--active--right';
+const SLIDER_HIDDEN_SLIDE_LEFT = 'project-slider__slide--hidden--left';
+const SLIDER_HIDDEN_SLIDE_RIGHT = 'project-slider__slide--hidden--right'; //variables for coloredItem function
+
+const PROJECTS_ITEM_CLASS = '.projects__card';
+const PROJECTS_COLORED_ITEM_CLASS = 'projects__card--colored';
+const TEAM_ITEM_CLASS = '.our-team__item';
+const TEAM_COLORED_ITEM_CLASS = 'our-team__item--colored';
 
 /***/ }),
 
@@ -94,207 +135,6 @@ const mobileMenu = () => {
   }
 
   mobileButton.addEventListener('click', toogleMobileMenu);
-};
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/slider-full.js":
-/*!***************************************!*\
-  !*** ./source/scripts/slider-full.js ***!
-  \***************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "sliderFull": function() { return /* binding */ sliderFull; }
-/* harmony export */ });
-const sliderFull = () => {
-  const sliderBlok = document.querySelector('.sliderfull'); //btns
-
-  const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
-  const sliderBtnNext = document.querySelector('.sliderfull-items__button--next'); //slides counter
-
-  const sliderCounterCurrent = document.querySelector('.slederfull-controls__total--current');
-  const sliderCounterTotal = document.querySelector('.slederfull-controls__total--total'); //slides wrpper
-
-  const slidesWrapper = document.querySelector('.sliderfull-items');
-  const slidesField = document.querySelector('.sliderfull-items__inner'); //all sledes
-
-  const slides = document.querySelectorAll('.sliderfull-items__item');
-  let slideIndex = 1;
-  let offset = 0;
-  const width = window.getComputedStyle(slidesWrapper).width;
-  slides.forEach(slide => {
-    slide.style.width = width;
-  });
-  slidesField.style.width = 100 * slides.length + '%';
-
-  function getZero(num) {
-    if (num >= 0 && num < 10) {
-      return `0${num}`;
-    } else {
-      return num;
-    }
-  }
-
-  ;
-  const sliderIndicatorBlock = document.querySelector('.sliderfull-indicators');
-
-  function createIndicatorBtn() {
-    let element = '';
-
-    for (let i = 0; i < slides.length; i++) {
-      element += `
-        <li class="sliderfull-indicators__item">
-          <button class="sliderfull-indicators__button" aria-label = "slide number ${i + 1}" data-slide-index = "${i + 1}"></button>
-        </li>
-      `;
-      sliderIndicatorBlock.innerHTML = element;
-    }
-  }
-
-  ;
-  createIndicatorBtn();
-  const indicatorsBtn = document.querySelectorAll('.sliderfull-indicators__button');
-  indicatorsBtn.forEach(btn => {
-    btn.addEventListener('click', selectbtn);
-  });
-
-  function selectbtn() {
-    let atribute = this.getAttribute('data-slide-index');
-    slideIndex = atribute;
-    offset = +width.slice(0, width.length - 2) * (atribute - 1);
-    slidesField.style.transform = `translate(-${offset}px)`;
-    showCurrentNumber();
-  }
-
-  ;
-
-  function showCurrentNumber() {
-    if (slideIndex > slides.length) slideIndex = 1;
-    if (slideIndex < 1) slideIndex = slides.length;
-    sliderCounterCurrent.innerHTML = getZero(slideIndex);
-    indicatorsBtn.forEach(btn => {
-      btn.classList.remove('sliderfull-indicators__button--active');
-    });
-    indicatorsBtn[slideIndex - 1].classList.add('sliderfull-indicators__button--active');
-  }
-
-  ;
-  showCurrentNumber();
-  sliderBtnNext.addEventListener('click', () => {
-    if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
-      offset = 0;
-    } else {
-      offset += +width.slice(0, width.length - 2);
-    }
-
-    slideIndex++;
-    slidesField.style.transform = `translate(-${offset}px)`;
-    showCurrentNumber();
-  });
-  sliderBtnPrev.addEventListener('click', () => {
-    if (offset == 0) {
-      offset = +width.slice(0, width.length - 2) * (slides.length - 1);
-    } else {
-      offset -= +width.slice(0, width.length - 2);
-    }
-
-    slideIndex--;
-    slidesField.style.transform = `translate(-${offset}px)`;
-    showCurrentNumber();
-  }); //swips
-
-  let touchStart = null; //Точка начала касания
-
-  let touchPosition = null; //Текущая позиция
-  //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
-
-  const sensitivity = 20;
-  sliderBlok.addEventListener("touchstart", function (e) {
-    TouchStart(e);
-  }); //Начало касания
-
-  sliderBlok.addEventListener("touchmove", function (e) {
-    TouchMove(e);
-  }); //Движение пальцем по экрану
-  //Пользователь отпустил экран
-
-  sliderBlok.addEventListener("touchend", function (e) {
-    TouchEnd(e, "green");
-  }); //Отмена касания
-
-  sliderBlok.addEventListener("touchcancel", function (e) {
-    TouchEnd(e, "red");
-  });
-
-  function TouchStart(e) {
-    //Получаем текущую позицию касания
-    touchStart = {
-      x: e.changedTouches[0].clientX,
-      y: e.changedTouches[0].clientY
-    };
-    touchPosition = {
-      x: touchStart.x,
-      y: touchStart.y
-    };
-  }
-
-  function TouchMove(e) {
-    //Получаем новую позицию
-    touchPosition = {
-      x: e.changedTouches[0].clientX,
-      y: e.changedTouches[0].clientY
-    };
-  }
-
-  function TouchEnd(e, color) {
-    CheckAction(); //Определяем, какой жест совершил пользователь
-    //Очищаем позиции
-
-    touchStart = null;
-    touchPosition = null;
-  }
-
-  function CheckAction() {
-    let d = //Получаем расстояния от начальной до конечной точек по обеим осям
-    {
-      x: touchStart.x - touchPosition.x,
-      y: touchStart.y - touchPosition.y
-    };
-
-    if (Math.abs(d.x) > Math.abs(d.y)) {
-      //Проверяем, движение по какой оси было длиннее
-      if (Math.abs(d.x) > sensitivity) {
-        //Проверяем, было ли движение достаточно длинным
-        if (d.x > 0) {
-          //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
-            offset = 0;
-          } else {
-            offset += +width.slice(0, width.length - 2);
-          }
-
-          slideIndex++;
-          slidesField.style.transform = `translate(-${offset}px)`;
-          showCurrentNumber();
-        } else {
-          //Иначе он двигал им слева направо
-          if (offset == 0) {
-            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
-          } else {
-            offset -= +width.slice(0, width.length - 2);
-          }
-
-          slideIndex--;
-          slidesField.style.transform = `translate(-${offset}px)`;
-          showCurrentNumber();
-        }
-      }
-    }
-  }
 };
 
 
@@ -364,30 +204,26 @@ var __webpack_exports__ = {};
   !*** ./source/scripts/index.js ***!
   \*********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _slider_full__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider-full */ "./source/scripts/slider-full.js");
-/* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
-/* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
+/* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mobile-menu */ "./source/scripts/mobile-menu.js");
+/* harmony import */ var _colored_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./colored-item */ "./source/scripts/colored-item.js");
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./consts */ "./source/scripts/consts.js");
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (document.location.pathname === '/index.html' || document.location.pathname === '/unicorn__arhitekte/index.html') {
-    (0,_slider_full__WEBPACK_IMPORTED_MODULE_0__.sliderFull)();
-  }
+  (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_0__.mobileMenu)(); // launch in all pages
 
   if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
-    if (window.innerWidth <= 900) {
-      (0,_colored_item__WEBPACK_IMPORTED_MODULE_2__.coloredItem)('.projects__card', 'data-item-id', 'projects__card--scrolled'); // itemName, dataAttribute , activeClass
+    if (window.innerWidth <= _consts__WEBPACK_IMPORTED_MODULE_2__.TABLET_WIDHT) {
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_1__.coloredItem)(_consts__WEBPACK_IMPORTED_MODULE_2__.PROJECTS_ITEM_CLASS, _consts__WEBPACK_IMPORTED_MODULE_2__.PROJECTS_COLORED_ITEM_CLASS); // itemName, activeClass
     }
   }
 
   if (document.location.pathname === '/our-office.html' || document.location.pathname === '/unicorn__arhitekte/our-office.html') {
-    if (window.innerWidth <= 900) {
-      (0,_colored_item__WEBPACK_IMPORTED_MODULE_2__.coloredItem)('.our-team__item', 'data-item-id', 'our-team__item--colored'); // itemName, dataAttribute , activeClass
+    if (window.innerWidth <= _consts__WEBPACK_IMPORTED_MODULE_2__.TABLET_WIDHT) {
+      (0,_colored_item__WEBPACK_IMPORTED_MODULE_1__.coloredItem)(_consts__WEBPACK_IMPORTED_MODULE_2__.TEAM_ITEM_CLASS, _consts__WEBPACK_IMPORTED_MODULE_2__.TEAM_COLORED_ITEM_CLASS); // itemName, activeClass
     }
   }
-
-  (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_1__.mobileMenu)();
 });
 }();
 /******/ })()

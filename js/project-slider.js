@@ -10,14 +10,21 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PROJECTS_COLORED_ITEM_CLASS": function() { return /* binding */ PROJECTS_COLORED_ITEM_CLASS; },
+/* harmony export */   "PROJECTS_ITEM_CLASS": function() { return /* binding */ PROJECTS_ITEM_CLASS; },
 /* harmony export */   "SLIDER_ACTIVE_BUTTON_CLASS": function() { return /* binding */ SLIDER_ACTIVE_BUTTON_CLASS; },
 /* harmony export */   "SLIDER_ACTIVE_SLIDE_LEFT": function() { return /* binding */ SLIDER_ACTIVE_SLIDE_LEFT; },
 /* harmony export */   "SLIDER_ACTIVE_SLIDE_RIGHT": function() { return /* binding */ SLIDER_ACTIVE_SLIDE_RIGHT; },
 /* harmony export */   "SLIDER_DATA_ATTRIBUTE": function() { return /* binding */ SLIDER_DATA_ATTRIBUTE; },
 /* harmony export */   "SLIDER_HIDDEN_SLIDE_LEFT": function() { return /* binding */ SLIDER_HIDDEN_SLIDE_LEFT; },
 /* harmony export */   "SLIDER_HIDDEN_SLIDE_RIGHT": function() { return /* binding */ SLIDER_HIDDEN_SLIDE_RIGHT; },
-/* harmony export */   "SWIP_DIRRECTION": function() { return /* binding */ SWIP_DIRRECTION; }
+/* harmony export */   "SWIP_DIRRECTION": function() { return /* binding */ SWIP_DIRRECTION; },
+/* harmony export */   "TABLET_WIDHT": function() { return /* binding */ TABLET_WIDHT; },
+/* harmony export */   "TEAM_COLORED_ITEM_CLASS": function() { return /* binding */ TEAM_COLORED_ITEM_CLASS; },
+/* harmony export */   "TEAM_ITEM_CLASS": function() { return /* binding */ TEAM_ITEM_CLASS; }
 /* harmony export */ });
+const TABLET_WIDHT = 900; //variables for slider inside project page (current project) project-slider.js
+
 const SWIP_DIRRECTION = {
   RIGHT: 'right',
   LEFT: 'left'
@@ -27,8 +34,12 @@ const SLIDER_ACTIVE_BUTTON_CLASS = 'project-slider__thumbnails-button--active';
 const SLIDER_ACTIVE_SLIDE_LEFT = 'project-slider__slide--active--left';
 const SLIDER_ACTIVE_SLIDE_RIGHT = 'project-slider__slide--active--right';
 const SLIDER_HIDDEN_SLIDE_LEFT = 'project-slider__slide--hidden--left';
-const SLIDER_HIDDEN_SLIDE_RIGHT = 'project-slider__slide--hidden--right';
+const SLIDER_HIDDEN_SLIDE_RIGHT = 'project-slider__slide--hidden--right'; //variables for coloredItem function
 
+const PROJECTS_ITEM_CLASS = '.projects__card';
+const PROJECTS_COLORED_ITEM_CLASS = 'projects__card--colored';
+const TEAM_ITEM_CLASS = '.our-team__item';
+const TEAM_COLORED_ITEM_CLASS = 'our-team__item--colored';
 
 /***/ })
 
