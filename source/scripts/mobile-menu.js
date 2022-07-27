@@ -24,7 +24,7 @@ const mobileMenu = () => {
     headerTitle.classList.add('header__title--menu-open');
     menuStatus = true;
 
-    body.addEventListener('click', onBackgroundClick)
+    body.addEventListener('click', onBackgroundClick);
   }
 
   function closeMobileMenu() {
@@ -34,7 +34,7 @@ const mobileMenu = () => {
     headerTitle.classList.remove('header__title--menu-open');
     menuStatus = false;
 
-    body.removeEventListener('click', onBackgroundClick)
+    body.removeEventListener('click', onBackgroundClick);
   }
 
   mobileButton.addEventListener('click', toogleMobileMenu);

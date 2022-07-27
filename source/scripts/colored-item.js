@@ -1,4 +1,4 @@
-const coloredItem = ( itemName, dataAttribute , activeClass) => {
+const coloredItem = ( itemName, activeClass) => {
 
   const isScrolledIntoView = (elem) => {
     const rect = elem.getBoundingClientRect();

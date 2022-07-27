@@ -26,14 +26,14 @@
 
   &:hover .projects__image,
   &:focus .projects__image,
-  &--scrolled .projects__image {
+  &--colored .projects__image {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
 
   &:hover .projects__subtitle,
   &:focus .projects__subtitle,
-  &--scrolled .projects__subtitle {
+  &--colored .projects__subtitle {
     transition: @projs-subtitle-animation;
     opacity: 1;
   }
@@ -42,8 +42,6 @@
     height: 70vh;
     min-height: 400px;
   }
-
-
 }
 
 .projects__link {
