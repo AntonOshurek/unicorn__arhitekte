@@ -1,3 +1,5 @@
+
+
 import {
   SWIP_DIRRECTION,
   SLIDER_DATA_ATTRIBUTE,
