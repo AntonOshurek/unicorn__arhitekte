@@ -4496,13 +4496,13 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   (0,_mobile_menu__WEBPACK_IMPORTED_MODULE_0__.mobileMenu)(); // launch in all pages
 
-  if (document.location.pathname === '/projects.html' || document.location.pathname === '/unicorn__arhitekte/projects.html') {
+  if (document.location.pathname === '/projekty.html' || document.location.pathname === '/unicorn__arhitekte/projekty.html') {
     if (window.innerWidth <= _consts__WEBPACK_IMPORTED_MODULE_2__.TABLET_WIDHT) {
       (0,_colored_item__WEBPACK_IMPORTED_MODULE_1__.coloredItem)(_consts__WEBPACK_IMPORTED_MODULE_2__.PROJECTS_ITEM_CLASS, _consts__WEBPACK_IMPORTED_MODULE_2__.PROJECTS_COLORED_ITEM_CLASS); // itemName, activeClass
     }
   }
 
-  if (document.location.pathname === '/our-office.html' || document.location.pathname === '/unicorn__arhitekte/our-office.html') {
+  if (document.location.pathname === '/nasze-biuro.html' || document.location.pathname === '/unicorn__arhitekte/nasze-biuro.html') {
     if (window.innerWidth <= _consts__WEBPACK_IMPORTED_MODULE_2__.TABLET_WIDHT) {
       (0,_colored_item__WEBPACK_IMPORTED_MODULE_1__.coloredItem)(_consts__WEBPACK_IMPORTED_MODULE_2__.TEAM_ITEM_CLASS, _consts__WEBPACK_IMPORTED_MODULE_2__.TEAM_COLORED_ITEM_CLASS); // itemName, activeClass
     }
