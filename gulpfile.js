@@ -11,7 +11,8 @@ const gulp = require('gulp'),
       // squoosh = require('gulp-libsquoosh'),
       // webp = require("gulp-webp"),
       del = require('del'),
-      webpack = require("webpack-stream");
+      webpack = require("webpack-stream"),
+      UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // Styles
 const styles = () => {
@@ -21,7 +22,7 @@ const styles = () => {
     .pipe(less())
     .pipe(postcss([
       autoprefixer(),
-      // csso()
+      csso()
     ]))
     .pipe(rename('style.min.css'))
     .pipe(sourcemap.write("."))
@@ -46,6 +47,12 @@ const script = () => {
     output: {
       filename: 'bundle.js'
     },
+    'plugins': [
+      new UglifyJsPlugin({
+        'sourceMap': true,
+        'parallel': true
+      })
+    ],
     watch: false,
     devtool: "source-map",
     module: {
@@ -80,6 +87,12 @@ const scriptProjectSlider = () => {
     output: {
       filename: 'project-slider.js',
     },
+    'plugins': [
+      new UglifyJsPlugin({
+        'sourceMap': true,
+        'parallel': true
+      })
+    ],
     watch: false,
     devtool: "source-map",
     module: {
@@ -114,6 +127,12 @@ const scriptMainSlider = () => {
     output: {
       filename: 'slider-full.js',
     },
+    'plugins': [
+      new UglifyJsPlugin({
+        'sourceMap': true,
+        'parallel': true
+      })
+    ],
     watch: false,
     devtool: "source-map",
     module: {
