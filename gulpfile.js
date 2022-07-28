@@ -21,7 +21,7 @@ const styles = () => {
     .pipe(less())
     .pipe(postcss([
       autoprefixer(),
-      csso()
+      // csso()
     ]))
     .pipe(rename('style.min.css'))
     .pipe(sourcemap.write("."))
