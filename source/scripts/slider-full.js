@@ -1,3 +1,5 @@
+
+
 const sliderBlok = document.querySelector('.sliderfull');
 //btns
 const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
