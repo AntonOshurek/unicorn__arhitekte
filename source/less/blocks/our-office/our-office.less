@@ -10,20 +10,13 @@
 .our-office__banner {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 .our-office__banner-img {
   width: 100%;
   height: 100%;
-  background-image: @office-banner-source;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-  filter: blur(5px);
+  object-fit: cover;
 }
 
 .our-office__banner-title {
@@ -33,8 +26,7 @@
   transform: translate(-50%, -50%);
   font-size: @office-banner-title-font-size;
   font-weight: @office-title-font-weight;
-  color: @standart-text-color;
-  opacity: 0.6;
+  color: @standart-white;
   white-space: nowrap;
 
   @media (max-width: @tablet-width) {
