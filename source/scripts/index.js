@@ -1,4 +1,5 @@
-
+// import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import { mobileMenu } from './mobile-menu';
 import { coloredItem } from './colored-item';
