@@ -104,12 +104,12 @@ let touchPosition = null; //Текущая позиция
 //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
 const sensitivity = 20;
 
-sliderBlok.addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
-sliderBlok.addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
+sliderBlok.addEventListener("touchstart", function (e) { TouchStart(e); }, {passive: true}); //Начало касания
+sliderBlok.addEventListener("touchmove", function (e) { TouchMove(e); }, {passive: true}); //Движение пальцем по экрану
 //Пользователь отпустил экран
-sliderBlok.addEventListener("touchend", function (e) { TouchEnd(e, "green"); });
+sliderBlok.addEventListener("touchend", function (e) { TouchEnd(e, "green"); }, {passive: true});
 //Отмена касания
-sliderBlok.addEventListener("touchcancel", function (e) { TouchEnd(e, "red"); });
+sliderBlok.addEventListener("touchcancel", function (e) { TouchEnd(e, "red"); }, {passive: true});
 
 function TouchStart(e)  {
   //Получаем текущую позицию касания

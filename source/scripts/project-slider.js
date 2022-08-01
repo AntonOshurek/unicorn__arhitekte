@@ -24,7 +24,7 @@ let projectSlider = function () {
   setActivetButton();
 
   thumbnails.forEach(item => {
-    item.addEventListener('click', selectSlide);
+    item.addEventListener('click', selectSlide, {passive: true});
   });
 
   function selectSlide() {
@@ -100,12 +100,12 @@ let projectSlider = function () {
   //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
   const sensitivity = 20;
 
-  sliderBlock.addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
-  sliderBlock.addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
+  sliderBlock.addEventListener("touchstart", function (e) { TouchStart(e); }, {passive: true}); //Начало касания
+  sliderBlock.addEventListener("touchmove", function (e) { TouchMove(e); }, {passive: true}); //Движение пальцем по экрану
   //Пользователь отпустил экран
-  sliderBlock.addEventListener("touchend", function (e) { TouchEnd(e, "green"); });
+  sliderBlock.addEventListener("touchend", function (e) { TouchEnd(e, "green")}, {passive: true});
   //Отмена касания
-  sliderBlock.addEventListener("touchcancel", function (e) { TouchEnd(e, "red"); });
+  sliderBlock.addEventListener("touchcancel", function (e) { TouchEnd(e, "red")}, {passive: true});
 
   function TouchStart(e)  {
     //Получаем текущую позицию касания
