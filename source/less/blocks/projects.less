@@ -1,11 +1,11 @@
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
   list-style: none;
   padding: 0 @basic-side-padding;
 
-  @media (max-width: @desctope-width) {
+  @media (max-width: @max-width) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -38,9 +38,13 @@
     opacity: 1;
   }
 
+  @media (max-width: @max-width) {
+    height: 350px;
+  }
+
   @media (max-width: @tablet-width) {
-    height: 70vh;
-    min-height: 400px;
+    // height: 70vh;
+    min-height: 300px;
   }
 }
 
