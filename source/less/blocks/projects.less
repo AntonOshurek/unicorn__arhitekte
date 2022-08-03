@@ -18,6 +18,7 @@
   width: 100%;
   height: 300px;
   position: relative;
+  overflow: hidden;
 
   background-image: url('../img/image-not-found-scaled.jpg');
   background-position: center;
@@ -29,6 +30,8 @@
   &--colored .projects__image {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
+    transition: scale .3s ease;
+    scale: 1.1;
   }
 
   &:hover .projects__subtitle,
@@ -38,13 +41,24 @@
     opacity: 1;
   }
 
-  // @media (max-width: @max-width) {
-  //   height: 350px;
-  // }
+  &--colored .projects__link::before {
+    // background-color: rgba(0, 0, 0, 0.3);
+    // transition: .3s all ease-in-out;
+  }
 
-  // @media (max-width: @tablet-width) {
-  //   // height: 70vh;
-  //   min-height: 300px;
+  // &:hover,
+  // &:focus {
+  //   &::before {
+  //     content: '';
+  //     z-index: 1;
+  //     position: absolute;
+  //     width: 100%;
+  //     height: 100%;
+  //     top: 0;
+  //     left: 0;
+  //     background-color: rgba(0, 0, 0, 0.3);
+  //     transition: .2s all ease-in-out;
+  //   }
   // }
 }
 
@@ -54,6 +68,27 @@
   height: 100%;
   text-decoration: none;
   position: relative;
+
+  &::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .3s all ease-in-out;
+  }
+
+
+  &:hover,
+  &:focus {
+    &::before {
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: .3s all ease-in-out;
+    }
+  }
 }
 
 .projects__info {
@@ -68,6 +103,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
 }
 
 .projects__title {
@@ -96,8 +132,119 @@
   object-fit: cover;
   display: flex;
 
+
+  scale: 1;
+  transition: scale .5s ease;
+
   // -webkit-filter: grayscale(100%);
 	// filter: grayscale(100%);
 	// -webkit-transition: .3s ease-in-out;
 	// transition: .3s ease-in-out;
 }
+
+
+
+
+.snip0016 {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.test_img {
+  max-width: 100%;
+  opacity: 1;
+  width: 100%;
+}
+.test__description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 3em;
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: @tablet-width) {
+    height: min-content;
+  }
+
+  &::before {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 100%;
+    border-left: 4px solid rgba(255, 255, 255, 0.8);
+    content: '';
+    opacity: 0;
+    // background-color: rgba(255, 255, 255, 0.9);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+  }
+}
+
+.test__title,
+.test__desc {
+  margin: 0 0 5px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s,-webkit-transform 0.35s,-moz-transform 0.35s,-o-transform 0.35s,transform 0.35s;
+}
+
+
+.test__title {
+  word-spacing: -0.15em;
+  font-weight: 300;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(30%, 0%, 0);
+  transform: translate3d(30%, 0%, 0);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.test__desc {
+  font-weight: 200;
+  -webkit-transform: translate3d(0%, 30%, 0);
+  transform: translate3d(0%, 30%, 0);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.test__link {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.snip0016:hover .test__title,
+.projects__card--colored .test__title {
+  opacity: 1;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+figure.snip0016:hover .test__desc,
+.projects__card--colored .test__desc {
+  opacity: 0.9;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.snip0016:hover .test__description::before,
+.projects__card--colored .test__description::before{
+  background: rgba(0, 0, 0, .2);
+  left: 30px;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
