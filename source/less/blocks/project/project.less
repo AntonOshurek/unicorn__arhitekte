@@ -19,12 +19,22 @@
 .project__info {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: min-content 1fr;
   grid-row-gap: 30px;
+  grid-column-gap: 20px;
   padding: 0 @basic-side-padding;
+
+  @media (max-width: @tablet-width) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+  }
 }
 
 .project__info-title {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
   font-family: @basic-font;
   font-size: @proj-info-title-font-size;
   color: @standart-before-hover-text-color;
@@ -37,4 +47,5 @@
   font-size: @proj-desc-font-size;
   font-weight: @proj-desc-font-weight;
   color: @standart-text-color;
+  line-height: @proj-desc-font-size * 1.8;
 }

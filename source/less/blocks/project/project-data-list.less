@@ -1,23 +1,32 @@
 .project-data-list {
-  width: 100%;
+  width: max-content;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 10px;
 
   list-style: none;
+
+  @media (max-width: @tablet-width) {
+    // align-items: center;
+    width: 100%;
+  }
 }
 
 .project-data-list__item {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 5px;
 
   width: 100%;
   padding: 5px 0;
   border-bottom: 1px solid @standart-black;
+
+  @media (max-width: @tablet-width) {
+    justify-content: center;
+  }
 }
 
 .project-data-list__title {
