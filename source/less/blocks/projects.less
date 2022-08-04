@@ -30,20 +30,16 @@
     height: 250px;
   }
 
-  @media (max-width: @tablet-width) {
-    height: 200px;
-  }
-
   &:hover .projects__image,
   &:focus .projects__image, // image properties when item is active
-  &--colored .projects__image {
+  &--active .projects__image {
     transition: scale .3s ease;
     scale: 1.02;
   }
 
   &:hover .projects__subtitle,
   &:focus .projects__subtitle,
-  &--colored .projects__subtitle {
+  &--active .projects__subtitle {
     transition: @projs-subtitle-animation;
 
     opacity: 0.9;
@@ -56,7 +52,7 @@
     }
   }
 
-  &--colored .projects__info {
+  &--active .projects__info {
     &::before {
       opacity: 1;
       transition: all .8s ease-in-out;

@@ -15,6 +15,6 @@ export const SLIDER_HIDDEN_SLIDE_RIGHT = 'project-slider__slide--hidden--right';
 
 //variables for coloredItem function
 export const PROJECTS_ITEM_CLASS = '.projects__card';
-export const PROJECTS_COLORED_ITEM_CLASS = 'projects__card--colored';
+export const PROJECTS_VISIBLE_ITEM_CLASS = 'projects__card--active';
 export const TEAM_ITEM_CLASS = '.our-team__item';
-export const TEAM_COLORED_ITEM_CLASS = 'our-team__item--colored';
+export const TEAM_VISIBLE_ITEM_CLASS = 'our-team__item--visible';
