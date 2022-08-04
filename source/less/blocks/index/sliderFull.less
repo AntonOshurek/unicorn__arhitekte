@@ -10,51 +10,6 @@
   position: relative;
 }
 
-//controls total value
-.slederfull-controls {
-  height: min-content;
-  position: absolute;
-  z-index: 1;
-
-  bottom: 80px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: min-content;
-  display: grid;
-  grid-template-columns: repeat(2, min-content);
-  align-items: center;
-  grid-column-gap: 20px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 100%;
-    right: 50%;
-    transform: translateX(100%) rotate(15deg);
-    top: 0;
-    background-color: @standart-white;
-  }
-}
-
-.slederfull-controls__total {
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
-  color: @standart-white;
-
-  &--current {
-    font-size: 23px;
-    align-self: start;
-  }
-
-  &--total {
-    font-size: 18px;
-    opacity: 0.7;
-    align-self: end;
-  }
-}
-
 //controls buttons
 .sliderfull-items__button {
   position: absolute;
