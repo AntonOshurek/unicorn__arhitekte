@@ -1,4 +1,4 @@
-const coloredItem = ( itemName, activeClass) => {
+const setVisibleNode = ( itemName, activeClass) => {
 
   const isScrolledIntoView = (elem) => {
     const rect = elem.getBoundingClientRect();
@@ -15,20 +15,20 @@ const coloredItem = ( itemName, activeClass) => {
   const itemArr = [...allPersonItems];
 
   const addActiveClassForVisibleElem = () => {
-    let coloredItems = [];
+    let visibleItems = [];
 
     itemArr.forEach((item) => {
       if(isScrolledIntoView(item)) {
-        coloredItems.push(item);
+        visibleItems.push(item);
       }
       item.classList.remove(activeClass);
     })
 
-    coloredItems.forEach((item) => {
+    visibleItems.forEach((item) => {
       item.classList.add(activeClass);
     })
 
-    coloredItems= [];
+    visibleItems= [];
   };
 
 	addActiveClassForVisibleElem();
@@ -36,4 +36,4 @@ const coloredItem = ( itemName, activeClass) => {
   window.addEventListener('scroll', addActiveClassForVisibleElem);
 }
 
-export { coloredItem };
+export { setVisibleNode };

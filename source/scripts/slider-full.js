@@ -4,9 +4,6 @@ const sliderBlok = document.querySelector('.sliderfull');
 //btns
 const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
 const sliderBtnNext = document.querySelector('.sliderfull-items__button--next');
-//slides counter
-const sliderCounterCurrent = document.querySelector('.slederfull-controls__total--current');
-const sliderCounterTotal = document.querySelector('.slederfull-controls__total--total');
 //slides wrpper
 const slidesWrapper = document.querySelector('.sliderfull-items');
 const slidesField = document.querySelector('.sliderfull-items__inner');
@@ -65,7 +62,6 @@ function selectbtn() {
 function showCurrentNumber() {
   if (slideIndex > slides.length) slideIndex = 1;
   if (slideIndex < 1) slideIndex = slides.length;
-  sliderCounterCurrent.innerHTML = getZero(slideIndex);
 
   indicatorsBtn.forEach(btn => {
     btn.classList.remove('sliderfull-indicators__button--active');
