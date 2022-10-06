@@ -1,5 +1,3 @@
-
-
 const sliderBlok = document.querySelector('.sliderfull');
 //btns
 const sliderBtnPrev = document.querySelector('.sliderfull-items__button--prev');
@@ -12,13 +10,21 @@ const slides = document.querySelectorAll('.sliderfull-items__item');
 
 let slideIndex = 1;
 let offset = 0;
-const width = window.getComputedStyle(slidesWrapper).width;
-
-slides.forEach(slide => {
-  slide.style.width = width;
-});
+let width = window.getComputedStyle(slidesWrapper).width;
 
 slidesField.style.width = 100 * slides.length + '%';
+
+function setSlidesWidth() {
+  slides.forEach(slide => {
+    slide.style.width = width;
+  });
+}
+setSlidesWidth(); // for first launch
+
+window.addEventListener('resize', () => {
+  setSlidesWidth();
+  console.log(width)
+})
 
 function getZero (num) {
   if (num >= 0 && num < 10) {
