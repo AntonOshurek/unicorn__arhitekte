@@ -1,4 +1,4 @@
-// import 'lazysizes';
+// import 'lazysizes for projekty page';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import { mobileMenu } from './mobile-menu';
