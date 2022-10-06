@@ -14,16 +14,19 @@ let width = window.getComputedStyle(slidesWrapper).width;
 
 slidesField.style.width = 100 * slides.length + '%';
 
-function setSlidesWidth() {
+function onResizeSetSlidesWidth() {
+  width = window.getComputedStyle(slidesWrapper).width;
   slides.forEach(slide => {
     slide.style.width = width;
   });
+
+  offset = +width.slice(0, width.length - 2) * (slideIndex - 1);
+  slidesField.style.transform = `translate(-${offset}px)`;
 }
-setSlidesWidth(); // for first launch
+onResizeSetSlidesWidth(); // for first launch
 
 window.addEventListener('resize', () => {
-  setSlidesWidth();
-  console.log(width)
+  onResizeSetSlidesWidth();
 })
 
 function getZero (num) {
