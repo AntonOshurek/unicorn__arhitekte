@@ -11,8 +11,8 @@ const gulp = require('gulp'),
       // squoosh = require('gulp-libsquoosh'),
       // webp = require("gulp-webp"),
       del = require('del'),
-      webpack = require("webpack-stream"),
-      UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+      webpack = require("webpack-stream")
+      // UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // Styles
 const styles = () => {
@@ -47,12 +47,12 @@ const script = () => {
     output: {
       filename: 'bundle.js'
     },
-    'plugins': [
-      new UglifyJsPlugin({
-        'sourceMap': true,
-        'parallel': true
-      })
-    ],
+    // 'plugins': [
+    //   new UglifyJsPlugin({
+    //     'sourceMap': true,
+    //     'parallel': true
+    //   })
+    // ],
     watch: false,
     devtool: "source-map",
     module: {
@@ -87,12 +87,12 @@ const scriptProjectSlider = () => {
     output: {
       filename: 'project-slider.js',
     },
-    'plugins': [
-      new UglifyJsPlugin({
-        'sourceMap': true,
-        'parallel': true
-      })
-    ],
+    // 'plugins': [
+    //   new UglifyJsPlugin({
+    //     'sourceMap': true,
+    //     'parallel': true
+    //   })
+    // ],
     watch: false,
     devtool: "source-map",
     module: {
@@ -127,12 +127,12 @@ const scriptMainSlider = () => {
     output: {
       filename: 'slider-full.js',
     },
-    'plugins': [
-      new UglifyJsPlugin({
-        'sourceMap': true,
-        'parallel': true
-      })
-    ],
+    // 'plugins': [
+    //   new UglifyJsPlugin({
+    //     'sourceMap': true,
+    //     'parallel': true
+    //   })
+    // ],
     watch: false,
     devtool: "source-map",
     module: {

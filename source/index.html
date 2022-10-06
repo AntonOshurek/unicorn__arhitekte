@@ -124,6 +124,13 @@
           </div>
       </section>
     </main>
+
+    <script>
+      //script only for first page launch and seting width for slider block.
+      // next settings this parameter will be changed in sliderFull script file!
+      const slides = document.querySelectorAll('.sliderfull-items__item');
+      document.querySelector('.sliderfull-items__inner').style.width = 104 * slides.length + '%';
+    </script>
     <script src="js/slider-full.js"></script>
     <script src="js/bundle.js"></script>
 </body>
