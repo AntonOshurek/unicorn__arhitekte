@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/AntonOshurek/unicorn__arhitekte#readme",
   "browserslist": [
-    "> 0%"
+    "last 40 version"
   ],
   "engines": {
     "node": "^16"
