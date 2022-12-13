@@ -1,21 +1,13 @@
 .header {
   width: 100%;
-  position: fixed;
-  top: 0;
   z-index: @header-index;
 
-  background-color: rgba(247, 247, 247, 1);
+  background-color: @standart-background-color;
 
-  &--no-bg {
+  &--fixed {
+    position: fixed;
+    top: 0;
     background-color: transparent;
-  }
-
-  &--sticky {
-    position: sticky;
-  }
-
-  &--no-shadow {
-    box-shadow: none;
   }
 }
 
