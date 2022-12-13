@@ -159,14 +159,6 @@ const scriptMainSlider = () => {
 }
 exports.scriptMainSlider = scriptMainSlider;
 
-//squoosh
-// const optimizeImages = () => {
-//   return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
-//   .pipe(squoosh())
-//   .pipe(gulp.dest('build/img'))
-// }
-// exports.optimizeImages = optimizeImages;
-
 //copyimg
 const copyImages = () => {
   return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
@@ -174,20 +166,13 @@ const copyImages = () => {
 }
 exports.copyImages = copyImages;
 
-// WebP
-// const createWebp = () => {
-//   return gulp.src("source/img/**/*.{jpg,png}")
-//     .pipe(webp({quality: 90}))
-//     .pipe(gulp.dest("build/img"))
-// }
-// exports.createWebp = createWebp;
-
 // Copy
 const copy = (done) => {
   gulp.src([
     "source/*.ico",
     "source/img/**/*.svg",
     "source/img/**/*.webp",
+    "source/img/**/*.png",
     "source/img/**/*.jpg",
     "!source/img/icons/*.svg",
   ], {
