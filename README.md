@@ -1,5 +1,5 @@
-![commits](https://img.shields.io/github/last-commit/AntonOshurek/super-react-counter?style=plastic)
-![lang](https://img.shields.io/github/languages/top/AntonOshurek/super-react-counter)
+![commits](https://img.shields.io/github/last-commit/AntonOshurek/unicorn__arhitekte?style=plastic)
+![lang](https://img.shields.io/github/languages/top/AntonOshurek/unicorn__arhitekte)
 
 # unicorn arhitekte landing/catalog page
 This site created for Unicorn Arhitekte
