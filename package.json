@@ -1,11 +1,12 @@
 {
   "name": "unicorn__arhitekte",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "strona dla firmy Unicorn arhitekte po zamówieniu Unicorn IT",
   "main": "index.html",
   "scripts": {
-    "build": "gulp build",
-    "start": "gulp"
+    "test": "gulp validateMarkup --silent && gulp lintBemMarkup && stylelint \"./src/styles/**/*.less\" --custom-syntax postcss-less",
+    "build": "gulp runBuild",
+    "start": "gulp runDev"
   },
   "repository": {
     "type": "git",
@@ -24,34 +25,36 @@
     "last 40 version"
   ],
   "engines": {
-    "node": "^16"
+    "node": ">=16"
   },
+  "type": "module",
   "devDependencies": {
-    "@babel/cli": "^7.18.9",
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "autoprefixer": "^10.4.7",
-    "babel-loader": "^8.2.2",
-    "browser-sync": "^2.27.10",
-    "del": "^6.0.0",
-    "gulp": "4.0.2",
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "browser-sync": "^2.27.11",
+    "core-js": "^3.27.0",
+    "csso": "^5.0.5",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-html-bemlinter": "^2.1.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-less": "4.0.1",
-    "gulp-libsquoosh": "^1.0.9",
-    "gulp-plumber": "1.2.1",
-    "gulp-postcss": "9.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
-    "gulp-sourcemaps": "3.0.0",
-    "gulp-webp": "^4.0.1",
-    "postcss": "8.2.8",
-    "postcss-csso": "^5.0.1",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.8.0",
+    "gulp-sitemap": "^8.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-w3c-html-validator": "^5.1.4",
+    "postcss-csso": "^6.0.1",
+    "postcss-less": "^6.0.0",
+    "stylelint": "^14.16.0",
+    "webpack": "^5.75.0",
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "core-js": "^3.24.0",
     "lazysizes": "^5.3.2"
   }
 }

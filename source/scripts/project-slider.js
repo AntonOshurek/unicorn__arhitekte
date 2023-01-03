@@ -6,7 +6,7 @@ import {
   SLIDER_ACTIVE_SLIDE_RIGHT,
   SLIDER_HIDDEN_SLIDE_LEFT,
   SLIDER_HIDDEN_SLIDE_RIGHT,
-} from './consts';
+} from './consts.js';
 
 let projectSlider = function () {
   const sliderBlock = document.querySelector('.project-slider__slides');
