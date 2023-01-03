@@ -1,253 +1,345 @@
-const gulp = require('gulp'),
-      plumber = require('gulp-plumber'),
-      sourcemap = require('gulp-sourcemaps'),
-      less = require('gulp-less'),
-      postcss = require('gulp-postcss'),
-      autoprefixer = require('autoprefixer'),
-      sync = require('browser-sync').create(),
-      htmlmin = require('gulp-htmlmin'),
-      csso = require('postcss-csso'),
-      rename = require('gulp-rename'),
-      // squoosh = require('gulp-libsquoosh'),
-      // webp = require("gulp-webp"),
-      del = require('del'),
-      webpack = require("webpack-stream")
-      // UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+import gulp from 'gulp';
+//SERVER
+import browserSync from 'browser-sync';
+//UTILS
+import rename from 'gulp-rename';
+// import del from 'del';
+import {deleteSync} from 'del';
+import notify from 'gulp-notify';
+//HTML
+import htmlmin from 'gulp-htmlmin';
+import { htmlValidator } from "gulp-w3c-html-validator";
+import bemlinter from "gulp-html-bemlinter";
+//STYLES
+import less from 'gulp-less';
+import plumber from 'gulp-plumber';
+import sourcemap from 'gulp-sourcemaps';
+import postcss from 'gulp-postcss';
+import csso from 'postcss-csso';
+import autoprefixer from 'autoprefixer';
+//JAVASCRIPT
+import webpackStream from 'webpack-stream';
+//OPTIMIZE UTILS
+import sitemap from 'gulp-sitemap';
+
+const {
+  src,
+  dest,
+  series,
+  watch,
+	parallel,
+} = gulp;
+
+// paths
+const srcFolder = './source';
+const buildFolder = './build';
+const paths = {
+  srcStyles: `${srcFolder}/less/style.less`,
+  srcSvg: `${srcFolder}/img/svg/**.svg`,
+  srcImgFolder: `${srcFolder}/img`,
+  srcFullJs: `${srcFolder}/scripts/**/*.js`,
+  srcMainJs: `${srcFolder}/scripts/index.js`,
+	srcFontsFolder: `${srcFolder}/fonts`,
+  buildJsFolder: `${buildFolder}/js`,
+  buildCssFolder: `${buildFolder}/css`,
+  buildImgFolder: `${buildFolder}/img`,
+};
+
+let isProd = false; // dev by default
+
+browserSync.create();
 
 // Styles
-const styles = () => {
-  return gulp.src('source/less/style.less')
-    .pipe(plumber())
+export const stylesLESS = () => {
+  return src(paths.srcStyles)
+    .pipe(plumber(
+			notify.onError({
+        title: "LESS",
+        message: "Error: <%= error.message %>"
+      })
+		))
     .pipe(sourcemap.init())
     .pipe(less())
     .pipe(postcss([
-      autoprefixer(),
-      csso()
+      autoprefixer({
+				cascade: false,
+				grid: true,
+				overrideBrowserslist: ["last 20 versions"]
+			}),
+      csso() //minify css
     ]))
     .pipe(rename('style.min.css'))
     .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("build/css"))
-    .pipe(sync.stream());
-}
-exports.styles = styles;
+    .pipe(dest(paths.buildCssFolder))
+    .pipe(browserSync.stream());
+};
 
 //HTML
-const html = () => {
-  return gulp.src('source/**/*.html')
+export const html = () => {
+	return src([`${srcFolder}/**/*.html`])
   .pipe(htmlmin({ collapseWhitespace: true }))
-  .pipe(gulp.dest('build'));
+  .pipe(dest(buildFolder))
+	.pipe(gulp.dest(buildFolder))
+	.pipe(browserSync.stream());
 };
-exports.html = html;
 
-//js webpack
-const script = () => {
-  return gulp.src('source/scripts/index.js')
-  .pipe(webpack({
-    mode: 'development',
-    output: {
-      filename: 'bundle.js'
-    },
-    // 'plugins': [
-    //   new UglifyJsPlugin({
-    //     'sourceMap': true,
-    //     'parallel': true
-    //   })
-    // ],
-    watch: false,
-    devtool: "source-map",
-    module: {
-      rules: [
-        {
+const siteAddress = 'https://archi.unicorn.com.pl/'
+export const htmlBuild = () => {
+  return src([`${srcFolder}/**/*.html`])
+  .pipe(htmlmin({ collapseWhitespace: true }))
+  .pipe(dest(buildFolder))
+	.pipe(sitemap({
+		siteUrl: siteAddress,
+		changefreq: 'monthly',
+		priority: function(siteUrl, loc, entry) {
+			const prior = () => {
+				if(loc.toString() === siteAddress) {
+					return 1;
+				} else if(loc.split(siteAddress).length > 0) {
+					return 0.9;
+				}
+			};
+			return prior();
+	}
+	}))
+	.pipe(dest(buildFolder))
+	.pipe(browserSync.stream());
+};
+
+//html tests
+export const validateMarkup = () => {
+	return src(`${srcFolder}/**/*.html`)
+		.pipe(htmlValidator.analyzer({
+			ignoreMessages: /Element “img” is missing required attribute “src”|Element “source” is missing required attribute “srcset”?/i,
+		}))
+		.pipe(htmlValidator.reporter({ throwErrors: true }))
+}
+
+export const lintBemMarkup = () => {
+	return src(`${srcFolder}/**/*.html`)
+		.pipe(bemlinter())
+}
+
+// SCRIPTS
+const scripts = () => {
+  return src(paths.srcMainJs)
+    .pipe(plumber(
+      notify.onError({
+        title: "JS",
+        message: "Error: <%= error.message %>"
+      })
+    ))
+    .pipe(webpackStream({
+      mode: isProd ? 'production' : 'development',
+      output: {
+        filename: 'bundle.js',
+      },
+			watch: false,
+			devtool: "source-map",
+      module: {
+        rules: [{
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['@babel/preset-env', {
-              debug: true,
-              corejs: 3,
-              useBuiltIns: "usage"
-            }]]
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  targets: "> 0.25%, not dead",
+									debug: true,
+									corejs: 3,
+									useBuiltIns: "usage"
+                }]
+              ]
+            }
           }
-          }
-        }
-      ]
-    }
-  }))
-  .pipe(gulp.dest('build/js'))
-  .pipe(sync.stream());
-}
-exports.script = script;
+        }]
+      }
+    }))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
+    })
+    .pipe(dest(paths.buildJsFolder))
+    .pipe(browserSync.stream());
+};
 
-//js project slider
+// SCRIPTS
 const scriptProjectSlider = () => {
-  return gulp.src('source/scripts/project-slider.js')
-  .pipe(webpack({
-    mode: 'development',
-    output: {
-      filename: 'project-slider.js',
-    },
-    // 'plugins': [
-    //   new UglifyJsPlugin({
-    //     'sourceMap': true,
-    //     'parallel': true
-    //   })
-    // ],
-    watch: false,
-    devtool: "source-map",
-    module: {
-      rules: [
-        {
+  return src('source/scripts/project-slider.js')
+    .pipe(plumber(
+      notify.onError({
+        title: "JS",
+        message: "Error: <%= error.message %>"
+      })
+    ))
+    .pipe(webpackStream({
+      mode: isProd ? 'production' : 'development',
+      output: {
+        filename: 'project-slider.js',
+      },
+			watch: false,
+			devtool: "source-map",
+      module: {
+        rules: [{
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['@babel/preset-env', {
-              debug: true,
-              corejs: 3,
-              useBuiltIns: "usage"
-            }]]
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  targets: "> 0.25%, not dead",
+									debug: true,
+									corejs: 3,
+									useBuiltIns: "usage"
+                }]
+              ]
+            }
           }
-          }
-        }
-      ]
-    }
-  }))
-  .pipe(gulp.dest('build/js'))
-  .pipe(sync.stream());
-}
-exports.scriptProjectSlider = scriptProjectSlider;
+        }]
+      }
+    }))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
+    })
+    .pipe(dest(paths.buildJsFolder))
+    .pipe(browserSync.stream());
+};
 
-//js pmain slider
+// SCRIPTS
 const scriptMainSlider = () => {
-  return gulp.src('source/scripts/slider-full.js')
-  .pipe(webpack({
-    mode: 'development',
-    output: {
-      filename: 'slider-full.js',
-    },
-    // 'plugins': [
-    //   new UglifyJsPlugin({
-    //     'sourceMap': true,
-    //     'parallel': true
-    //   })
-    // ],
-    watch: false,
-    devtool: "source-map",
-    module: {
-      rules: [
-        {
+  return src('source/scripts/slider-full.js')
+    .pipe(plumber(
+      notify.onError({
+        title: "JS",
+        message: "Error: <%= error.message %>"
+      })
+    ))
+    .pipe(webpackStream({
+      mode: isProd ? 'production' : 'development',
+      output: {
+        filename: 'slider-full.js',
+      },
+			watch: false,
+			devtool: "source-map",
+      module: {
+        rules: [{
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['@babel/preset-env', {
-              debug: true,
-              corejs: 3,
-              useBuiltIns: "usage"
-            }]]
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  targets: "> 0.25%, not dead",
+									debug: true,
+									corejs: 3,
+									useBuiltIns: "usage"
+                }]
+              ]
+            }
           }
-          }
-        }
-      ]
-    }
-  }))
-  .pipe(gulp.dest('build/js'))
-  .pipe(sync.stream());
-}
-exports.scriptMainSlider = scriptMainSlider;
-
+        }]
+      }
+    }))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
+    })
+    .pipe(dest(paths.buildJsFolder))
+    .pipe(browserSync.stream());
+};
+//IMAGES
 //copyimg
-const copyImages = () => {
-  return gulp.src('source/img/**/*.{png,jpg,svg,webp}')
-  .pipe(gulp.dest('build/img'))
-}
-exports.copyImages = copyImages;
+export const copyImages = () => {
+  return src(`${paths.srcImgFolder}/**/*.{png,jpg,svg,webp}`)
+  .pipe(dest(`${paths.buildImgFolder}`))
+};
 
 // Copy
-const copy = (done) => {
-  gulp.src([
-    "source/*.ico",
-    "source/img/**/*.svg",
-    "source/img/**/*.webp",
-    "source/img/**/*.png",
-    "source/img/**/*.jpg",
-    "!source/img/icons/*.svg",
-    "source/manifest.webmanifest",
+export const copy = (done) => {
+  src([
+    `${paths.srcFontsFolder}/*.{woff2,woff}`,
+    `${srcFolder}/*.ico`,
+		`${srcFolder}/manifest.webmanifest`,
   ], {
-    base: "source"
+    base: srcFolder
   })
-    .pipe(gulp.dest("build"))
+  .pipe(dest(buildFolder))
   done();
-}
-exports.copy = copy;
+};
 
 //Clean
-const clean = () => {
-  return del("build");
+export const clean = async () => {
+  return await deleteSync([buildFolder]);
 };
-exports.clean = clean;
 
-// Server
-const server = (done) => {
-  sync.init({
-    server: {
-      baseDir: 'build'
-    },
-    cors: true,
-    notify: false,
-    ui: false,
-  });
+//SERVER
+export function startServer (done) {
+	browserSync.init({
+		server: {
+			baseDir: [buildFolder]
+		},
+		cors: true,
+		notify: false,
+		ui: false,
+	});
+	done();
+};
+
+const reloadServer = (done) => {
+	browserSync.reload();
+	done();
+};
+
+const watchFiles = () => {
+	watch([`${srcFolder}/styles/**/*.less`], series(stylesLESS));
+	watch(`${srcFolder}/*.html`, series(html, reloadServer));
+	watch(`${srcFolder}/scripts/**/*.js`, series(scripts));
+  watch("source/scripts/project-slider.js", gulp.series(scriptProjectSlider));
+  watch("source/scripts/slider-full.js", gulp.series(scriptMainSlider));
+}
+
+const toProd = (done) => {
+  isProd = true;
   done();
-}
-exports.server = server;
+};
 
-//RELOAD
-const reload = (done) => {
-  sync.reload();
-  done();
-}
-
-const watcher = () => {
-  gulp.watch("source/less/**/*.less", gulp.series(styles));
-  gulp.watch("source/scripts/**/*.js", gulp.series(script));
-  gulp.watch("source/scripts/project-slider.js", gulp.series(scriptProjectSlider));
-  gulp.watch("source/scripts/slider-full.js", gulp.series(scriptMainSlider));
-  gulp.watch("source/**/*.html", gulp.series(html, reload));
-}
-
-// Build
-const build = gulp.series(
-  clean,
-  copy,
-  // optimizeImages,
-  gulp.parallel(
-    styles,
-    html,
-    // createWebp,
-    script,
+//SCRIPTS build and developer server
+export function runBuild (done) {
+	series(
+		toProd,
+		clean,
+	)(done)
+	parallel(
+		htmlBuild,
+		stylesLESS,
+		scripts,
     scriptProjectSlider,
     scriptMainSlider,
-  ),
-);
-exports.build = build;
+		copyImages,
+		copy,
+	)(done);
+}
 
-// Default
-exports.default = gulp.series(
-  clean,
-  copy,
-  copyImages,
-  gulp.parallel(
-    styles,
-    html,
-    // createWebp,
-    script,
+export function runDev (done) {
+	series(
+		clean,
+		copyImages,
+		copy,
+	)(done)
+	parallel(
+		html,
+		stylesLESS,
+		scripts,
     scriptProjectSlider,
     scriptMainSlider,
-  ),
-  gulp.series(
-    server,
-    watcher
-  ));
+	)(done)
+	series(
+		startServer,
+		watchFiles,
+	)(done);
+}
+

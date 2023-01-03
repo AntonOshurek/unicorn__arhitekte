@@ -1,68 +1,69 @@
 .our-office {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 300px min-content min-content;
-  grid-row-gap: 30px;
-  padding-bottom: 40px;
-  background-color: @standart-background-color;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 300px min-content min-content;
+	grid-row-gap: 30px;
+	padding-bottom: 40px;
+	background-color: @standart-background-color;
 }
 
 .our-office__banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .our-office__banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .our-office__banner-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: @office-banner-title-font-size;
-  font-weight: @office-title-font-weight;
-  color: @standart-white;
-  white-space: nowrap;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: @office-banner-title-font-size;
+	font-weight: @office-title-font-weight;
+	color: @standart-white;
+	white-space: nowrap;
 
-  @media (max-width: @tablet-width) {
-    font-size: 34px;
-  }
-  @media (max-width: @mobile-width) {
-    font-size: 30px;
-  }
+	@media (max-width: @tablet-width) {
+		font-size: 34px;
+	}
+
+	@media (max-width: @mobile-width) {
+		font-size: 30px;
+	}
 }
 
 .our-office__about {
-  width: 100%;
+	width: 100%;
 }
 
 .our-office__about-wrap {
-  padding: 0 @basic-side-padding;
+	padding: 0 @basic-side-padding;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content;
-  grid-row-gap: 15px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content;
+	grid-row-gap: 15px;
 }
 
 .our-office__title {
-  font-family: @basic-font;
-  font-size: @office-title-font-size;
-  font-weight: @office-title-font-weight;
-  color: @standart-text-color;
-  text-transform: uppercase;
-  padding: 20px 0;
+	font-family: @basic-font;
+	font-size: @office-title-font-size;
+	font-weight: @office-title-font-weight;
+	color: @standart-text-color;
+	text-transform: uppercase;
+	padding: 20px 0;
 }
 
 .our-office__about-text {
-  font-family: @basic-font;
-  font-size: @office-text-font-size;
-  font-weight: @office-text-font-weight;
-  color: @standart-text-color;
-  text-transform: none;
+	font-family: @basic-font;
+	font-size: @office-text-font-size;
+	font-weight: @office-text-font-weight;
+	color: @standart-text-color;
+	text-transform: none;
 }

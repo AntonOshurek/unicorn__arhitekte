@@ -1,10 +1,10 @@
 // import 'lazysizes for projekty page';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit.js';
 
-import { mobileMenu } from './mobile-menu';
-import { setVisibleNode } from './set-visible-node';
+import { mobileMenu } from './mobile-menu.js';
+import { setVisibleNode } from './set-visible-node.js';
 
-import { TABLET_WIDHT, PROJECTS_ITEM_CLASS, PROJECTS_VISIBLE_ITEM_CLASS, TEAM_ITEM_CLASS, TEAM_VISIBLE_ITEM_CLASS } from './consts';
+import { TABLET_WIDHT, PROJECTS_ITEM_CLASS, PROJECTS_VISIBLE_ITEM_CLASS, TEAM_ITEM_CLASS, TEAM_VISIBLE_ITEM_CLASS } from './consts.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   mobileMenu(); // launch in all pages
