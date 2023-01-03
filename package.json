@@ -4,7 +4,7 @@
   "description": "strona dla firmy Unicorn arhitekte po zamówieniu Unicorn IT",
   "main": "index.html",
   "scripts": {
-    "test": "gulp validateMarkup --silent && gulp lintBemMarkup && stylelint \"./src/styles/**/*.less\" --custom-syntax postcss-less",
+    "test": "gulp validateMarkup --silent && gulp lintBemMarkup && stylelint \"./source/less/**/*.less\" --custom-syntax postcss-less",
     "build": "gulp runBuild",
     "start": "gulp runDev"
   },

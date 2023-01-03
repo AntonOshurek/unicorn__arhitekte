@@ -1,95 +1,95 @@
 .footer {
-  width: 100%;
-  background-color: @standart-background-color;
+	width: 100%;
+	background-color: @standart-background-color;
 }
 
 .footer__wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: @footer-top-bottom-padding @basic-side-padding;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: @footer-top-bottom-padding @basic-side-padding;
 
-  @media (max-width: @tablet-width) {
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 20px;
-  }
+	@media (max-width: @tablet-width) {
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 20px;
+	}
 }
 
 .footer__copyright {
-  font-family: @basic-font;
-  color: @standart-text-color;
-  font-size: @copyright-font-size;
-  font-weight: @copyright-font-weight;
+	font-family: @basic-font;
+	color: @standart-text-color;
+	font-size: @copyright-font-size;
+	font-weight: @copyright-font-weight;
 
-  @media (max-width: @tablet-width) {
-    font-size: @copyright-tablet-font-size;
-  }
+	@media (max-width: @tablet-width) {
+		font-size: @copyright-tablet-font-size;
+	}
 }
 
 .footer__privacy {
-  position: relative;
-  text-transform: capitalize;
-  transition: all .1s ease;
+	position: relative;
+	text-transform: capitalize;
+	transition: all 0.1s ease;
 
-  font-family: @basic-font;
-  color: @social-facebook-color;
-  font-size: @copyright-font-size;
-  font-weight: @copyright-font-weight;
+	font-family: @basic-font;
+	color: @social-facebook-color;
+	font-size: @copyright-font-size;
+	font-weight: @copyright-font-weight;
 
-  @media (max-width: @tablet-width) {
-    font-size: @copyright-tablet-font-size;
-  }
+	@media (max-width: @tablet-width) {
+		font-size: @copyright-tablet-font-size;
+	}
 
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    // color: @standart-black;
-    opacity: 0.7;
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		// color: @standart-black;
+		opacity: 0.7;
 
-    .footer__privacy-name {
-      visibility: visible;
-      opacity: 1;
-      transform: translate(-50%, -125%);
-    }
-  }
+		.footer__privacy-name {
+			visibility: visible;
+			opacity: 1;
+			transform: translate(-50%, -125%);
+		}
+	}
 }
 
 .footer__privacy-name {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  padding: 10px 12px;
-  border-radius: 40px;
-  opacity: 0;
-  pointer-events: none;
-  text-transform: uppercase;
-  transform: translate(-50%, -100%);
-  transition: all 0.3s ease;
-  z-index: 1;
-  color: @standart-light-text-color;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	padding: 10px 12px;
+	border-radius: 40px;
+	opacity: 0;
+	pointer-events: none;
+	text-transform: uppercase;
+	transform: translate(-50%, -100%);
+	transition: all 0.3s ease;
+	z-index: 1;
+	color: @standart-light-text-color;
 
-  font-family: @basic-font;
-  font-size: @social-font-size;
-  font-weight: @social-font-weight;
-  white-space: nowrap;
+	font-family: @basic-font;
+	font-size: @social-font-size;
+	font-weight: @social-font-weight;
+	white-space: nowrap;
 
-  &:after {
-    content: "";
-    position: absolute;
-    display: block;
-    bottom: 1px;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: solid;
-    border-width: 10px 10px 0 10px;
-    border-color: transparent;
-    transform: translate(-50%, 100%);
-    border-top-color: @social-email-color;
-  }
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		bottom: 1px;
+		left: 50%;
+		width: 0;
+		height: 0;
+		border: solid;
+		border-width: 10px 10px 0 10px;
+		border-color: transparent;
+		transform: translate(-50%, 100%);
+		border-top-color: @social-email-color;
+	}
 
-  background: @social-email-color;
+	background: @social-email-color;
 }

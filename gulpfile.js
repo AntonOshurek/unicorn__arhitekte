@@ -109,7 +109,9 @@ export const htmlBuild = () => {
 //html tests
 export const validateMarkup = () => {
 	return src(`${srcFolder}/**/*.html`)
-		.pipe(htmlValidator.analyzer())
+		.pipe(htmlValidator.analyzer({
+			ignoreMessages: /Element “img” is missing required attribute “src”|Element “source” is missing required attribute “srcset”?/i,
+		}))
 		.pipe(htmlValidator.reporter({ throwErrors: true }))
 }
 

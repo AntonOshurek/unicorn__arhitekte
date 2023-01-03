@@ -1,144 +1,137 @@
-.our-team {
-}
-
 .our-team__wrap {
-  padding: 0 @basic-side-padding;
+	padding: 0 @basic-side-padding;
 }
 
 .our-team__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .our-team__item {
-  width: @team-item-width;
-  height: @team-item-height;
-  cursor: help;
-  position: relative;
+	width: @team-item-width;
+	height: @team-item-height;
+	cursor: help;
+	position: relative;
 
-  transition: all .2s ease;
+	transition: all 0.2s ease;
 
-  &:hover .our-team__image,
-  &:focus .our-team__image {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
+	&:hover .our-team__image,
+	&:focus .our-team__image {
+		filter: grayscale(0);
+	}
 
-  &--visible .our-team__image{
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0)
-  }
+	&--visible .our-team__image {
+		filter: grayscale(0);
+	}
 }
 
 .our-team__prson-info {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: min-content;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, .3);
-  cursor: default;
-  border-radius: var(--borderWidth);
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: min-content;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.3);
+	cursor: default;
+	border-radius: var(--borderWidth);
 }
 
 .our-team__person-name {
-  font-family: @basic-font;
-  font-size: @team-person-name-font-size;
-  font-weight: @team-person-name-font-weight;
-  color: @standart-light-text-color;
+	font-family: @basic-font;
+	font-size: @team-person-name-font-size;
+	font-weight: @team-person-name-font-weight;
+	color: @standart-light-text-color;
 }
 
 .our-team__person-position {
-  font-family: @basic-font;
-  font-size: @team-person-position-font-size;
-  font-weight: @team-person-position-font-weight;
-  color: @standart-light-text-color;
+	font-family: @basic-font;
+	font-size: @team-person-position-font-size;
+	font-weight: @team-person-position-font-weight;
+	color: @standart-light-text-color;
 }
 
 .our-team__email {
-  font-family: @basic-font;
-  color: @standart-light-text-color;
-  font-size: @team-person-position-font-size;
-  font-weight: @team-person-position-font-weight;
-  opacity: 0.8;
-  transition: all .2s ease;
+	font-family: @basic-font;
+	color: @standart-light-text-color;
+	font-size: @team-person-position-font-size;
+	font-weight: @team-person-position-font-weight;
+	opacity: 0.8;
+	transition: all 0.2s ease;
 
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
+	&:hover,
+	&:focus {
+		opacity: 1;
+	}
 }
 
 .our-team__image {
-  width: @team-item-width;
-  height: @team-item-height;
-  border-radius: var(--borderWidth);
+	width: @team-item-width;
+	height: @team-item-height;
+	border-radius: var(--borderWidth);
 
-  -webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+	transition: 0.3s ease-in-out;
 
-  &:active {
-    & ~ .our-team__prson-additional-info {
-      opacity: 1;
-      pointer-events: all;
+	&:active {
+		& ~ .our-team__prson-additional-info {
+			opacity: 1;
+			pointer-events: all;
 
-      & ~ .our-team__prson-additional-wraper {
-        opacity: 1;
-        transition: all .4s ease;
-        height: 100%;
-      }
-    }
-  }
+			& ~ .our-team__prson-additional-wraper {
+				opacity: 1;
+				transition: all 0.4s ease;
+				height: 100%;
+			}
+		}
+	}
 }
 
 .our-team__prson-additional-info {
-  opacity: 0;
-  pointer-events: none;
-  cursor: default;
+	opacity: 0;
+	pointer-events: none;
+	cursor: default;
 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  padding: 10px;
-  transition: all .3s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	padding: 10px;
+	transition: all 0.3s ease;
 
-  &:hover {
-    transition: all .3s ease;
-    opacity: 1;
-    pointer-events: all;
+	&:hover {
+		transition: all 0.3s ease;
+		opacity: 1;
+		pointer-events: all;
 
-    & .our-team__prson-additional-wraper {
-      transition: all .4s ease;
-      opacity: 1;
-      height: 100%;
-    }
-  }
+		& .our-team__prson-additional-wraper {
+			transition: all 0.4s ease;
+			opacity: 1;
+			height: 100%;
+		}
+	}
 }
 
 .our-team__prson-additional-wraper {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: rgba(255, 255, 255, .95);
-  transition: all .4s ease;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	background-color: rgba(255, 255, 255, 0.95);
+	transition: all 0.4s ease;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
