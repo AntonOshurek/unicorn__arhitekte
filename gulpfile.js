@@ -329,17 +329,13 @@ export function runDev (done) {
 		clean,
 		copyImages,
 		copy,
-	)(done)
-	parallel(
 		html,
 		stylesLESS,
 		scripts,
     scriptProjectSlider,
     scriptMainSlider,
-	)(done)
-	series(
 		startServer,
 		watchFiles,
-	)(done);
+	)(done)
 }
 
