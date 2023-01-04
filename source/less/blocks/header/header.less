@@ -8,6 +8,10 @@
 		position: fixed;
 		top: 0;
 		background-color: transparent;
+
+		& .header__wrap {
+			padding: @basic-side-padding;
+		}
 	}
 }
 
@@ -16,7 +20,7 @@
 	display: grid;
 	grid-template-columns: max-content 1fr;
 	align-items: center;
-	padding: @basic-side-padding;
+	padding: 80px @basic-side-padding 100px @basic-side-padding;
 
 	@media (max-width: @tablet-width) {
 		grid-template-columns: 1fr min-content;
