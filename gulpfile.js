@@ -295,8 +295,8 @@ const reloadServer = (done) => {
 };
 
 const watchFiles = () => {
-	watch([`${srcFolder}/styles/**/*.less`], series(stylesLESS));
-	watch(`${srcFolder}/*.html`, series(html, reloadServer));
+	watch([`${srcFolder}/less/**/*.less`], series(stylesLESS));
+	watch(`${srcFolder}/**/*.html`, series(html, reloadServer));
 	watch(`${srcFolder}/scripts/**/*.js`, series(scripts));
   watch("source/scripts/project-slider.js", gulp.series(scriptProjectSlider));
   watch("source/scripts/slider-full.js", gulp.series(scriptMainSlider));
@@ -329,17 +329,13 @@ export function runDev (done) {
 		clean,
 		copyImages,
 		copy,
-	)(done)
-	parallel(
 		html,
 		stylesLESS,
 		scripts,
     scriptProjectSlider,
     scriptMainSlider,
-	)(done)
-	series(
 		startServer,
 		watchFiles,
-	)(done);
+	)(done)
 }
 
