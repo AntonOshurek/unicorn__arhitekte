@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if(document.location.pathname === '/nasze-biuro.html' || document.location.pathname === '/unicorn__arhitekte/nasze-biuro.html') {
+  if(document.location.pathname === '/o-nas.html' || document.location.pathname === '/unicorn__arhitekte/o-nas.html') {
 
     if(window.innerWidth <= TABLET_WIDHT) {
       setVisibleNode( TEAM_ITEM_CLASS, TEAM_VISIBLE_ITEM_CLASS); // itemName, activeClass

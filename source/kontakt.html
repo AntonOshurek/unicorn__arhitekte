@@ -33,11 +33,6 @@
   <!-- <link rel="apple-touch-icon" href="img/favicons/favicon_180.png">180×180 -->
   <!-- <link rel="manifest" href="manifest.webmanifest"> -->
 
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-  <!-- font-family: 'Open Sans', sans-serif; -->
-
 	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 	<!--font-family: 'Lato', sans-serif, 'Open Sans', sans-serif;-->
 
@@ -46,7 +41,7 @@
 <body class="body">
   <header class="header">
     <div class="header__wrap container">
-			<a href="index.html">
+			<a class="header__index-link" href="index.html">
 				<img class="header__logo" width="50" height="30" src="./img/logo/unicorn-logo.svg" alt="niebieski napis 'Unicorn' z czarnym podpisem 'architecture'">
 			</a>
       <button class="header__menu-button" type="button">
@@ -70,10 +65,10 @@
             <a class="nav__link" href="projekty.html">projekty</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="nasze-biuro.html">biuro</a>
+            <a class="nav__link" href="o-nas.html">o nas</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--current" href="kontakty.html">kontakty</a>
+            <a class="nav__link nav__link--current" href="kontakt.html">kontakt</a>
           </li>
         </ul>
       </nav>
@@ -82,15 +77,18 @@
 
   <main class="main">
     <div class="contacts">
-      <iframe class="contacts__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.7561756397445!2d16.911756927868364!3d52.44733148412363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704434459e1d293%3A0x7dac66bc161c6f8c!2sUnicorn%20Pozna%C5%84%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1644325568908!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="mapa z adresem biura Uncirn"></iframe>
+			<div class="contacts__wrap container">
+				<iframe class="contacts__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.7561756397445!2d16.911756927868364!3d52.44733148412363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704434459e1d293%3A0x7dac66bc161c6f8c!2sUnicorn%20Pozna%C5%84%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1644325568908!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="mapa z adresem biura Uncirn"></iframe>
+        <div class="contacts__info">
+					<h2 class="visually-hidden">Biuro Poznań</h2>
+					<address class="contacts__address">
+						UNICORN Architecture Sp. z o.o.<br>
+						Rymarkiewicza 5a, 60-681 Poznań
+					</address>
+					<a class="contacts__tel" href="tel:+48618629009">tel. (+48) 61 862 90 09</a>
+					<a class="contacts__tel" href="mailto:architecture@unicorn.com.pl">Email: architecture@unicorn.com.pl</a>
+				</div>
 
-      <div class="contacts__wrap container">
-        <h2 class="contacts__city">Biuro Poznań</h2>
-        <address class="contacts__address">
-          UNICORN Architecture Sp. z o.o.<br>
-          Rymarkiewicza 5a, 60-681 Poznań
-        </address>
-        <a class="contacts__tel" href="tel:+48618629009">tel. (+48) 61 862 90 09</a>
       </div>
 
     </div>
@@ -130,12 +128,7 @@
           </a>
         </li>
       </ul>
-      <p class="footer__copyright">
-        All rights reserved |
-        <a class="footer__privacy" href="#">privacy policy
-          <span class="footer__privacy-name">Pobrać plik</span>
-        </a>
-      </p>
+
     </div>
   </footer>
 
