@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: 1.3fr 0.7fr;
 	grid-row-gap: 40px;
-	padding: 0 0 20px 0;
+	padding: 0 @basic-side-padding;
 
 	@media (max-width: @tablet-width) {
 		grid-template-columns: 1fr;
@@ -16,6 +16,7 @@
 
 .project__info {
 	width: 100%;
+	position: relative;
 
 	display: flex;
 	flex-direction: column-reverse;
@@ -23,7 +24,7 @@
 	align-items: flex-start;
 	gap: 40px;
 
-	padding: 0 @basic-side-padding;
+	padding-left: @basic-side-padding;
 
 	@media (max-width: @tablet-width) {
 		grid-template-columns: 1fr;
@@ -34,9 +35,9 @@
 .project__title {
 	text-align: center;
 	font-family: @basic-font;
-	font-size: @proj-header-title-font-size;
+	font-size: @proj-title-font-size;
 	color: @standart-text-color;
-	font-weight: @proj-header-title-font-weight;
+	font-weight: @proj-title-font-weight;
 	order: 1;
 }
 
