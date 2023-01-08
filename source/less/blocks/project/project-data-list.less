@@ -1,5 +1,8 @@
 .project-data-list {
-	width: max-content;
+	position: sticky;
+	top: 20px;
+	left: 0;
+	width: 100%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -9,8 +12,7 @@
 	list-style: none;
 
 	@media (max-width: @tablet-width) {
-		// align-items: center;
-		width: 100%;
+		position: static;
 	}
 }
 
@@ -19,20 +21,12 @@
 	justify-content: left;
 	align-items: center;
 	gap: 5px;
-
-	width: 100%;
-	padding: 5px 0;
-	border-bottom: 1px solid @standart-black;
-
-	@media (max-width: @tablet-width) {
-		justify-content: center;
-	}
 }
 
 .project-data-list__title {
 	font-family: @basic-font;
 	font-size: @proj-data-font-size;
-	font-weight: @proj-data-font-weight;
+	font-weight: @proj-data-title-font-weight;
 	color: @standart-text-color;
 	text-transform: capitalize;
 }
