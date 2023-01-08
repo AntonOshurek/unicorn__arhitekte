@@ -165,50 +165,6 @@ const scripts = () => {
 };
 
 // SCRIPTS
-const scriptProjectSlider = () => {
-  return src('source/scripts/project-slider.js')
-    .pipe(plumber(
-      notify.onError({
-        title: "JS",
-        message: "Error: <%= error.message %>"
-      })
-    ))
-    .pipe(webpackStream({
-      mode: isProd ? 'production' : 'development',
-      output: {
-        filename: 'project-slider.js',
-      },
-			watch: false,
-			devtool: "source-map",
-      module: {
-        rules: [{
-          test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                ['@babel/preset-env', {
-                  targets: "> 0.25%, not dead",
-									debug: true,
-									corejs: 3,
-									useBuiltIns: "usage"
-                }]
-              ]
-            }
-          }
-        }]
-      }
-    }))
-    .on('error', function (err) {
-      console.error('WEBPACK ERROR', err);
-      this.emit('end');
-    })
-    .pipe(dest(paths.buildJsFolder))
-    .pipe(browserSync.stream());
-};
-
-// SCRIPTS
 const scriptMainSlider = () => {
   return src('source/scripts/slider-full.js')
     .pipe(plumber(
@@ -298,7 +254,6 @@ const watchFiles = () => {
 	watch([`${srcFolder}/less/**/*.less`], series(stylesLESS));
 	watch(`${srcFolder}/**/*.html`, series(html, reloadServer));
 	watch(`${srcFolder}/scripts/**/*.js`, series(scripts));
-  watch("source/scripts/project-slider.js", gulp.series(scriptProjectSlider));
   watch("source/scripts/slider-full.js", gulp.series(scriptMainSlider));
 }
 
@@ -317,7 +272,6 @@ export function runBuild (done) {
 		htmlBuild,
 		stylesLESS,
 		scripts,
-    scriptProjectSlider,
     scriptMainSlider,
 		copyImages,
 		copy,
@@ -332,7 +286,6 @@ export function runDev (done) {
 		html,
 		stylesLESS,
 		scripts,
-    scriptProjectSlider,
     scriptMainSlider,
 		startServer,
 		watchFiles,
