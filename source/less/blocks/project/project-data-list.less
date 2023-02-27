@@ -21,6 +21,11 @@
 	justify-content: left;
 	align-items: center;
 	gap: 5px;
+
+	display: grid;
+	grid-template-columns: max-content 1fr;
+
+	align-items: start;
 }
 
 .project-data-list__title {
@@ -29,6 +34,7 @@
 	font-weight: @proj-data-title-font-weight;
 	color: @standart-text-color;
 	text-transform: capitalize;
+	white-space: nowrap;
 }
 
 .project-data-list__description {
@@ -36,7 +42,7 @@
 	font-size: @proj-data-font-size;
 	font-weight: @proj-data-font-weight;
 	color: @standart-text-color;
-	text-transform: capitalize;
+	// text-transform: capitalize;
 
 	& span {
 		text-transform: lowercase;
