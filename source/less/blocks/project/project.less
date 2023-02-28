@@ -12,6 +12,10 @@
 
 .project__gallery {
 	width: 100%;
+
+	@media (max-width: @tablet-width) {
+		grid-row-start: 2;
+	}
 }
 
 .project__info {
@@ -27,6 +31,7 @@
 	padding-left: @basic-side-padding;
 
 	@media (max-width: @tablet-width) {
+		padding-top: 80px;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(3, min-content);
 	}
