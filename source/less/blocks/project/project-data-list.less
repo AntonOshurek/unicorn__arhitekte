@@ -17,23 +17,17 @@
 }
 
 .project-data-list__item {
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	gap: 5px;
-
 	display: grid;
 	grid-template-columns: max-content 1fr;
-
-	align-items: start;
+	gap: 5px;
 }
 
 .project-data-list__title {
 	height: 100%;
 
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 
 	font-family: @basic-font;
 	font-size: @proj-data-font-size;
@@ -48,7 +42,6 @@
 	font-size: @proj-data-font-size;
 	font-weight: @proj-data-font-weight;
 	color: @standart-text-color;
-	// text-transform: capitalize;
 
 	& span {
 		text-transform: lowercase;

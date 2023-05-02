@@ -19,12 +19,13 @@
 	position: relative;
 	display: grid;
 	grid-template-columns: max-content 1fr;
-	align-items: center;
+	align-self: center;
 	padding: 80px @basic-side-padding 100px @basic-side-padding;
 
 	@media (max-width: @tablet-width) {
-		grid-template-columns: min-content min-content;
+		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 0 @basic-side-padding;
 	}
 }
