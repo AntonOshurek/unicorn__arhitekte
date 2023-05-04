@@ -1,7 +1,7 @@
 {
 	"name": "unicorn__arhitekte",
 	"version": "1.0.3",
-	"description": "strona dla firmy Unicorn arhitekte po zamówieniu Unicorn IT",
+	"description": "Unicorn Architecture",
 	"main": "index.html",
 	"scripts": {
 		"test": "gulp validateMarkup --silent && gulp lintBemMarkup && stylelint \"./source/less/**/*.less\" --custom-syntax postcss-less",
