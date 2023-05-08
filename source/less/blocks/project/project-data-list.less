@@ -20,6 +20,7 @@
 	display: grid;
 	grid-template-columns: max-content 1fr;
 	gap: 5px;
+	justify-items: center;
 }
 
 .project-data-list__title {
@@ -27,7 +28,7 @@
 
 	display: flex;
 	justify-content: flex-start;
-	align-items: flex-start;
+	align-items: center;
 
 	font-family: @basic-font;
 	font-size: @proj-data-font-size;
@@ -38,6 +39,10 @@
 }
 
 .project-data-list__description {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	font-family: @basic-font;
 	font-size: @proj-data-font-size;
 	font-weight: @proj-data-font-weight;
