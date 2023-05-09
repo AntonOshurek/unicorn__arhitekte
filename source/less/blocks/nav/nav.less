@@ -6,18 +6,18 @@
 
 	@media (max-width: @tablet-width) {
 		position: absolute;
-		width: 100%;
+		left: 0;
+		right: 0;
 		top: -200%;
 
 		transition: all 0.5s ease-in;
 	}
 
 	&--open {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
-		width: 100%;
 		transition: all 0.5s ease;
 		justify-content: center;
 		background-color: @standart-background-color;
