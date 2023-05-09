@@ -33,11 +33,61 @@
 	grid-row-gap: 15px;
 }
 
+.our-office__item-title {
+	font-family: @basic-font;
+	font-size: @office-item-title-font-size;
+	font-weight: @office-item-title-font-weight;
+	color: @standart-text-color;
+	text-transform: none;
+	text-align: left;
+}
+
 .our-office__about-text {
 	font-family: @basic-font;
 	font-size: @office-text-font-size;
 	font-weight: @office-text-font-weight;
 	color: @standart-text-color;
 	text-transform: none;
-	text-align: center;
+	text-align: left;
+}
+
+.our-office__text-block {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 5px;
+}
+
+.our-office__persons-list {
+	list-style: none;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.our-office__persons-item {
+	position: relative;
+	display: flex;
+
+	&:not(:last-child) {
+		&::after {
+			content: ',';
+			position: absolute;
+			top: 0;
+			right: -5px;
+			height: min-content;
+		}
+	}
+
+	&:last-child {
+		&::after {
+			content: '.';
+			position: absolute;
+			top: 0;
+			right: -5px;
+			height: min-content;
+		}
+	}
 }
