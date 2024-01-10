@@ -1,0 +1,19 @@
+{
+	"tabWidth": 2,
+	"trailingComma": "all",
+	"singleQuote": true,
+	"semi": true,
+	"printWidth": 150,
+	"htmlWhitespaceSensitivity": "css",
+	"endOfLine": "auto",
+	"overrides": [
+		{
+			"files": "*.less",
+			"options": {
+				"parser": "less"
+			}
+		}
+	],
+	"ignore": ["**/node_modules/**"],
+	"htmlVoidElements": ["img", "meta", "img"]
+}
