@@ -1,5 +1,11 @@
 {
-    "icons": [
-        { "src": "img/favicons/favicon_512.png", "type": "image/png", "sizes": "512x512"}
-    ]
+	"name": "Unicorn Architecture Poznań",
+	"short_name": "Unicorn Architecture",
+	"icons": [
+		{
+			"src": "img/favicons/favicon_512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
 }
