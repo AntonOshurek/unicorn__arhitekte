@@ -14,6 +14,12 @@
 			}
 		}
 	],
-	"ignore": ["**/node_modules/**"],
-	"htmlVoidElements": ["img", "meta", "img"]
+	"ignore": [
+		"**/node_modules/**"
+	],
+	"htmlVoidElements": [
+		"img",
+		"meta",
+		"img"
+	]
 }
